@@ -5,6 +5,7 @@
 int square_solver(double, double, double, double*, double*);
 int dbl_zero_cmp(double, double);
 void data_input(double*, double*, double*);
+int show_result(int, double, double);
 
 enum equation_cases {SS_not_solve_eq, SS_infinity_root_eq, SS_linear_eq, SS_square_eq, SS_square_one_root_eq};
 enum cmp_cases {less_than_zero = -1, equal_zero, more_than_zero};
@@ -21,33 +22,17 @@ int main(){
     double root1 = 0, root2 = 0;
 
     int root_count = square_solver(first_coef, second_coef, third_coef, &root1, &root2);
+    int output = show_result(root_count, root1, root2);
 
-    switch (root_count) {
-        case SS_not_solve_eq:
-            printf("У данного уравнения нет решений\n");
-            break;
-        case SS_infinity_root_eq:
-            printf("У данного уравнения существует бесконечно много решений\n");
-            break;
-        case SS_linear_eq:
-            printf("У данного уравнения существует один корень:\n\tx = %.3f", root1);
-            break;
-        case SS_square_eq:
-            printf("У данного уравнения существует два корня:\n\tx1 = %.3f\n\tx2 = %.3f", root1, root2);
-            break;
-        default:
-            printf("Ошибка");
-            return 2;
-    }
 
-    return 0;
+    return output;
 }
 
 void data_input(double* first_coef, double* second_coef, double* third_coef) {
     printf("#Программа решения квадратных уравнений\n#Введите через пробел коээфициенты квадратного уравнения:\n");
     int var_count = 0;
     while (var_count != correct_var_count){
-        var_count = scanf("%lf %lf %lf", &first_coef, &second_coef, &third_coef);
+        var_count = scanf("%lf %lf %lf", first_coef, second_coef, third_coef);
         if (var_count != correct_var_count) {
             printf("Ошибка: неправильный ввод данных, повторите попытку:");
         }
@@ -64,9 +49,9 @@ int dbl_zero_cmp(double n1) {
 }
 
 int square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2) {
-    if (dbl_zero_cmp(first_coef) == 0) {
-        if (dbl_zero_cmp(second_coef) == 0){
-            return (dbl_zero_cmp(third_coef) == 0) ? SS_infinity_root_eq : SS_not_solve_eq;
+    if (dbl_zero_cmp(first_coef) == equal_zero) {
+        if (dbl_zero_cmp(second_coef) == equal_zero){
+            return (dbl_zero_cmp(third_coef) == equal_zero) ? SS_infinity_root_eq : SS_not_solve_eq;
         }
         *root1 = *root2 = (-third_coef / second_coef);
         return SS_linear_eq;
@@ -84,5 +69,25 @@ int square_solver(double first_coef, double second_coef, double third_coef, doub
             case less_than_zero:
                 return SS_not_solve_eq;
         }
+    }
+}
+
+int show_result(int root_count, double root1, double root2) {
+        switch (root_count) {
+        case SS_not_solve_eq:
+            printf("У данного уравнения нет решений\n");
+            return 0;
+        case SS_infinity_root_eq:
+            printf("У данного уравнения существует бесконечно много решений\n");
+            return 0;
+        case SS_linear_eq:
+            printf("У данного уравнения существует один корень:\n\tx = %.3f", root1);
+            return 0;
+        case SS_square_eq:
+            printf("У данного уравнения существует два корня:\n\tx1 = %.3f\n\tx2 = %.3f", root1, root2);
+            return 0;
+        default:
+            printf("Ошибка");
+            return 1;
     }
 }
