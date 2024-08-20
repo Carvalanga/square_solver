@@ -2,14 +2,15 @@
 #include <TXLib.h>
 #include <math.h>
 
-enum equation_cases {SS_not_solve_eq, SS_infinity_root_eq, SS_linear_eq, SS_square_eq, SS_square_one_root_eq, SS_error};
-enum cmp_cases {less_than_zero = -1, equal_zero, more_than_zero};
+enum equation_type {SS_not_solve_eq, SS_infinity_root_eq, SS_linear_eq, SS_square_eq, SS_square_one_root_eq, SS_error};
+enum cmp {less_than_zero = -1, equal_zero, more_than_zero};
 
-equation_cases square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2);
-cmp_cases dbl_zero_cmp(double number);
+equation_type square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2);
+cmp dbl_zero_cmp(double number);
 void data_input(double* first_coef, double* second_coef, double* third_coef);
-int show_result(equation_cases root_count, double root1, double root2);
+int show_result(equation_type root_count, double root1, double root2);
 void skip_char_line(void);
+
 
 int main(){
     printf("#Программа решения квадратных уравнений\n#Введите через пробел коээфициенты квадратного уравнения:\n");
@@ -20,14 +21,18 @@ int main(){
 
     double root1 = 0, root2 = 0;
 
-    equation_cases root_count = square_solver(first_coef, second_coef, third_coef, &root1, &root2);
+    equation_type root_count = square_solver(first_coef, second_coef, third_coef, &root1, &root2);
     int output = show_result(root_count, root1, root2);
 
     return output;
 }
 
 void data_input(double* first_coef, double* second_coef, double* third_coef) {
-    //assert(first_coeff != NULL);
+
+    assert(first_coef != NULL);
+    assert(second_coef != NULL);
+    assert(third_coef != NULL);
+
     const int correct_var_count = 3;
     int var_count = 0;
     while (var_count != correct_var_count){
@@ -43,7 +48,7 @@ void skip_char_line(void){
     while (getchar() != '\n');
 }
 
-cmp_cases dbl_zero_cmp(double n1) {
+cmp dbl_zero_cmp(double n1) {
     const double accuracy = 0.0000001;
     if (n1 > accuracy)
         return more_than_zero;
@@ -53,9 +58,13 @@ cmp_cases dbl_zero_cmp(double n1) {
         return less_than_zero;
 }
 
-equation_cases square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2) {
+equation_type square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2) {
+
+    assert(root1 != NULL);
+    assert(root2 != NULL);
+
     if (dbl_zero_cmp(first_coef) == equal_zero) {
-        if (dbl_zero_cmp(second_coef) == equal_zero){
+        if (dbl_zero_cmp(second_coef) == equal_zero) {
             return (dbl_zero_cmp(third_coef) == equal_zero) ? SS_infinity_root_eq : SS_not_solve_eq;
         }
         *root1 = *root2 = (-third_coef / second_coef);
@@ -83,7 +92,7 @@ equation_cases square_solver(double first_coef, double second_coef, double third
     }
 }
 
-int show_result(equation_cases root_count, double root1, double root2) {
+int show_result(equation_type root_count, double root1, double root2) {
     switch (root_count) {
         case SS_not_solve_eq:
             printf("У данного уравнения нет решений\n");

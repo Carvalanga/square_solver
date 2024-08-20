@@ -9,7 +9,8 @@ equation_cases square_solver(double first_coef, double second_coef, double third
 cmp_cases dbl_zero_cmp(double number);
 void data_input(double* first_coef, double* second_coef, double* third_coef);
 int show_result(equation_cases root_count, double root1, double root2);
-void skip_char_l
+void skip_char_line(void);
+
 
 int main(){
     printf("#Программа решения квадратных уравнений\n#Введите через пробел коээфициенты квадратного уравнения:\n");
@@ -27,16 +28,24 @@ int main(){
 }
 
 void data_input(double* first_coef, double* second_coef, double* third_coef) {
-    //assert(first_coeff != NULL);
+
+    assert(first_coeff != NULL);
+    assert(second_coeff != NULL);
+    assert(third_coeff != NULL);
+
     const int correct_var_count = 3;
     int var_count = 0;
     while (var_count != correct_var_count){
         var_count = scanf("%lf %lf %lf", first_coef, second_coef, third_coef);
         if (var_count != correct_var_count) {
             printf("Ошибка: неправильный ввод данных, повторите попытку:\n");
-            while (getchar() != '\n');
+            skip_char_line();
         }
     }
+}
+
+void skip_char_line(void){
+    while (getchar() != '\n');
 }
 
 cmp_cases dbl_zero_cmp(double n1) {
@@ -50,8 +59,12 @@ cmp_cases dbl_zero_cmp(double n1) {
 }
 
 equation_cases square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2) {
+
+    assert(root1 != NULL);
+    assert(root2 != NULL);
+
     if (dbl_zero_cmp(first_coef) == equal_zero) {
-        if (dbl_zero_cmp(second_coef) == equal_zero){
+        if (dbl_zero_cmp(second_coef) == equal_zero) {
             return (dbl_zero_cmp(third_coef) == equal_zero) ? SS_infinity_root_eq : SS_not_solve_eq;
         }
         *root1 = *root2 = (-third_coef / second_coef);
