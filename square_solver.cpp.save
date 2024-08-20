@@ -2,14 +2,15 @@
 #include <TXLib.h>
 #include <math.h>
 
-enum equation_cases {SS_not_solve_eq, SS_infinity_root_eq, SS_linear_eq, SS_square_eq, SS_square_one_root_eq, SS_error};
-enum cmp_cases {less_than_zero = -1, equal_zero, more_than_zero};
+enum equation_type {SS_not_solve_eq, SS_infinity_root_eq, SS_linear_eq, SS_square_eq, SS_square_one_root_eq, SS_error};
+enum cmp {less_than_zero = -1, equal_zero, more_than_zero};
 
-equation_cases square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2);
-cmp_cases dbl_zero_cmp(double number);
+equation_type square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2);
+cmp dbl_zero_cmp(double number);
 void data_input(double* first_coef, double* second_coef, double* third_coef);
-int show_result(equation_cases root_count, double root1, double root2);
+int show_result(equation_type root_count, double root1, double root2);
 void skip_char_line(void);
+equation_type linear_eq_solver(double first_coef, double second_coef, double* root);
 
 
 int main(){
@@ -21,7 +22,7 @@ int main(){
 
     double root1 = 0, root2 = 0;
 
-    equation_cases root_count = square_solver(first_coef, second_coef, third_coef, &root1, &root2);
+    equation_type root_count = square_solver(first_coef, second_coef, third_coef, &root1, &root2);
     int output = show_result(root_count, root1, root2);
 
     return output;
@@ -29,9 +30,9 @@ int main(){
 
 void data_input(double* first_coef, double* second_coef, double* third_coef) {
 
-    assert(first_coeff != NULL);
-    assert(second_coeff != NULL);
-    assert(third_coeff != NULL);
+    assert(first_coef != NULL);
+    assert(second_coef != NULL);
+    assert(third_coef != NULL);
 
     const int correct_var_count = 3;
     int var_count = 0;
@@ -48,7 +49,7 @@ void skip_char_line(void){
     while (getchar() != '\n');
 }
 
-cmp_cases dbl_zero_cmp(double n1) {
+cmp dbl_zero_cmp(double n1) {
     const double accuracy = 0.0000001;
     if (n1 > accuracy)
         return more_than_zero;
@@ -58,7 +59,7 @@ cmp_cases dbl_zero_cmp(double n1) {
         return less_than_zero;
 }
 
-equation_cases square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2) {
+equation_type square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2) {
 
     assert(root1 != NULL);
     assert(root2 != NULL);
@@ -67,8 +68,7 @@ equation_cases square_solver(double first_coef, double second_coef, double third
         if (dbl_zero_cmp(second_coef) == equal_zero) {
             return (dbl_zero_cmp(third_coef) == equal_zero) ? SS_infinity_root_eq : SS_not_solve_eq;
         }
-        *root1 = *root2 = (-third_coef / second_coef);
-        return SS_linear_eq;
+        return linear_eq_solver(second_coef, third_coef, root1);
     }
     else {
         double disc = second_coef*second_coef - 4 * first_coef * third_coef;
@@ -92,7 +92,7 @@ equation_cases square_solver(double first_coef, double second_coef, double third
     }
 }
 
-int show_result(equation_cases root_count, double root1, double root2) {
+int show_result(equation_type root_count, double root1, double root2) {
     switch (root_count) {
         case SS_not_solve_eq:
             printf("” данного уравнени€ нет решений\n");
@@ -101,13 +101,22 @@ int show_result(equation_cases root_count, double root1, double root2) {
             printf("” данного уравнени€ существует бесконечно много решений\n");
             return 0;
         case SS_linear_eq:
-            printf("” данного уравнени€ существует один корень:\n\tx = %.3f", root1);
+            printf("” данного линейного уравнени€ существует один корень:\n\tx = %.3f", root1);
             return 0;
         case SS_square_eq:
-            printf("” данного уравнени€ существует два корн€:\n\tx1 = %.3f\n\tx2 = %.3f", root1, root2);
+            printf("” данного квадратного уравнени€ существует два корн€:\n\tx1 = %.3f\n\tx2 = %.3f", root1, root2);
+            return 0;
+        case SS_square_one_root_eq:
+            printf("” данного квадратного уравнени€ один корень:\n\tx = %.3f", root1);
             return 0;
         default:
             printf("ќшибка: неопознанное значение количества корней");
             return 1;
     }
 }
+
+equation_type linear_eq_solver(double first_coef, double second_coef, double* root) {
+    *root = second_coef / first_coef;
+    return SS_linear_eq;
+}
+
