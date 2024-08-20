@@ -2,16 +2,14 @@
 #include <TXLib.h>
 #include <math.h>
 
-enum equation_cases {SS_not_solve_eq, SS_infinity_root_eq, SS_linear_eq, SS_square_eq, SS_square_one_root_eq};
+enum equation_cases {SS_not_solve_eq, SS_infinity_root_eq, SS_linear_eq, SS_square_eq, SS_square_one_root_eq, SS_error};
 enum cmp_cases {less_than_zero = -1, equal_zero, more_than_zero};
 
-equation_cases square_solver(double, double, double, double*, double*);
-cmp_cases dbl_zero_cmp(double, double);
-void data_input(double*, double*, double*);
-int show_result(int, double, double);
-
-const double accuracy = 0.0000001;
-const int correct_var_count = 3;
+equation_cases square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2);
+cmp_cases dbl_zero_cmp(double number);
+void data_input(double* first_coef, double* second_coef, double* third_coef);
+int show_result(equation_cases root_count, double root1, double root2);
+void skip_char_line(void);
 
 int main(){
     printf("#Программа решения квадратных уравнений\n#Введите через пробел коээфициенты квадратного уравнения:\n");
@@ -30,17 +28,23 @@ int main(){
 
 void data_input(double* first_coef, double* second_coef, double* third_coef) {
     //assert(first_coeff != NULL);
+    const int correct_var_count = 3;
     int var_count = 0;
     while (var_count != correct_var_count){
         var_count = scanf("%lf %lf %lf", first_coef, second_coef, third_coef);
         if (var_count != correct_var_count) {
             printf("Ошибка: неправильный ввод данных, повторите попытку:\n");
-            while (getchar() != '\n');
+            skip_char_line();
         }
     }
 }
 
+void skip_char_line(void){
+    while (getchar() != '\n');
+}
+
 cmp_cases dbl_zero_cmp(double n1) {
+    const double accuracy = 0.0000001;
     if (n1 > accuracy)
         return more_than_zero;
     else if (fabs(n1) < accuracy)
@@ -60,23 +64,27 @@ equation_cases square_solver(double first_coef, double second_coef, double third
     else {
         double disc = second_coef*second_coef - 4 * first_coef * third_coef;
         switch (dbl_zero_cmp(disc)) {
-            case more_than_zero:
+            case more_than_zero: {
 
-                //double sqrtd = ...
-                *root1 = (-second_coef + sqrt(disc))/2;
-                *root2 = (-second_coef - sqrt(disc))/2;
+                double sqrt_disc = sqrt(disc);
+                *root1 = (-second_coef + sqrt_disc)/2;
+                *root2 = (-second_coef - sqrt_disc)/2;
                 return SS_square_eq;
+            }
             case equal_zero:
                 *root1 = (-second_coef)/2;
                 return SS_square_one_root_eq;
             case less_than_zero:
                 return SS_not_solve_eq;
+            default:
+                printf("Ошибка: неверное значение сравнения с нулем");
+                return SS_error;
         }
     }
 }
 
-int show_result(int root_count, double root1, double root2) {
-        switch (root_count) {
+int show_result(equation_cases root_count, double root1, double root2) {
+    switch (root_count) {
         case SS_not_solve_eq:
             printf("У данного уравнения нет решений\n");
             return 0;
