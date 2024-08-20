@@ -14,6 +14,7 @@ const double accuracy = 0.0000001;
 const int correct_var_count = 3;
 
 int main(){
+    printf("#Программа решения квадратных уравнений\n#Введите через пробел коээфициенты квадратного уравнения:\n");
 
     double first_coef = 0, second_coef = 0, third_coef = 0;
 
@@ -29,12 +30,12 @@ int main(){
 }
 
 void data_input(double* first_coef, double* second_coef, double* third_coef) {
-    printf("#Программа решения квадратных уравнений\n#Введите через пробел коээфициенты квадратного уравнения:\n");
     int var_count = 0;
     while (var_count != correct_var_count){
         var_count = scanf("%lf %lf %lf", first_coef, second_coef, third_coef);
         if (var_count != correct_var_count) {
-            printf("Ошибка: неправильный ввод данных, повторите попытку:");
+            printf("Ошибка: неправильный ввод данных, повторите попытку:\n");
+            while (getchar() != '\n');
         }
     }
 }
@@ -87,7 +88,7 @@ int show_result(int root_count, double root1, double root2) {
             printf("У данного уравнения существует два корня:\n\tx1 = %.3f\n\tx2 = %.3f", root1, root2);
             return 0;
         default:
-            printf("Ошибка");
+            printf("Ошибка: неопознанное значение количества корней");
             return 1;
     }
 }
