@@ -1,37 +1,9 @@
 #include <stdio.h>
-#include <TXLib.h>
 #include <math.h>
+#include <assert.h>
 
+#include "solver.h"
 #include "input_output.h"
-
-enum cmp {
-    less_than_zero = -1, 
-    equal_zero, 
-    more_than_zero
-};
-
-equation_type square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2);
-cmp dbl_zero_cmp(double number);
-void data_input(double* first_coef, double* second_coef, double* third_coef);
-int show_result(equation_type root_count, double root1, double root2);
-void skip_char_line(void);
-equation_type linear_eq_solver(double first_coef, double second_coef, double* root);
-
-
-int main(){
-    printf("#Программа решения квадратных уравнений\n#Введите через пробел коээфициенты квадратного уравнения:\n");
-
-    double first_coef = 0, second_coef = 0, third_coef = 0;
-
-    data_input(&first_coef, &second_coef, &third_coef);
-
-    double root1 = 0, root2 = 0;
-
-    equation_type root_count = square_solver(first_coef, second_coef, third_coef, &root1, &root2);
-    int output = show_result(root_count, root1, root2);
-
-    return output;
-}
 
 cmp dbl_zero_cmp(double n1) {
     const double accuracy = 0.0000001;
@@ -80,4 +52,3 @@ equation_type linear_eq_solver(double first_coef, double second_coef, double* ro
     *root = second_coef / first_coef;
     return SS_linear_eq;
 }
-
