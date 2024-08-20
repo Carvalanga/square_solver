@@ -25,19 +25,19 @@ int main(){
     int root_count = square_solver(first_coef, second_coef, third_coef, &root1, &root2);
     int output = show_result(root_count, root1, root2);
 
-
     return output;
 }
 
 void data_input(double* first_coef, double* second_coef, double* third_coef) {
+    assert(first_coeff != NULL);
     int var_count = 0;
-
-/*    /*while (var_count != correct_var_count){
+    while (var_count != correct_var_count){
         var_count = scanf("%lf %lf %lf", first_coef, second_coef, third_coef);
         if (var_count != correct_var_count) {
-            printf("Ошибка: неправильный ввод данных, повторите попытку:");
+            printf("Ошибка: неправильный ввод данных, повторите попытку:\n");
+            while (getchar() != '\n');
         }
-    }*/*/
+    }
 }
 
 int dbl_zero_cmp(double n1) {

@@ -2,13 +2,13 @@
 #include <TXLib.h>
 #include <math.h>
 
-int square_solver(double, double, double, double*, double*);
-int dbl_zero_cmp(double, double);
-void data_input(double*, double*, double*);
-int show_result(int, double, double);
-
 enum equation_cases {SS_not_solve_eq, SS_infinity_root_eq, SS_linear_eq, SS_square_eq, SS_square_one_root_eq};
 enum cmp_cases {less_than_zero = -1, equal_zero, more_than_zero};
+
+equation_cases square_solver(double, double, double, double*, double*);
+cmp_cases dbl_zero_cmp(double, double);
+void data_input(double*, double*, double*);
+int show_result(int, double, double);
 
 const double accuracy = 0.0000001;
 const int correct_var_count = 3;
@@ -22,14 +22,14 @@ int main(){
 
     double root1 = 0, root2 = 0;
 
-    int root_count = square_solver(first_coef, second_coef, third_coef, &root1, &root2);
+    equation_cases root_count = square_solver(first_coef, second_coef, third_coef, &root1, &root2);
     int output = show_result(root_count, root1, root2);
-
 
     return output;
 }
 
 void data_input(double* first_coef, double* second_coef, double* third_coef) {
+    //assert(first_coeff != NULL);
     int var_count = 0;
     while (var_count != correct_var_count){
         var_count = scanf("%lf %lf %lf", first_coef, second_coef, third_coef);
@@ -40,7 +40,7 @@ void data_input(double* first_coef, double* second_coef, double* third_coef) {
     }
 }
 
-int dbl_zero_cmp(double n1) {
+cmp_cases dbl_zero_cmp(double n1) {
     if (n1 > accuracy)
         return more_than_zero;
     else if (fabs(n1) < accuracy)
@@ -49,7 +49,7 @@ int dbl_zero_cmp(double n1) {
         return less_than_zero;
 }
 
-int square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2) {
+equation_cases square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2) {
     if (dbl_zero_cmp(first_coef) == equal_zero) {
         if (dbl_zero_cmp(second_coef) == equal_zero){
             return (dbl_zero_cmp(third_coef) == equal_zero) ? SS_infinity_root_eq : SS_not_solve_eq;
@@ -61,6 +61,8 @@ int square_solver(double first_coef, double second_coef, double third_coef, doub
         double disc = second_coef*second_coef - 4 * first_coef * third_coef;
         switch (dbl_zero_cmp(disc)) {
             case more_than_zero:
+
+                //double sqrtd = ...
                 *root1 = (-second_coef + sqrt(disc))/2;
                 *root2 = (-second_coef - sqrt(disc))/2;
                 return SS_square_eq;
