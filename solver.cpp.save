@@ -22,7 +22,7 @@ equation_type square_solver(double first_coef, double second_coef, double third_
 
     if (dbl_zero_cmp(first_coef) == equal_zero) {
         if (dbl_zero_cmp(second_coef) == equal_zero) {
-            return (dbl_zero_cmp(third_coef) == equal_zero) ? SS_infinity_root_eq : SS_not_solve_eq;
+            return (dbl_zero_cmp(third_coef) == equal_zero) ? infinity_root_eq : zero_root_eq;
         }
         return linear_eq_solver(second_coef, third_coef, root1);
     }
@@ -34,21 +34,21 @@ equation_type square_solver(double first_coef, double second_coef, double third_
                 double sqrt_disc = sqrt(disc);
                 *root1 = (-second_coef + sqrt_disc)/(2 * first_coef);
                 *root2 = (-second_coef - sqrt_disc)/(2 * first_coef);
-                return SS_two_root_eq;
+                return two_root_eq;
             }
             case equal_zero:
                 *root1 = (-second_coef)/2;
-                return SS_one_root_eq;
+                return one_root_eq;
             case less_than_zero:
-                return SS_zero_root_eq;
+                return zero_root_eq;
             default:
                 printf("Ошибка: неверное значение сравнения с нулем");
-                return SS_error;
+                return error;
         }
     }
 }
 
 equation_type linear_eq_solver(double first_coef, double second_coef, double* root) {
     *root = second_coef / first_coef;
-    return SS_one_root_eq;
+    return one_root_eq;
 }

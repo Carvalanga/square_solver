@@ -24,7 +24,9 @@ equation_type square_solver(double first_coef, double second_coef, double third_
         if (dbl_zero_cmp(second_coef) == equal_zero) {
             return (dbl_zero_cmp(third_coef) == equal_zero) ? infinity_root_eq : zero_root_eq;
         }
-        return linear_eq_solver(second_coef, third_coef, root1);
+        equation_type result = linear_eq_solver(second_coef, third_coef, root1);
+        *root2 = *root1;
+        return result;
     }
     else {
         double disc = second_coef*second_coef - 4 * first_coef * third_coef;
@@ -37,7 +39,7 @@ equation_type square_solver(double first_coef, double second_coef, double third_
                 return two_root_eq;
             }
             case equal_zero:
-                *root1 = (-second_coef)/2;
+                *root1 = *root2 = (-second_coef)/2;
                 return one_root_eq;
             case less_than_zero:
                 return zero_root_eq;
@@ -49,6 +51,6 @@ equation_type square_solver(double first_coef, double second_coef, double third_
 }
 
 equation_type linear_eq_solver(double first_coef, double second_coef, double* root) {
-    *root = second_coef / first_coef;
+    *root = (-second_coef / first_coef);
     return one_root_eq;
 }
