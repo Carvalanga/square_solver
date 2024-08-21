@@ -13,8 +13,8 @@ struct roots {
 };
 
 struct sqr_eq {
-    coeffs cfs = {};
-    roots rts = {};
+    coeffs cfs;
+    roots rts;
 };
 
-#endif //SQUARE_EQUATION_STRUCT_H
+#ednif //SQUARE_EQUATION_STRUCT_H
