@@ -2,6 +2,7 @@
 #include <TXLib.h>
 #include <math.h>
 
+#include "equation_type.h"
 #include "input_output.h"
 #include "solver.h"
 

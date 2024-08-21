@@ -3,7 +3,7 @@
 #include <assert.h>
 
 #include "solver.h"
-#include "input_output.h"
+#include "equation_type.h"
 
 cmp dbl_zero_cmp(double n1) {
     const double accuracy = 0.0000001;

@@ -1,14 +1,7 @@
 #ifndef INPUT_OUTPUT_H
 #define INPUT_OUTPUT_H
 
-enum equation_type {
-    SS_not_solve_eq,
-    SS_infinity_root_eq,
-    SS_linear_eq,
-    SS_square_eq,
-    SS_square_one_root_eq,
-    SS_error
-};
+#include "equation_type.h"
 
 void data_input(double* first_coef, double* second_coef, double* third_coef);
 
