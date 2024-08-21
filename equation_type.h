@@ -3,7 +3,7 @@
 
 enum equation_type {
 
-    error,
+    error = -1,
     zero_root_eq,
     one_root_eq,
     two_root_eq,

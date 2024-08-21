@@ -14,6 +14,7 @@ void test_iteration(int test_num, sqr_eq* ptr_eq, roots* ptr_correct_roots, int 
         printf("Ошибка в тесте номер %d\n"
                "Итоговые значения:  root_count = %d, x1 = %lg, x2 = %lg\n"
                "Ожидаемые значения: root_count = %d, x1 = %lg, x2 = %lg\n",
-                root_count, ptr_eq->rts.x1, ptr_eq->rts.x1, )
+                root_count, ptr_eq->rts.x1, ptr_eq->rts.x2,
+                correct_root_count, ptr_correct_roots->x1, ptr_correct_roots->x2);
     }
 }
