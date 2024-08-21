@@ -9,10 +9,6 @@ enum equation_type {
     two_root_eq,
     infinity_root_eq
 
-    //SS_square_one_root_eq,
-    //SS_linear_eq,
-    //SS_square_eq,
-
 };
 
 #endif //EQUATION_TYPE_H
