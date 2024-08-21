@@ -24,21 +24,20 @@ void data_input(double* first_coef, double* second_coef, double* third_coef) {
 
 int show_result(equation_type root_count, double root1, double root2) {
     switch (root_count) {
-        case SS_not_solve_eq:
+        case zero_root_eq:
             printf("” данного уравнени€ нет решений\n");
             return 0;
-        case SS_infinity_root_eq:
+        case infinity_root_eq:
             printf("” данного уравнени€ существует бесконечно много решений\n");
             return 0;
-        case SS_linear_eq:
-            printf("” данного линейного уравнени€ существует один корень:\n\tx = %.3f", root1);
+        case one_root_eq:
+            printf("” данного уравнени€ существует один корень:\n\tx = %.3f", root1);
             return 0;
-        case SS_square_eq:
-            printf("” данного квадратного уравнени€ существует два корн€:\n\tx1 = %.3f\n\tx2 = %.3f", root1, root2);
+        case two_root_eq:
+            printf("” данного уравнени€ существует два корн€:\n\tx1 = %.3f\n\tx2 = %.3f", root1, root2);
             return 0;
-        case SS_square_one_root_eq:
-            printf("” данного квадратного уравнени€ один корень:\n\tx = %.3f", root1);
-            return 0;
+        case error:
+            return 1;
         default:
             printf("ќшибка: неопознанное значение количества корней");
             return 1;
