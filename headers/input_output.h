@@ -1,3 +1,8 @@
+/*!
+    \file
+    \brief Заголовочный файл для ввода и вывода данных
+*/
+
 #ifndef INPUT_OUTPUT_H
 #define INPUT_OUTPUT_H
 

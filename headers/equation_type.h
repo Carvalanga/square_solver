@@ -1,3 +1,8 @@
+/*!
+    \file
+    \brief Заголовочный файл для типов квадратного уравнения
+*/
+
 #ifndef EQUATION_TYPE_H
 #define EQUATION_TYPE_H
 

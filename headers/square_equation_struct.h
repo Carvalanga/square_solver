@@ -1,3 +1,8 @@
+/*!
+    \file
+    \brief «аголовочный файл с определением структуры квадратного уравнени€
+*/
+
 #ifndef SQUARE_EQUATION_STRUCT_H
 #define SQUARE_EQUATION_STRUCT_H
 

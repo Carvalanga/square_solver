@@ -1,5 +1,10 @@
 \hypertarget{solver_8cpp}{}\doxysection{src/solver.cpp File Reference}
 \label{solver_8cpp}\index{src/solver.cpp@{src/solver.cpp}}
+
+
+Обеспечивает решение квадратного уравнения  
+
+
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
 {\ttfamily \#include $<$assert.\+h$>$}\newline
@@ -10,11 +15,16 @@
 \begin{DoxyCompactItemize}
 \item 
 cmp \mbox{\hyperlink{solver_8cpp_af4122a1723e4f7a29a89523d080fb6db}{dbl\+\_\+zero\+\_\+cmp}} (double n1)
-\item 
+\begin{DoxyCompactList}\small\item\em Сравнение числа типа double с нулем \end{DoxyCompactList}\item 
 equation\+\_\+type \mbox{\hyperlink{solver_8cpp_aa62ebac4c04caf72819ce699f8954186}{square\+\_\+solver}} (sqr\+\_\+eq $\ast$ptr\+\_\+eq)
-\item 
+\begin{DoxyCompactList}\small\item\em Решение квадратного уравнения \end{DoxyCompactList}\item 
 equation\+\_\+type \mbox{\hyperlink{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40e}{linear\+\_\+eq\+\_\+solver}} (sqr\+\_\+eq $\ast$ptr\+\_\+eq)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Частный случай для решения линейного уравнения \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Обеспечивает решение квадратного уравнения 
+
 
 
 \doxysubsection{Function Documentation}
@@ -24,11 +34,19 @@ equation\+\_\+type \mbox{\hyperlink{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40
 \doxysubsubsection{\texorpdfstring{dbl\_zero\_cmp()}{dbl\_zero\_cmp()}}
 {\footnotesize\ttfamily cmp dbl\+\_\+zero\+\_\+cmp (\begin{DoxyParamCaption}\item[{double}]{n1 }\end{DoxyParamCaption})}
 
+
+
+Сравнение числа типа double с нулем 
+
 \mbox{\Hypertarget{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40e}\label{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40e}} 
 \index{solver.cpp@{solver.cpp}!linear\_eq\_solver@{linear\_eq\_solver}}
 \index{linear\_eq\_solver@{linear\_eq\_solver}!solver.cpp@{solver.cpp}}
 \doxysubsubsection{\texorpdfstring{linear\_eq\_solver()}{linear\_eq\_solver()}}
 {\footnotesize\ttfamily equation\+\_\+type linear\+\_\+eq\+\_\+solver (\begin{DoxyParamCaption}\item[{sqr\+\_\+eq $\ast$}]{ptr\+\_\+eq }\end{DoxyParamCaption})}
+
+
+
+Частный случай для решения линейного уравнения 
 
 \mbox{\Hypertarget{solver_8cpp_aa62ebac4c04caf72819ce699f8954186}\label{solver_8cpp_aa62ebac4c04caf72819ce699f8954186}} 
 \index{solver.cpp@{solver.cpp}!square\_solver@{square\_solver}}
@@ -36,3 +54,16 @@ equation\+\_\+type \mbox{\hyperlink{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40
 \doxysubsubsection{\texorpdfstring{square\_solver()}{square\_solver()}}
 {\footnotesize\ttfamily equation\+\_\+type square\+\_\+solver (\begin{DoxyParamCaption}\item[{sqr\+\_\+eq $\ast$}]{ptr\+\_\+eq }\end{DoxyParamCaption})}
 
+
+
+Решение квадратного уравнения 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ptr\+\_\+eq} & Указатель на структуру квадратного уравнения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Тип квадратного уравнения
+\end{DoxyReturn}
+Функция решает квадратное уравнение исходя из заданных в структуре коэффициентов\+: корни уравнения записываются в структуру, а на выход поступает тип квадратного уравнения, который впоследствии обрабатывается функцией вывода 

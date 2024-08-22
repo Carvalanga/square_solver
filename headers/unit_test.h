@@ -1,3 +1,8 @@
+/*!
+    \file
+    \brief Заголовочный файл для модуля тестирования
+*/
+
 #ifndef UNIT_TEST_H
 #define UNIT_TEST_H
 

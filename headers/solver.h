@@ -1,3 +1,8 @@
+/*!
+    \file
+    \brief Заголовочный файл для решения квадратного уравнения
+*/
+
 #ifndef SOLVER_H
 #define SOLVER_H
 

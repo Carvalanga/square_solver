@@ -1,3 +1,9 @@
+/*!
+    \file
+    \brief Обеспечивает работу всей программы
+*/
+
+
 #include <stdio.h>
 #include <TXLib.h>
 #include <math.h>
@@ -8,6 +14,7 @@
 #include "square_equation_struct.h"
 #include "unit_test.h"
 
+/// \brief Обесчивает работу всей программы
 int main(){
 
     unit_test_start();

@@ -71,6 +71,9 @@ $(function() {
 <div class="title">solver.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Обеспечивает решение квадратного уравнения  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
@@ -81,13 +84,18 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af4122a1723e4f7a29a89523d080fb6db"><td class="memItemLeft" align="right" valign="top">cmp&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a> (double n1)</td></tr>
+<tr class="memdesc:af4122a1723e4f7a29a89523d080fb6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сравнение числа типа double с нулем  <a href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">More...</a><br /></td></tr>
 <tr class="separator:af4122a1723e4f7a29a89523d080fb6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa62ebac4c04caf72819ce699f8954186"><td class="memItemLeft" align="right" valign="top">equation_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">square_solver</a> (sqr_eq *ptr_eq)</td></tr>
+<tr class="memdesc:aa62ebac4c04caf72819ce699f8954186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Решение квадратного уравнения  <a href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">More...</a><br /></td></tr>
 <tr class="separator:aa62ebac4c04caf72819ce699f8954186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab28644d6d0d6ffbbfb5d65f69c83a40e"><td class="memItemLeft" align="right" valign="top">equation_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">linear_eq_solver</a> (sqr_eq *ptr_eq)</td></tr>
+<tr class="memdesc:ab28644d6d0d6ffbbfb5d65f69c83a40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Частный случай для решения линейного уравнения  <a href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">More...</a><br /></td></tr>
 <tr class="separator:ab28644d6d0d6ffbbfb5d65f69c83a40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Обеспечивает решение квадратного уравнения </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="af4122a1723e4f7a29a89523d080fb6db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4122a1723e4f7a29a89523d080fb6db">&#9670;&nbsp;</a></span>dbl_zero_cmp()</h2>
 
@@ -103,6 +111,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Сравнение числа типа double с нулем </p>
 
 </div>
 </div>
@@ -122,6 +132,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Частный случай для решения линейного уравнения </p>
+
 </div>
 </div>
 <a id="aa62ebac4c04caf72819ce699f8954186"></a>
@@ -139,6 +151,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Решение квадратного уравнения </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptr_eq</td><td>Указатель на структуру квадратного уравнения </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Тип квадратного уравнения</dd></dl>
+<p>Функция решает квадратное уравнение исходя из заданных в структуре коэффициентов: корни уравнения записываются в структуру, а на выход поступает тип квадратного уравнения, который впоследствии обрабатывается функцией вывода </p>
 
 </div>
 </div>

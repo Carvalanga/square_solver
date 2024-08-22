@@ -1,3 +1,10 @@
+/*!
+    \file
+    \brief Обеспечивает тестирование программы для проверки корректности
+        работы
+*/
+
+
 #include <TXLib.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -6,6 +13,7 @@
 #include "solver.h"
 #include "unit_test.h"
 
+/// Объявление структры для проверки работы основной программы
 struct expected_eq {
     sqr_eq test_eq         = {};
     roots correct_roots    = {};
@@ -17,7 +25,9 @@ static void test_iteration(int test_num, expected_eq* ptr_ex_eq);
 static void change_root_to_zero(expected_eq* ptr_ex_eq);
 static int compare_correct_and_test_roots (expected_eq* peq);
 
-void unit_test_start() {
+/// Запускает модуль тестирования
+
+void unit_test_start(void) {
 
     FILE* ptr_to_file = fopen("../data/answers.txt", "r");
     if (ptr_to_file == NULL) {
@@ -48,6 +58,11 @@ void unit_test_start() {
     fclose (ptr_to_file);
 }
 
+/*!
+    \param[in] test_num Номер теста для удобства отслеживания места ошибки
+    \param[in,out] ptr_ex_eq Указатель на структуру для проверки работы основной программы
+    \brief Сравнивает результат работы программы с ожидаемым результом и при несоответствии выводит ошибку
+*/
 static void test_iteration(int test_num, expected_eq* ptr_ex_eq){
 
     int root_count = square_solver(&ptr_ex_eq->test_eq);
@@ -68,6 +83,7 @@ static void test_iteration(int test_num, expected_eq* ptr_ex_eq){
 
 }
 
+/// Сбрасывает значения корней на стандартные для корректной работы программы
 static void change_root_to_zero(expected_eq* ptr_ex_eq) {
 
     assert(ptr_ex_eq != NULL);
@@ -77,11 +93,12 @@ static void change_root_to_zero(expected_eq* ptr_ex_eq) {
 
 }
 
+/// Сравнивание чисел типа double
 static int compare_correct_and_test_roots (expected_eq* peq) {
     return (is_double_num_equal(peq->test_eq.rts.x1, peq->correct_roots.x1) && is_double_num_equal(peq->test_eq.rts.x2, peq->correct_roots.x2));
 
 }
-
+/// Вспомогательная функция для сравнивания чисел типа double
 static int is_double_num_equal(double num1, double num2){
     const double accuracy = 0.0001;
     return (fabs(num1 - num2) < accuracy);

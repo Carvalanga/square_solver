@@ -1,5 +1,10 @@
 \hypertarget{unit__test_8cpp}{}\doxysection{src/unit\+\_\+test.cpp File Reference}
 \label{unit__test_8cpp}\index{src/unit\_test.cpp@{src/unit\_test.cpp}}
+
+
+Обеспечивает тестирование программы для проверки корректности работы  
+
+
 {\ttfamily \#include $<$TXLib.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$assert.\+h$>$}\newline
@@ -10,20 +15,25 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structexpected__eq}{expected\+\_\+eq}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Объявление структры для проверки работы основной программы \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 static int \mbox{\hyperlink{unit__test_8cpp_aeffbfb94b1fd8ab580de8c988b6f870b}{is\+\_\+double\+\_\+num\+\_\+equal}} (double num1, double num2)
-\item 
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для сравнивания чисел типа double. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{unit__test_8cpp_ad8838576751520ee44f3180e0bc32fde}{test\+\_\+iteration}} (int test\+\_\+num, \mbox{\hyperlink{structexpected__eq}{expected\+\_\+eq}} $\ast$ptr\+\_\+ex\+\_\+eq)
-\item 
+\begin{DoxyCompactList}\small\item\em Сравнивает результат работы программы с ожидаемым результом и при несоответствии выводит ошибку \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{unit__test_8cpp_a19e8d21242de8be1599a2bcd44e4fbd5}{change\+\_\+root\+\_\+to\+\_\+zero}} (\mbox{\hyperlink{structexpected__eq}{expected\+\_\+eq}} $\ast$ptr\+\_\+ex\+\_\+eq)
-\item 
+\begin{DoxyCompactList}\small\item\em Сбрасывает значения корней на стандартные для корректной работы программы \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{unit__test_8cpp_a948a7cc54fd7d17daf16879a15fb089e}{compare\+\_\+correct\+\_\+and\+\_\+test\+\_\+roots}} (\mbox{\hyperlink{structexpected__eq}{expected\+\_\+eq}} $\ast$peq)
-\item 
-void \mbox{\hyperlink{unit__test_8cpp_a67ae2ccbca4a5ca969e66044cbd7e314}{unit\+\_\+test\+\_\+start}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Сравнивание чисел типа double. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}{unit\+\_\+test\+\_\+start}} (void)
+\begin{DoxyCompactList}\small\item\em Запускает модуль тестирования \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Обеспечивает тестирование программы для проверки корректности работы 
+
 
 
 \doxysubsection{Function Documentation}
@@ -33,11 +43,19 @@ void \mbox{\hyperlink{unit__test_8cpp_a67ae2ccbca4a5ca969e66044cbd7e314}{unit\+\
 \doxysubsubsection{\texorpdfstring{change\_root\_to\_zero()}{change\_root\_to\_zero()}}
 {\footnotesize\ttfamily static void change\+\_\+root\+\_\+to\+\_\+zero (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structexpected__eq}{expected\+\_\+eq}} $\ast$}]{ptr\+\_\+ex\+\_\+eq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Сбрасывает значения корней на стандартные для корректной работы программы 
+
 \mbox{\Hypertarget{unit__test_8cpp_a948a7cc54fd7d17daf16879a15fb089e}\label{unit__test_8cpp_a948a7cc54fd7d17daf16879a15fb089e}} 
 \index{unit\_test.cpp@{unit\_test.cpp}!compare\_correct\_and\_test\_roots@{compare\_correct\_and\_test\_roots}}
 \index{compare\_correct\_and\_test\_roots@{compare\_correct\_and\_test\_roots}!unit\_test.cpp@{unit\_test.cpp}}
 \doxysubsubsection{\texorpdfstring{compare\_correct\_and\_test\_roots()}{compare\_correct\_and\_test\_roots()}}
 {\footnotesize\ttfamily static int compare\+\_\+correct\+\_\+and\+\_\+test\+\_\+roots (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structexpected__eq}{expected\+\_\+eq}} $\ast$}]{peq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Сравнивание чисел типа double. 
 
 \mbox{\Hypertarget{unit__test_8cpp_aeffbfb94b1fd8ab580de8c988b6f870b}\label{unit__test_8cpp_aeffbfb94b1fd8ab580de8c988b6f870b}} 
 \index{unit\_test.cpp@{unit\_test.cpp}!is\_double\_num\_equal@{is\_double\_num\_equal}}
@@ -45,15 +63,34 @@ void \mbox{\hyperlink{unit__test_8cpp_a67ae2ccbca4a5ca969e66044cbd7e314}{unit\+\
 \doxysubsubsection{\texorpdfstring{is\_double\_num\_equal()}{is\_double\_num\_equal()}}
 {\footnotesize\ttfamily static int is\+\_\+double\+\_\+num\+\_\+equal (\begin{DoxyParamCaption}\item[{double}]{num1,  }\item[{double}]{num2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Вспомогательная функция для сравнивания чисел типа double. 
+
 \mbox{\Hypertarget{unit__test_8cpp_ad8838576751520ee44f3180e0bc32fde}\label{unit__test_8cpp_ad8838576751520ee44f3180e0bc32fde}} 
 \index{unit\_test.cpp@{unit\_test.cpp}!test\_iteration@{test\_iteration}}
 \index{test\_iteration@{test\_iteration}!unit\_test.cpp@{unit\_test.cpp}}
 \doxysubsubsection{\texorpdfstring{test\_iteration()}{test\_iteration()}}
 {\footnotesize\ttfamily static void test\+\_\+iteration (\begin{DoxyParamCaption}\item[{int}]{test\+\_\+num,  }\item[{\mbox{\hyperlink{structexpected__eq}{expected\+\_\+eq}} $\ast$}]{ptr\+\_\+ex\+\_\+eq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-\mbox{\Hypertarget{unit__test_8cpp_a67ae2ccbca4a5ca969e66044cbd7e314}\label{unit__test_8cpp_a67ae2ccbca4a5ca969e66044cbd7e314}} 
+
+
+Сравнивает результат работы программы с ожидаемым результом и при несоответствии выводит ошибку 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em test\+\_\+num} & Номер теста для удобства отслеживания места ошибки \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em ptr\+\_\+ex\+\_\+eq} & Указатель на структуру для проверки работы основной программы \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}\label{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}} 
 \index{unit\_test.cpp@{unit\_test.cpp}!unit\_test\_start@{unit\_test\_start}}
 \index{unit\_test\_start@{unit\_test\_start}!unit\_test.cpp@{unit\_test.cpp}}
 \doxysubsubsection{\texorpdfstring{unit\_test\_start()}{unit\_test\_start()}}
-{\footnotesize\ttfamily void unit\+\_\+test\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void unit\+\_\+test\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Запускает модуль тестирования 
 

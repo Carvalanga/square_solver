@@ -71,6 +71,9 @@ $(function() {
 <div class="title">input_output.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Обеспечивает ввод и вывод программы  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &quot;input_output.h&quot;</code><br />
@@ -84,9 +87,12 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac1ae2b9d665a1da1de3a67ae271aff89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция, обрабатывающая входные данные для квадратного уравнения  <a href="input__output_8cpp.html#ac1ae2b9d665a1da1de3a67ae271aff89">More...</a><br /></td></tr>
 <tr class="separator:ac1ae2b9d665a1da1de3a67ae271aff89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b540bbb5f4e6071cda43304de1d199f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input__output_8cpp.html#a1b540bbb5f4e6071cda43304de1d199f">show_result</a> (equation_type root_count, roots rts)</td></tr>
+<tr class="memdesc:a1b540bbb5f4e6071cda43304de1d199f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выводит результат работы квадратного уравнения в поток вывода  <a href="input__output_8cpp.html#a1b540bbb5f4e6071cda43304de1d199f">More...</a><br /></td></tr>
 <tr class="separator:a1b540bbb5f4e6071cda43304de1d199f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Обеспечивает ввод и вывод программы </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ac1ae2b9d665a1da1de3a67ae271aff89"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac1ae2b9d665a1da1de3a67ae271aff89">&#9670;&nbsp;</a></span>data_input()</h2>
 
@@ -110,7 +116,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Функция принимает указатель на структуру квадратного уравнения и записывает в ее коэффициенты данные из потока ввода </p>
+<p>Принимает указатель на структуру квадратного уравнения и записывает в ее коэффициенты данные из потока ввода </p>
 
 </div>
 </div>
@@ -139,12 +145,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Выводит результат работы квадратного уравнения в поток вывода </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">root_count</td><td>Количество корней квадратного уравнения, определяющее дальнейший вывод данных программы </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rts</td><td>Структура данных, содержащая корни решенного квадратного уравнения </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0 - при правильном завершении работы программы, 1 - при ошибке </dd></dl>
 
 </div>
 </div>
@@ -171,6 +181,7 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Убирает неверные данные из потока ввода </p>
 
 </div>
 </div>
