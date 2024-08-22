@@ -7,7 +7,7 @@
 #include "solver.h"
 #include "square_equation_struct.h"
 #include "unit_test.h"
-/// \brief main function wtf
+
 int main(){
 
     unit_test_start();

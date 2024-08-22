@@ -6,6 +6,18 @@
 
 static void skip_char_line(void);
 
+/*!
+    \param[in,out] ptr_eq
+        Указатель на структуру квадратного уравнения
+
+    \brief Функция, обрабатывающая входные данные
+            для квадратного уравнения
+
+    \details Функция принимает указатель на структуру квадратного
+                уравнения и записывает в ее коэффициенты данные
+                    из потока ввода
+*/
+
 void data_input(sqr_eq* ptr_eq) {
 
     assert(ptr_eq != NULL);
@@ -22,6 +34,16 @@ void data_input(sqr_eq* ptr_eq) {
         }
     }
 }
+
+/*!
+    \param[in] root_count Количество корней квадратного уравнения,
+                определяющее дальнейший вывод данных программы
+    \param[in] rts Структура данных, содержащая корни решенного
+                квадратного уравнения
+    \return 0 - при правильном завершении работы программы,
+            1 - при ошибке
+    \brief Функция выводит результат работы квадратного уравнения в поток вывода
+*/
 
 int show_result(equation_type root_count, roots rts) {
     switch (root_count) {
@@ -45,6 +67,7 @@ int show_result(equation_type root_count, roots rts) {
     }
 }
 
+/// \details Функция "съедает" неверные данные из потока ввода
 void skip_char_line(void){
     while (getchar() != '\n');
 }
