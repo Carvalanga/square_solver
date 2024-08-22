@@ -12,34 +12,31 @@ struct expected_eq {
     int correct_root_count = 0;
 };
 
-static int double_compare(double num1, double num2);
+static int is_double_num_equal(double num1, double num2);
 static void test_iteration(int test_num, expected_eq* ptr_ex_eq);
 static void change_ex_eq_value(expected_eq* ptr_ex_eq, double a, double b, double c, double cor_x1, double cor_x2, int correct_root_count);
 static int compare_correct_and_test_roots (expected_eq* peq);
 
 void unit_test_start() {
 
-    FILE* ptr_to_file = fopen("answers.txt", "r");
+    FILE* ptr_to_file = fopen("../data/answers.txt", "r");
     if (ptr_to_file == NULL) {
 
             perror ("Cannot open answers.txt");
             return;
 
         }
-
     int line_count = 0, test_num = 0, correct_root_count = 0;
     expected_eq ex_eq = {};
     double a = 0, b = 0, c = 0, cor_x1 = 0, cor_x2 = 0;
-    , "ldkfldfdlfksdlfk");
+
     fscanf(ptr_to_file, "%i", &line_count);
-    for (; line_count > 0; line_count--, test_num++) {
-        fprintf(stderr, "Number ¹%d is read\n", line_count);
+    for (; line_count > 0; line_count--) {
         fscanf(ptr_to_file, "%lf %lf %lf %lf %lf %i\n", &a, &b, &c, &cor_x1, &cor_x2, &correct_root_count);
         change_ex_eq_value(&ex_eq, a, b, c, cor_x1, cor_x2, correct_root_count);
 
-
         test_iteration(test_num, &ex_eq);
-
+        test_num++;
     }
 
     fclose (ptr_to_file);
@@ -84,11 +81,11 @@ static void change_ex_eq_value(expected_eq* ptr_ex_eq, double a, double b, doubl
 }
 
 static int compare_correct_and_test_roots (expected_eq* peq) {
-    return (is_double_equal(peq->test_eq.rts.x1, peq->correct_roots.x1) && is_double_equal(peq->test_eq.rts.x2, peq->correct_roots.x2));
+    return (is_double_num_equal(peq->test_eq.rts.x1, peq->correct_roots.x1) && is_double_num_equal(peq->test_eq.rts.x2, peq->correct_roots.x2));
 
 }
 
 static int is_double_num_equal(double num1, double num2){
-    const accuracy = 0.00001;
-    return (fabs(num1 - num2) < accuracy)
+    const double accuracy = 0.0001;
+    return (fabs(num1 - num2) < accuracy);
 }
