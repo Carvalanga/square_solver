@@ -14,7 +14,7 @@ struct expected_eq {
 
 static int is_double_num_equal(double num1, double num2);
 static void test_iteration(int test_num, expected_eq* ptr_ex_eq);
-static void change_ex_eq_value(expected_eq* ptr_ex_eq, double a, double b, double c, double cor_x1, double cor_x2, int correct_root_count);
+static void change_root_to_zero(expected_eq* ptr_ex_eq);
 static int compare_correct_and_test_roots (expected_eq* peq);
 
 void unit_test_start() {
@@ -26,14 +26,20 @@ void unit_test_start() {
             return;
 
         }
-    int line_count = 0, test_num = 0, correct_root_count = 0;
+    int line_count = 0, test_num = 0;
     expected_eq ex_eq = {};
-    double a = 0, b = 0, c = 0, cor_x1 = 0, cor_x2 = 0;
 
     fscanf(ptr_to_file, "%i", &line_count);
+
     for (; line_count > 0; line_count--) {
-        fscanf(ptr_to_file, "%lf %lf %lf %lf %lf %i\n", &a, &b, &c, &cor_x1, &cor_x2, &correct_root_count);
-        change_ex_eq_value(&ex_eq, a, b, c, cor_x1, cor_x2, correct_root_count);
+        fscanf(ptr_to_file, "%lf %lf %lf %lf %lf %i\n", &ex_eq.test_eq.cfs.first,
+                                                        &ex_eq.test_eq.cfs.second,
+                                                        &ex_eq.test_eq.cfs.third,
+                                                        &ex_eq.correct_roots.x1,
+                                                        &ex_eq.correct_roots.x2,
+                                                        &ex_eq.correct_root_count);
+
+        change_root_to_zero(&ex_eq);
 
         test_iteration(test_num, &ex_eq);
         test_num++;
@@ -66,18 +72,13 @@ static void test_iteration(int test_num, expected_eq* ptr_ex_eq){
 
 }
 
-static void change_ex_eq_value(expected_eq* ptr_ex_eq, double a, double b, double c, double cor_x1, double cor_x2, int correct_root_count) {
+static void change_root_to_zero(expected_eq* ptr_ex_eq) {
 
     assert(ptr_ex_eq != NULL);
 
-    ptr_ex_eq->test_eq.cfs.first  = a;
-    ptr_ex_eq->test_eq.cfs.second = b;
-    ptr_ex_eq->test_eq.cfs.third  = c;
     ptr_ex_eq->test_eq.rts.x1     = 0;
     ptr_ex_eq->test_eq.rts.x2     = 0;
-    ptr_ex_eq->correct_roots.x1   = cor_x1;
-    ptr_ex_eq->correct_roots.x2   = cor_x2;
-    ptr_ex_eq->correct_root_count = correct_root_count;
+
 }
 
 static int compare_correct_and_test_roots (expected_eq* peq) {
