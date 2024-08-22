@@ -4,7 +4,7 @@
 
 #include "solver.h"
 #include "equation_type.h"
-
+#include "square_equation_struct.h"
 
 cmp dbl_zero_cmp(double n1) {
     const double accuracy = 0.0000001;
@@ -16,33 +16,32 @@ cmp dbl_zero_cmp(double n1) {
         return less_than_zero;
 }
 
-equation_type square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2) {
+equation_type square_solver(sqr_eq* ptr_eq) {
 
-    assert(root1 != NULL);
-    assert(root2 != NULL);
+    assert(ptr_eq != NULL);
 
-    if (dbl_zero_cmp(first_coef) == equal_zero) {
-        if (dbl_zero_cmp(second_coef) == equal_zero) {
-            return (dbl_zero_cmp(third_coef) == equal_zero) ? infinity_root_eq : zero_root_eq;
+    if (dbl_zero_cmp(ptr_eq->cfs.first) == equal_zero) {
+        if (dbl_zero_cmp(ptr_eq->cfs.second) == equal_zero) {
+            return (dbl_zero_cmp(ptr_eq->cfs.third) == equal_zero) ? infinity_root_eq : zero_root_eq;
         }
 
-        equation_type result = linear_eq_solver(second_coef, third_coef, root1);
-        *root2 = *root1;
+        equation_type result = linear_eq_solver(ptr_eq->cfs.second, ptr_eq->cfs.third, &ptr_eq->rts.root1);
+        ptr_eq->rts.root2 = ptr_eq->rts.root1;
         return result;
     }
 
-    double disc = second_coef*second_coef - 4 * first_coef * third_coef;
+    double disc = ptr_eq->cfs.second * ptr_eq->cfs.second - 4 * ptr_eq->cfs.first * ptr_eq->cfs.third;
     switch (dbl_zero_cmp(disc)) {
         case more_than_zero: {
 
             double sqrt_disc = sqrt(disc);
-            *root1 = (-second_coef + sqrt_disc)/(2 * first_coef);
-            *root2 = (-second_coef - sqrt_disc)/(2 * first_coef);
+            ptr_eq->rts.root1 = (-ptr_eq->cfs.second + sqrt_disc)/(2 * ptr_eq->cfs.first);
+            ptr_eq->rts.root2 = (-ptr_eq->cfs.second - sqrt_disc)/(2 * ptr_eq->cfs.first);
             return two_root_eq;
 
         }
         case equal_zero:
-            *root1 = *root2 = (-second_coef)/(2 * first_coef);
+            ptr_eq->rts.root1 = ptr_eq->rts.root2 = (-ptr_eq->cfs.second)/(2 * ptr_eq->cfs.first);
             return one_root_eq;
         case less_than_zero:
             return zero_root_eq;
@@ -53,6 +52,6 @@ equation_type square_solver(double first_coef, double second_coef, double third_
 }
 
 equation_type linear_eq_solver(double first_coef, double second_coef, double* root) {
-    *root = (-second_coef / first_coef);
+    *root = (-ptr_eq->cfs.second / ptr_eq->cfs.first);
     return one_root_eq;
 }
