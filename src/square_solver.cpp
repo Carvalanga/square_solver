@@ -18,7 +18,7 @@ int main(){
 
     data_input(&eq);
 
-    equation_type root_count = square_solver(eq.cfs.first, eq.cfs.second, eq.cfs.third, &eq.rts.x1, &eq.rts.x2);
+    equation_type root_count = square_solver(&eq);
     int output = show_result(root_count, eq.rts.x1, eq.rts.x2);
 
     return output;

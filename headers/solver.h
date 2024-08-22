@@ -2,14 +2,16 @@
 #define SOLVER_H
 
 #include "input_output.h"
+#include "square_equation_struct.h"
+
 enum cmp {
     less_than_zero = -1,
     equal_zero,
     more_than_zero
 };
 
-equation_type square_solver(double first_coef, double second_coef, double third_coef, double* root1, double* root2);
+equation_type square_solver(sqr_eq* ptr_eq);
 cmp dbl_zero_cmp(double number);
-equation_type linear_eq_solver(double first_coef, double second_coef, double* root);
+equation_type linear_eq_solver(sqr_eq* ptr_eq);
 
 #endif //SOLVER_H

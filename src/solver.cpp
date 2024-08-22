@@ -20,13 +20,14 @@ equation_type square_solver(sqr_eq* ptr_eq) {
 
     assert(ptr_eq != NULL);
 
+
     if (dbl_zero_cmp(ptr_eq->cfs.first) == equal_zero) {
         if (dbl_zero_cmp(ptr_eq->cfs.second) == equal_zero) {
             return (dbl_zero_cmp(ptr_eq->cfs.third) == equal_zero) ? infinity_root_eq : zero_root_eq;
         }
 
-        equation_type result = linear_eq_solver(ptr_eq->cfs.second, ptr_eq->cfs.third, &ptr_eq->rts.root1);
-        ptr_eq->rts.root2 = ptr_eq->rts.root1;
+        equation_type result = linear_eq_solver(ptr_eq);
+        ptr_eq->rts.x2 = ptr_eq->rts.x1;
         return result;
     }
 
@@ -35,13 +36,12 @@ equation_type square_solver(sqr_eq* ptr_eq) {
         case more_than_zero: {
 
             double sqrt_disc = sqrt(disc);
-            ptr_eq->rts.root1 = (-ptr_eq->cfs.second + sqrt_disc)/(2 * ptr_eq->cfs.first);
-            ptr_eq->rts.root2 = (-ptr_eq->cfs.second - sqrt_disc)/(2 * ptr_eq->cfs.first);
+            ptr_eq->rts.x1 = (-ptr_eq->cfs.second + sqrt_disc)/(2 * ptr_eq->cfs.first);
+            ptr_eq->rts.x2 = (-ptr_eq->cfs.second - sqrt_disc)/(2 * ptr_eq->cfs.first);
             return two_root_eq;
-
         }
         case equal_zero:
-            ptr_eq->rts.root1 = ptr_eq->rts.root2 = (-ptr_eq->cfs.second)/(2 * ptr_eq->cfs.first);
+            ptr_eq->rts.x1 = ptr_eq->rts.x2 = (-ptr_eq->cfs.second)/(2 * ptr_eq->cfs.first);
             return one_root_eq;
         case less_than_zero:
             return zero_root_eq;
@@ -51,7 +51,7 @@ equation_type square_solver(sqr_eq* ptr_eq) {
     }
 }
 
-equation_type linear_eq_solver(double first_coef, double second_coef, double* root) {
-    *root = (-ptr_eq->cfs.second / ptr_eq->cfs.first);
+equation_type linear_eq_solver(sqr_eq* ptr_eq) {
+    ptr_eq->rts.x1 = (-ptr_eq->cfs.third / ptr_eq->cfs.second);
     return one_root_eq;
 }

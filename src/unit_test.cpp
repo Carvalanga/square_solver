@@ -50,11 +50,7 @@ void unit_test_start() {
 
 static void test_iteration(int test_num, expected_eq* ptr_ex_eq){
 
-    int root_count = square_solver (ptr_ex_eq->test_eq.cfs.first,
-                                    ptr_ex_eq->test_eq.cfs.second,
-                                    ptr_ex_eq->test_eq.cfs.third,
-                                   &ptr_ex_eq->test_eq.rts.x1,
-                                   &ptr_ex_eq->test_eq.rts.x2);
+    int root_count = square_solver(&ptr_ex_eq->test_eq);
 
     if (root_count != ptr_ex_eq->correct_root_count || !compare_correct_and_test_roots(ptr_ex_eq))
 
