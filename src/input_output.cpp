@@ -44,38 +44,49 @@ void data_input(sqr_eq* ptr_eq) {
 }
 
 /*!
-    \param[in] root_count  оличество корней квадратного уравнени€,
+    \param[in]  root_count  оличество корней квадратного уравнени€,
                 определ€ющее дальнейший вывод данных программы
-    \param[in] rts —труктура данных, содержаща€ корни решенного
+
+    \param[in]  rts —труктура данных, содержаща€ корни решенного
                 квадратного уравнени€
+
     \return 0 - при правильном завершении работы программы,
             1 - при ошибке
+
     \brief ¬ыводит результат работы квадратного уравнени€ в поток вывода
 */
 
 int show_result(equation_type root_count, roots rts) {
+
     switch (root_count) {
+
         case zero_root_eq:
             printf("” данного уравнени€ нет решений\n");
             return 0;
+
         case infinity_root_eq:
             printf("” данного уравнени€ существует бесконечно много решений\n");
             return 0;
+
         case one_root_eq:
             printf("” данного уравнени€ существует один корень:\n\tx = %.3f", rts.x1);
             return 0;
+
         case two_root_eq:
             printf("” данного уравнени€ существует два корн€:\n\tx1 = %.3f\n\tx2 = %.3f", rts.x1, rts.x1);
             return 0;
+
         case error:
             return 1;
+
         default:
             printf("ќшибка: неопознанное значение количества корней");
             return 1;
     }
 }
 
-/// \details ”бирает неверные данные из потока ввода
+/// \details ”бирает неверные данные из потока ввода, чистит карму, приносит удачу
+
 void skip_char_line(void){
     while (getchar() != '\n');
 }

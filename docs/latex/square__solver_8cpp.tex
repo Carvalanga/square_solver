@@ -1,10 +1,5 @@
-\hypertarget{square__solver_8cpp}{}\doxysection{src/square\+\_\+solver.cpp File Reference}
-\label{square__solver_8cpp}\index{src/square\_solver.cpp@{src/square\_solver.cpp}}
-
-
-Обеспечивает работу всей программы  
-
-
+\hypertarget{square__solver_8cpp}{}\doxysection{square\+\_\+solver.\+cpp File Reference}
+\label{square__solver_8cpp}\index{square\_solver.cpp@{square\_solver.cpp}}
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$TXLib.\+h$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
@@ -21,9 +16,7 @@ int \mbox{\hyperlink{square__solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main
 
 
 \doxysubsection{Detailed Description}
-Обеспечивает работу всей программы 
-
-
+\mbox{\hyperlink{input__output_8cpp}{input\+\_\+output.\+cpp}} 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{square__solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{square__solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
@@ -35,4 +28,32 @@ int \mbox{\hyperlink{square__solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main
 
 
 Обесчивает работу всей программы 
+
+
+
+Definition at line 23 of file square\+\_\+solver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23           \{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}{unit\_test\_start}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     printf(\textcolor{stringliteral}{"{}\# Программа решения квадратных уравнений\(\backslash\)n"{}}}
+\DoxyCodeLine{28            \textcolor{stringliteral}{"{}\# Введите через пробел коэффициенты квадратного уравнения:\(\backslash\)n"{}});}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     sqr\_eq eq = \{\};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \mbox{\hyperlink{input__output_8cpp_ac1ae2b9d665a1da1de3a67ae271aff89}{data\_input}}(\&eq);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     equation\_type root\_count = \mbox{\hyperlink{solver_8cpp_aa62ebac4c04caf72819ce699f8954186}{square\_solver}}(\&eq);}
+\DoxyCodeLine{35     \textcolor{keywordtype}{int} output = \mbox{\hyperlink{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}{show\_result}}(root\_count, eq.rts);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+
+
+References data\+\_\+input(), show\+\_\+result(), square\+\_\+solver(), and unit\+\_\+test\+\_\+start().
 

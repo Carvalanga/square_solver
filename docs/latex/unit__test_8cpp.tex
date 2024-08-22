@@ -1,5 +1,5 @@
-\hypertarget{unit__test_8cpp}{}\doxysection{src/unit\+\_\+test.cpp File Reference}
-\label{unit__test_8cpp}\index{src/unit\_test.cpp@{src/unit\_test.cpp}}
+\hypertarget{unit__test_8cpp}{}\doxysection{unit\+\_\+test.\+cpp File Reference}
+\label{unit__test_8cpp}\index{unit\_test.cpp@{unit\_test.cpp}}
 
 
 Обеспечивает тестирование программы для проверки корректности работы  
@@ -47,6 +47,30 @@ void \mbox{\hyperlink{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}{unit\+\
 
 Сбрасывает значения корней на стандартные для корректной работы программы 
 
+
+
+Definition at line 87 of file unit\+\_\+test.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87                                                         \{}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     assert(ptr\_ex\_eq != NULL);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     ptr\_ex\_eq-\/>\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.rts.x1     = 0;}
+\DoxyCodeLine{92     ptr\_ex\_eq-\/>\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.rts.x2     = 0;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \}}
+
+\end{DoxyCode}
+
+
+References expected\+\_\+eq\+::test\+\_\+eq.
+
+
+
+Referenced by unit\+\_\+test\+\_\+start().
+
 \mbox{\Hypertarget{unit__test_8cpp_a948a7cc54fd7d17daf16879a15fb089e}\label{unit__test_8cpp_a948a7cc54fd7d17daf16879a15fb089e}} 
 \index{unit\_test.cpp@{unit\_test.cpp}!compare\_correct\_and\_test\_roots@{compare\_correct\_and\_test\_roots}}
 \index{compare\_correct\_and\_test\_roots@{compare\_correct\_and\_test\_roots}!unit\_test.cpp@{unit\_test.cpp}}
@@ -57,6 +81,27 @@ void \mbox{\hyperlink{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}{unit\+\
 
 Сравнивание чисел типа double. 
 
+
+
+Definition at line 97 of file unit\+\_\+test.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97                                                              \{}
+\DoxyCodeLine{98     \textcolor{keywordflow}{return} (\mbox{\hyperlink{unit__test_8cpp_aeffbfb94b1fd8ab580de8c988b6f870b}{is\_double\_num\_equal}}(peq-\/>\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.rts.x1, peq-\/>\mbox{\hyperlink{structexpected__eq_a15459797c2ccdd19d372b6f94dafd8f6}{correct\_roots}}.x1) \&\&}
+\DoxyCodeLine{99             \mbox{\hyperlink{unit__test_8cpp_aeffbfb94b1fd8ab580de8c988b6f870b}{is\_double\_num\_equal}}(peq-\/>\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.rts.x2, peq-\/>\mbox{\hyperlink{structexpected__eq_a15459797c2ccdd19d372b6f94dafd8f6}{correct\_roots}}.x2));}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \}}
+
+\end{DoxyCode}
+
+
+References expected\+\_\+eq\+::correct\+\_\+roots, is\+\_\+double\+\_\+num\+\_\+equal(), and expected\+\_\+eq\+::test\+\_\+eq.
+
+
+
+Referenced by test\+\_\+iteration().
+
 \mbox{\Hypertarget{unit__test_8cpp_aeffbfb94b1fd8ab580de8c988b6f870b}\label{unit__test_8cpp_aeffbfb94b1fd8ab580de8c988b6f870b}} 
 \index{unit\_test.cpp@{unit\_test.cpp}!is\_double\_num\_equal@{is\_double\_num\_equal}}
 \index{is\_double\_num\_equal@{is\_double\_num\_equal}!unit\_test.cpp@{unit\_test.cpp}}
@@ -66,6 +111,22 @@ void \mbox{\hyperlink{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}{unit\+\
 
 
 Вспомогательная функция для сравнивания чисел типа double. 
+
+
+
+Definition at line 103 of file unit\+\_\+test.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103                                                         \{}
+\DoxyCodeLine{104     \textcolor{keyword}{const} \textcolor{keywordtype}{double} accuracy = 0.0001;}
+\DoxyCodeLine{105     \textcolor{keywordflow}{return} (fabs(num1 -\/ num2) < accuracy);}
+\DoxyCodeLine{106 \}}
+
+\end{DoxyCode}
+
+
+Referenced by compare\+\_\+correct\+\_\+and\+\_\+test\+\_\+roots().
 
 \mbox{\Hypertarget{unit__test_8cpp_ad8838576751520ee44f3180e0bc32fde}\label{unit__test_8cpp_ad8838576751520ee44f3180e0bc32fde}} 
 \index{unit\_test.cpp@{unit\_test.cpp}!test\_iteration@{test\_iteration}}
@@ -84,6 +145,41 @@ void \mbox{\hyperlink{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}{unit\+\
 \mbox{\texttt{ in,out}}  & {\em ptr\+\_\+ex\+\_\+eq} & Указатель на структуру для проверки работы основной программы \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 66 of file unit\+\_\+test.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66                                                                 \{}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{int} root\_count = \mbox{\hyperlink{solver_8cpp_aa62ebac4c04caf72819ce699f8954186}{square\_solver}}(\&ptr\_ex\_eq-\/>\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}});}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordflow}{if} (root\_count != ptr\_ex\_eq-\/>\mbox{\hyperlink{structexpected__eq_a499d5f3d47ec1e8e60af370c9647d791}{correct\_root\_count}} || !\mbox{\hyperlink{unit__test_8cpp_a948a7cc54fd7d17daf16879a15fb089e}{compare\_correct\_and\_test\_roots}}(ptr\_ex\_eq))}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         printf(\textcolor{stringliteral}{"{}Ошибка в тесте номер \%d\(\backslash\)n"{}}}
+\DoxyCodeLine{73                \textcolor{stringliteral}{"{}Итоговые значения:  root\_count = \%d, x1 = \%lg, x2 = \%lg\(\backslash\)n"{}}}
+\DoxyCodeLine{74                \textcolor{stringliteral}{"{}Ожидаемые значения: root\_count = \%d, x1 = \%lg, x2 = \%lg\(\backslash\)n"{}}}
+\DoxyCodeLine{75                \textcolor{stringliteral}{"{}\(\backslash\)n"{}},}
+\DoxyCodeLine{76                 test\_num+1,}
+\DoxyCodeLine{77                 root\_count,}
+\DoxyCodeLine{78                 ptr\_ex\_eq-\/>\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.rts.x1,}
+\DoxyCodeLine{79                 ptr\_ex\_eq-\/>\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.rts.x2,}
+\DoxyCodeLine{80                 ptr\_ex\_eq-\/>\mbox{\hyperlink{structexpected__eq_a499d5f3d47ec1e8e60af370c9647d791}{correct\_root\_count}},}
+\DoxyCodeLine{81                 ptr\_ex\_eq-\/>\mbox{\hyperlink{structexpected__eq_a15459797c2ccdd19d372b6f94dafd8f6}{correct\_roots}}.x1,}
+\DoxyCodeLine{82                 ptr\_ex\_eq-\/>\mbox{\hyperlink{structexpected__eq_a15459797c2ccdd19d372b6f94dafd8f6}{correct\_roots}}.x2);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \}}
+
+\end{DoxyCode}
+
+
+References compare\+\_\+correct\+\_\+and\+\_\+test\+\_\+roots(), expected\+\_\+eq\+::correct\+\_\+root\+\_\+count, expected\+\_\+eq\+::correct\+\_\+roots, square\+\_\+solver(), and expected\+\_\+eq\+::test\+\_\+eq.
+
+
+
+Referenced by unit\+\_\+test\+\_\+start().
+
 \mbox{\Hypertarget{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}\label{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}} 
 \index{unit\_test.cpp@{unit\_test.cpp}!unit\_test\_start@{unit\_test\_start}}
 \index{unit\_test\_start@{unit\_test\_start}!unit\_test.cpp@{unit\_test.cpp}}
@@ -93,4 +189,50 @@ void \mbox{\hyperlink{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}{unit\+\
 
 
 Запускает модуль тестирования 
+
+
+
+Definition at line 30 of file unit\+\_\+test.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30                            \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     FILE* ptr\_to\_file = fopen(\textcolor{stringliteral}{"{}../data/answers.txt"{}}, \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{33     \textcolor{keywordflow}{if} (ptr\_to\_file == NULL) \{}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35             perror (\textcolor{stringliteral}{"{}Cannot open answers.txt"{}});}
+\DoxyCodeLine{36             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38         \}}
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} line\_count = 0, test\_num = 0;}
+\DoxyCodeLine{40     \mbox{\hyperlink{structexpected__eq}{expected\_eq}} ex\_eq = \{\};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     fscanf(ptr\_to\_file, \textcolor{stringliteral}{"{}\%i"{}}, \&line\_count);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordflow}{for} (; line\_count > 0; line\_count-\/-\/) \{}
+\DoxyCodeLine{45         fscanf(ptr\_to\_file, \textcolor{stringliteral}{"{}\%lf \%lf \%lf \%lf \%lf \%i\(\backslash\)n"{}}, \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.cfs.first,}
+\DoxyCodeLine{46                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.cfs.second,}
+\DoxyCodeLine{47                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.cfs.third,}
+\DoxyCodeLine{48                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a15459797c2ccdd19d372b6f94dafd8f6}{correct\_roots}}.x1,}
+\DoxyCodeLine{49                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a15459797c2ccdd19d372b6f94dafd8f6}{correct\_roots}}.x2,}
+\DoxyCodeLine{50                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a499d5f3d47ec1e8e60af370c9647d791}{correct\_root\_count}});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \mbox{\hyperlink{unit__test_8cpp_a19e8d21242de8be1599a2bcd44e4fbd5}{change\_root\_to\_zero}}(\&ex\_eq);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         \mbox{\hyperlink{unit__test_8cpp_ad8838576751520ee44f3180e0bc32fde}{test\_iteration}}(test\_num, \&ex\_eq);}
+\DoxyCodeLine{55         test\_num++;}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     fclose (ptr\_to\_file);}
+\DoxyCodeLine{59 \}}
+
+\end{DoxyCode}
+
+
+References change\+\_\+root\+\_\+to\+\_\+zero(), expected\+\_\+eq\+::correct\+\_\+root\+\_\+count, expected\+\_\+eq\+::correct\+\_\+roots, expected\+\_\+eq\+::test\+\_\+eq, and test\+\_\+iteration().
+
+
+
+Referenced by main().
 

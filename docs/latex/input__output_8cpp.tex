@@ -1,5 +1,5 @@
-\hypertarget{input__output_8cpp}{}\doxysection{src/input\+\_\+output.cpp File Reference}
-\label{input__output_8cpp}\index{src/input\_output.cpp@{src/input\_output.cpp}}
+\hypertarget{input__output_8cpp}{}\doxysection{input\+\_\+output.\+cpp File Reference}
+\label{input__output_8cpp}\index{input\_output.cpp@{input\_output.cpp}}
 
 
 Обеспечивает ввод и вывод программы  
@@ -41,7 +41,39 @@ int \mbox{\hyperlink{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}{show\
 \mbox{\texttt{ in,out}}  & {\em ptr\+\_\+eq} & Указатель на структуру квадратного уравнения\\
 \hline
 \end{DoxyParams}
-Принимает указатель на структуру квадратного уравнения и записывает в ее коэффициенты данные из потока ввода \mbox{\Hypertarget{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}\label{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}} 
+Принимает указатель на структуру квадратного уравнения и записывает в ее коэффициенты данные из потока ввода 
+
+Definition at line 29 of file input\+\_\+output.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                                 \{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     assert(ptr\_eq != NULL);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{const} \textcolor{keywordtype}{int} correct\_var\_count = 3;}
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} var\_count = 0;}
+\DoxyCodeLine{35     \textcolor{keywordflow}{while} (var\_count != correct\_var\_count)\{}
+\DoxyCodeLine{36         var\_count = scanf(\textcolor{stringliteral}{"{}\%lf \%lf \%lf"{}}, \&ptr\_eq-\/>cfs.first,}
+\DoxyCodeLine{37                                          \&ptr\_eq-\/>cfs.second,}
+\DoxyCodeLine{38                                          \&ptr\_eq-\/>cfs.third);}
+\DoxyCodeLine{39         \textcolor{keywordflow}{if} (var\_count != correct\_var\_count) \{}
+\DoxyCodeLine{40             printf(\textcolor{stringliteral}{"{}Ошибка: неправильный ввод данных, повторите попытку:\(\backslash\)n"{}});}
+\DoxyCodeLine{41             \mbox{\hyperlink{input__output_8cpp_a921c61b6994bb5727088b37bd9d0a4fe}{skip\_char\_line}}();}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+References skip\+\_\+char\+\_\+line().
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}\label{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}} 
 \index{input\_output.cpp@{input\_output.cpp}!show\_result@{show\_result}}
 \index{show\_result@{show\_result}!input\_output.cpp@{input\_output.cpp}}
 \doxysubsubsection{\texorpdfstring{show\_result()}{show\_result()}}
@@ -53,18 +85,72 @@ int \mbox{\hyperlink{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}{show\
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em root\+\_\+count} & Количество корней квадратного уравнения, определяющее дальнейший вывод данных программы \\
+\mbox{\texttt{ in}}  & {\em root\+\_\+count} & Количество корней квадратного уравнения, определяющее дальнейший вывод данных программы\\
 \hline
-\mbox{\texttt{ in}}  & {\em rts} & Структура данных, содержащая корни решенного квадратного уравнения \\
+\mbox{\texttt{ in}}  & {\em rts} & Структура данных, содержащая корни решенного квадратного уравнения\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 0 -\/ при правильном завершении работы программы, 1 -\/ при ошибке 
 \end{DoxyReturn}
+
+
+Definition at line 59 of file input\+\_\+output.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                                      \{}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{switch} (root\_count) \{}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         \textcolor{keywordflow}{case} zero\_root\_eq:}
+\DoxyCodeLine{64             printf(\textcolor{stringliteral}{"{}У данного уравнения нет решений\(\backslash\)n"{}});}
+\DoxyCodeLine{65             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         \textcolor{keywordflow}{case} infinity\_root\_eq:}
+\DoxyCodeLine{68             printf(\textcolor{stringliteral}{"{}У данного уравнения существует бесконечно много решений\(\backslash\)n"{}});}
+\DoxyCodeLine{69             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         \textcolor{keywordflow}{case} one\_root\_eq:}
+\DoxyCodeLine{72             printf(\textcolor{stringliteral}{"{}У данного уравнения существует один корень:\(\backslash\)n\(\backslash\)tx = \%.3f"{}}, rts.x1);}
+\DoxyCodeLine{73             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         \textcolor{keywordflow}{case} two\_root\_eq:}
+\DoxyCodeLine{76             printf(\textcolor{stringliteral}{"{}У данного уравнения существует два корня:\(\backslash\)n\(\backslash\)tx1 = \%.3f\(\backslash\)n\(\backslash\)tx2 = \%.3f"{}}, rts.x1, rts.x1);}
+\DoxyCodeLine{77             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         \textcolor{keywordflow}{case} error:}
+\DoxyCodeLine{80             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{83             printf(\textcolor{stringliteral}{"{}Ошибка: неопознанное значение количества корней"{}});}
+\DoxyCodeLine{84             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86 \}}
+
+\end{DoxyCode}
+
+
+Referenced by main().
+
 \mbox{\Hypertarget{input__output_8cpp_a921c61b6994bb5727088b37bd9d0a4fe}\label{input__output_8cpp_a921c61b6994bb5727088b37bd9d0a4fe}} 
 \index{input\_output.cpp@{input\_output.cpp}!skip\_char\_line@{skip\_char\_line}}
 \index{skip\_char\_line@{skip\_char\_line}!input\_output.cpp@{input\_output.cpp}}
 \doxysubsubsection{\texorpdfstring{skip\_char\_line()}{skip\_char\_line()}}
 {\footnotesize\ttfamily void skip\+\_\+char\+\_\+line (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Убирает неверные данные из потока ввода 
+Убирает неверные данные из потока ввода, чистит карму, приносит удачу 
+
+Definition at line 90 of file input\+\_\+output.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90                          \{}
+\DoxyCodeLine{91     \textcolor{keywordflow}{while} (getchar() != \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{92 \}}
+
+\end{DoxyCode}
+
+
+Referenced by data\+\_\+input().
+

@@ -1,5 +1,5 @@
-\hypertarget{solver_8cpp}{}\doxysection{src/solver.cpp File Reference}
-\label{solver_8cpp}\index{src/solver.cpp@{src/solver.cpp}}
+\hypertarget{solver_8cpp}{}\doxysection{solver.\+cpp File Reference}
+\label{solver_8cpp}\index{solver.cpp@{solver.cpp}}
 
 
 Обеспечивает решение квадратного уравнения  
@@ -38,6 +38,31 @@ equation\+\_\+type \mbox{\hyperlink{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40
 
 Сравнение числа типа double с нулем 
 
+
+
+Definition at line 17 of file solver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                             \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{const} \textcolor{keywordtype}{double} accuracy = 1e-\/6;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordflow}{if} (n1 > accuracy)}
+\DoxyCodeLine{22         \textcolor{keywordflow}{return} more\_than\_zero;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fabs(n1) < accuracy)}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} equal\_zero;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{28         \textcolor{keywordflow}{return} less\_than\_zero;}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+
+
+Referenced by square\+\_\+solver().
+
 \mbox{\Hypertarget{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40e}\label{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40e}} 
 \index{solver.cpp@{solver.cpp}!linear\_eq\_solver@{linear\_eq\_solver}}
 \index{linear\_eq\_solver@{linear\_eq\_solver}!solver.cpp@{solver.cpp}}
@@ -47,6 +72,22 @@ equation\+\_\+type \mbox{\hyperlink{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40
 
 
 Частный случай для решения линейного уравнения 
+
+
+
+Definition at line 73 of file solver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73                                                \{}
+\DoxyCodeLine{74     ptr\_eq-\/>rts.x1 = (-\/ptr\_eq-\/>cfs.third / ptr\_eq-\/>cfs.second);}
+\DoxyCodeLine{75     \textcolor{keywordflow}{return} one\_root\_eq;}
+\DoxyCodeLine{76 \}}
+
+\end{DoxyCode}
+
+
+Referenced by square\+\_\+solver().
 
 \mbox{\Hypertarget{solver_8cpp_aa62ebac4c04caf72819ce699f8954186}\label{solver_8cpp_aa62ebac4c04caf72819ce699f8954186}} 
 \index{solver.cpp@{solver.cpp}!square\_solver@{square\_solver}}
@@ -67,3 +108,52 @@ equation\+\_\+type \mbox{\hyperlink{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40
 Тип квадратного уравнения
 \end{DoxyReturn}
 Функция решает квадратное уравнение исходя из заданных в структуре коэффициентов\+: корни уравнения записываются в структуру, а на выход поступает тип квадратного уравнения, который впоследствии обрабатывается функцией вывода 
+
+Definition at line 38 of file solver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                                             \{}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     assert(ptr\_eq != NULL);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} (\mbox{\hyperlink{solver_8cpp_af4122a1723e4f7a29a89523d080fb6db}{dbl\_zero\_cmp}}(ptr\_eq-\/>cfs.first) == equal\_zero) \{}
+\DoxyCodeLine{44         \textcolor{keywordflow}{if} (\mbox{\hyperlink{solver_8cpp_af4122a1723e4f7a29a89523d080fb6db}{dbl\_zero\_cmp}}(ptr\_eq-\/>cfs.second) == equal\_zero) \{}
+\DoxyCodeLine{45             \textcolor{keywordflow}{return} (\mbox{\hyperlink{solver_8cpp_af4122a1723e4f7a29a89523d080fb6db}{dbl\_zero\_cmp}}(ptr\_eq-\/>cfs.third) == equal\_zero) ? infinity\_root\_eq : zero\_root\_eq;}
+\DoxyCodeLine{46         \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         equation\_type result = \mbox{\hyperlink{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40e}{linear\_eq\_solver}}(ptr\_eq);}
+\DoxyCodeLine{49         ptr\_eq-\/>rts.x2 = ptr\_eq-\/>rts.x1;}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{double} disc = ptr\_eq-\/>cfs.second * ptr\_eq-\/>cfs.second -\/ 4 * ptr\_eq-\/>cfs.first * ptr\_eq-\/>cfs.third;}
+\DoxyCodeLine{54     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{solver_8cpp_af4122a1723e4f7a29a89523d080fb6db}{dbl\_zero\_cmp}}(disc)) \{}
+\DoxyCodeLine{55         \textcolor{keywordflow}{case} more\_than\_zero: \{}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57             \textcolor{keywordtype}{double} sqrt\_disc = sqrt(disc);}
+\DoxyCodeLine{58             ptr\_eq-\/>rts.x1 = (-\/ptr\_eq-\/>cfs.second + sqrt\_disc)/(2 * ptr\_eq-\/>cfs.first);}
+\DoxyCodeLine{59             ptr\_eq-\/>rts.x2 = (-\/ptr\_eq-\/>cfs.second -\/ sqrt\_disc)/(2 * ptr\_eq-\/>cfs.first);}
+\DoxyCodeLine{60             \textcolor{keywordflow}{return} two\_root\_eq;}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62         \textcolor{keywordflow}{case} equal\_zero:}
+\DoxyCodeLine{63             ptr\_eq-\/>rts.x1 = ptr\_eq-\/>rts.x2 = (-\/ptr\_eq-\/>cfs.second)/(2 * ptr\_eq-\/>cfs.first);}
+\DoxyCodeLine{64             \textcolor{keywordflow}{return} one\_root\_eq;}
+\DoxyCodeLine{65         \textcolor{keywordflow}{case} less\_than\_zero:}
+\DoxyCodeLine{66             \textcolor{keywordflow}{return} zero\_root\_eq;}
+\DoxyCodeLine{67         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{68             printf(\textcolor{stringliteral}{"{}Ошибка: неверное значение сравнения с нулем"{}});}
+\DoxyCodeLine{69             \textcolor{keywordflow}{return} error;}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71 \}}
+
+\end{DoxyCode}
+
+
+References dbl\+\_\+zero\+\_\+cmp(), and linear\+\_\+eq\+\_\+solver().
+
+
+
+Referenced by main(), and test\+\_\+iteration().
+

@@ -15,11 +15,15 @@
 
 /// \brief Сравнение числа типа double с нулем
 cmp dbl_zero_cmp(double n1) {
-    const double accuracy = 0.0000001;
+
+    const double accuracy = 1e-6;
+
     if (n1 > accuracy)
         return more_than_zero;
+
     else if (fabs(n1) < accuracy)
         return equal_zero;
+
     else
         return less_than_zero;
 }

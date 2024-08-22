@@ -95,7 +95,8 @@ static void change_root_to_zero(expected_eq* ptr_ex_eq) {
 
 /// Сравнивание чисел типа double
 static int compare_correct_and_test_roots (expected_eq* peq) {
-    return (is_double_num_equal(peq->test_eq.rts.x1, peq->correct_roots.x1) && is_double_num_equal(peq->test_eq.rts.x2, peq->correct_roots.x2));
+    return (is_double_num_equal(peq->test_eq.rts.x1, peq->correct_roots.x1) &&
+            is_double_num_equal(peq->test_eq.rts.x2, peq->correct_roots.x2));
 
 }
 /// Вспомогательная функция для сравнивания чисел типа double
