@@ -23,7 +23,7 @@ void data_input(sqr_eq* ptr_eq) {
     }
 }
 
-int show_result(equation_type root_count, double root1, double root2) {
+int show_result(equation_type root_count, roots rts) {
     switch (root_count) {
         case zero_root_eq:
             printf("” данного уравнени€ нет решений\n");
@@ -32,10 +32,10 @@ int show_result(equation_type root_count, double root1, double root2) {
             printf("” данного уравнени€ существует бесконечно много решений\n");
             return 0;
         case one_root_eq:
-            printf("” данного уравнени€ существует один корень:\n\tx = %.3f", root1);
+            printf("” данного уравнени€ существует один корень:\n\tx = %.3f", rts.x1);
             return 0;
         case two_root_eq:
-            printf("” данного уравнени€ существует два корн€:\n\tx1 = %.3f\n\tx2 = %.3f", root1, root2);
+            printf("” данного уравнени€ существует два корн€:\n\tx1 = %.3f\n\tx2 = %.3f", rts.x1, rts.x1);
             return 0;
         case error:
             return 1;

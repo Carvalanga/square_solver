@@ -19,7 +19,7 @@ int main(){
     data_input(&eq);
 
     equation_type root_count = square_solver(&eq);
-    int output = show_result(root_count, eq.rts.x1, eq.rts.x2);
+    int output = show_result(root_count, eq.rts);
 
     return output;
 }

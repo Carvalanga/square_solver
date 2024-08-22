@@ -6,6 +6,6 @@
 
 void data_input(sqr_eq* prt_eq);
 
-int show_result(equation_type root_count, double root1, double root2);
+int show_result(equation_type root_count, roots rts);
 
 #endif // INPUT_OUTPUT_H
