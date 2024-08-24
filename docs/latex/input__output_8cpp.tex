@@ -72,7 +72,7 @@ References skip\+\_\+char\+\_\+line().
 
 
 
-Referenced by main().
+Referenced by solve\+\_\+mode\+\_\+start().
 
 \mbox{\Hypertarget{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}\label{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}} 
 \index{input\_output.cpp@{input\_output.cpp}!show\_result@{show\_result}}
@@ -113,11 +113,11 @@ Definition at line 59 of file input\+\_\+output.\+cpp.
 \DoxyCodeLine{69             \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{70 }
 \DoxyCodeLine{71         \textcolor{keywordflow}{case} one\_root\_eq:}
-\DoxyCodeLine{72             printf(\textcolor{stringliteral}{"{}У данного уравнения существует один корень:\(\backslash\)n\(\backslash\)tx = \%.3f"{}}, rts.x1);}
+\DoxyCodeLine{72             printf(\textcolor{stringliteral}{"{}У данного уравнения существует один корень:\(\backslash\)n\(\backslash\)tx = \%.3f\(\backslash\)n"{}}, rts.x1);}
 \DoxyCodeLine{73             \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{74 }
 \DoxyCodeLine{75         \textcolor{keywordflow}{case} two\_root\_eq:}
-\DoxyCodeLine{76             printf(\textcolor{stringliteral}{"{}У данного уравнения существует два корня:\(\backslash\)n\(\backslash\)tx1 = \%.3f\(\backslash\)n\(\backslash\)tx2 = \%.3f"{}}, rts.x1,}
+\DoxyCodeLine{76             printf(\textcolor{stringliteral}{"{}У данного уравнения существует два корня:\(\backslash\)n\(\backslash\)tx1 = \%.3f\(\backslash\)n\(\backslash\)tx2 = \%.3f\(\backslash\)n"{}}, rts.x1,}
 \DoxyCodeLine{77                                                                                           rts.x2);}
 \DoxyCodeLine{78             \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{79 }
@@ -125,7 +125,7 @@ Definition at line 59 of file input\+\_\+output.\+cpp.
 \DoxyCodeLine{81             \textcolor{keywordflow}{return} 1;}
 \DoxyCodeLine{82 }
 \DoxyCodeLine{83         \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{84             printf(\textcolor{stringliteral}{"{}Ошибка: неопознанное значение количества корней"{}});}
+\DoxyCodeLine{84             printf(\textcolor{stringliteral}{"{}Ошибка: неопознанное значение количества корней\(\backslash\)n"{}});}
 \DoxyCodeLine{85             \textcolor{keywordflow}{return} 2;}
 \DoxyCodeLine{86     \}}
 \DoxyCodeLine{87 \}}
@@ -133,7 +133,7 @@ Definition at line 59 of file input\+\_\+output.\+cpp.
 \end{DoxyCode}
 
 
-Referenced by main().
+Referenced by solve\+\_\+mode\+\_\+start().
 
 \mbox{\Hypertarget{input__output_8cpp_a921c61b6994bb5727088b37bd9d0a4fe}\label{input__output_8cpp_a921c61b6994bb5727088b37bd9d0a4fe}} 
 \index{input\_output.cpp@{input\_output.cpp}!skip\_char\_line@{skip\_char\_line}}

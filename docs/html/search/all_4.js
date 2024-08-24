@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linear_5feq_5fsolver_9',['linear_eq_solver',['../solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e',1,'solver.cpp']]]
+  ['help_10',['help',['../command__line__unit_8cpp.html#a0bed8474bd33a912769360766f6b10d4',1,'command_line_unit.cpp']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['correct_5froot_5fcount_37',['correct_root_count',['../structexpected__eq.html#a499d5f3d47ec1e8e60af370c9647d791',1,'expected_eq']]],
-  ['correct_5froots_38',['correct_roots',['../structexpected__eq.html#a15459797c2ccdd19d372b6f94dafd8f6',1,'expected_eq']]]
+  ['arg_5farray_48',['arg_array',['../command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897',1,'command_line_unit.cpp']]]
 ];

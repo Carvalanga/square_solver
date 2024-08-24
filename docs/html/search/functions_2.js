@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['is_5fdouble_5fnum_5fequal_29',['is_double_num_equal',['../unit__test_8cpp.html#aeffbfb94b1fd8ab580de8c988b6f870b',1,'unit_test.cpp']]]
+  ['help_38',['help',['../command__line__unit_8cpp.html#a0bed8474bd33a912769360766f6b10d4',1,'command_line_unit.cpp']]]
 ];
