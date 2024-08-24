@@ -4,10 +4,10 @@
 */
 
 
-
-
 #include <stdio.h>
 #include <assert.h>
+
+#include<TXlib.h>
 
 #include "input_output.h"
 #include "square_equation_struct.h"
@@ -69,19 +69,20 @@ int show_result(equation_type root_count, roots rts) {
             return 0;
 
         case one_root_eq:
-            printf("У данного уравнения существует один корень:\n\tx = %.3f", rts.x1);
+            printf("У данного уравнения существует один корень:\n\tx = %.3f\n", rts.x1);
             return 0;
 
         case two_root_eq:
-            printf("У данного уравнения существует два корня:\n\tx1 = %.3f\n\tx2 = %.3f", rts.x1, rts.x1);
+            printf("У данного уравнения существует два корня:\n\tx1 = %.3f\n\tx2 = %.3f\n", rts.x1,
+                                                                                          rts.x2);
             return 0;
 
         case error:
             return 1;
 
         default:
-            printf("Ошибка: неопознанное значение количества корней");
-            return 1;
+            printf("Ошибка: неопознанное значение количества корней\n");
+            return 2;
     }
 }
 

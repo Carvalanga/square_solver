@@ -1,5 +1,5 @@
-\hypertarget{input__output_8cpp}{}\doxysection{input\+\_\+output.\+cpp File Reference}
-\label{input__output_8cpp}\index{input\_output.cpp@{input\_output.cpp}}
+\hypertarget{input__output_8cpp}{}\doxysection{src/input\+\_\+output.cpp File Reference}
+\label{input__output_8cpp}\index{src/input\_output.cpp@{src/input\_output.cpp}}
 
 
 Обеспечивает ввод и вывод программы  
@@ -7,6 +7,7 @@
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$TXlib.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}input\+\_\+output.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}square\+\_\+equation\+\_\+struct.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
@@ -116,17 +117,18 @@ Definition at line 59 of file input\+\_\+output.\+cpp.
 \DoxyCodeLine{73             \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{74 }
 \DoxyCodeLine{75         \textcolor{keywordflow}{case} two\_root\_eq:}
-\DoxyCodeLine{76             printf(\textcolor{stringliteral}{"{}У данного уравнения существует два корня:\(\backslash\)n\(\backslash\)tx1 = \%.3f\(\backslash\)n\(\backslash\)tx2 = \%.3f"{}}, rts.x1, rts.x1);}
-\DoxyCodeLine{77             \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{79         \textcolor{keywordflow}{case} error:}
-\DoxyCodeLine{80             \textcolor{keywordflow}{return} 1;}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82         \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{83             printf(\textcolor{stringliteral}{"{}Ошибка: неопознанное значение количества корней"{}});}
-\DoxyCodeLine{84             \textcolor{keywordflow}{return} 1;}
-\DoxyCodeLine{85     \}}
-\DoxyCodeLine{86 \}}
+\DoxyCodeLine{76             printf(\textcolor{stringliteral}{"{}У данного уравнения существует два корня:\(\backslash\)n\(\backslash\)tx1 = \%.3f\(\backslash\)n\(\backslash\)tx2 = \%.3f"{}}, rts.x1,}
+\DoxyCodeLine{77                                                                                           rts.x2);}
+\DoxyCodeLine{78             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         \textcolor{keywordflow}{case} error:}
+\DoxyCodeLine{81             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{84             printf(\textcolor{stringliteral}{"{}Ошибка: неопознанное значение количества корней"{}});}
+\DoxyCodeLine{85             \textcolor{keywordflow}{return} 2;}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87 \}}
 
 \end{DoxyCode}
 
@@ -141,13 +143,13 @@ Referenced by main().
 
 Убирает неверные данные из потока ввода, чистит карму, приносит удачу 
 
-Definition at line 90 of file input\+\_\+output.\+cpp.
+Definition at line 91 of file input\+\_\+output.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{90                          \{}
-\DoxyCodeLine{91     \textcolor{keywordflow}{while} (getchar() != \textcolor{charliteral}{'\(\backslash\)n'});}
-\DoxyCodeLine{92 \}}
+\DoxyCodeLine{91                          \{}
+\DoxyCodeLine{92     \textcolor{keywordflow}{while} (getchar() != \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{93 \}}
 
 \end{DoxyCode}
 

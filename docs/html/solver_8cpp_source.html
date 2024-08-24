@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: solver.cpp Source File</title>
+<title>My Project: src/solver.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,75 +59,82 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">solver.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="solver_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;solver.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;equation_type.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;square_equation_struct.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;TXLib.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;solver.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;equation_type.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;square_equation_struct.h&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">   17</a></span>&#160;cmp <a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(<span class="keywordtype">double</span> n1) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> accuracy = 1e-6;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">if</span> (n1 &gt; accuracy)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> more_than_zero;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fabs(n1) &lt; accuracy)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> equal_zero;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">return</span> less_than_zero;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">   38</a></span>&#160;equation_type <a class="code" href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">square_solver</a>(sqr_eq* ptr_eq) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    assert(ptr_eq != NULL);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">   18</a></span>&#160;cmp <a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(<span class="keywordtype">double</span> n1) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> accuracy = 1e-6;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span> (n1 &gt; accuracy)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> more_than_zero;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fabs(n1) &lt; accuracy)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> equal_zero;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> less_than_zero;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">   39</a></span>&#160;equation_type <a class="code" href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">square_solver</a>(sqr_eq* ptr_eq) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    assert(ptr_eq != NULL);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(ptr_eq-&gt;cfs.first) == equal_zero) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(ptr_eq-&gt;cfs.second) == equal_zero) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> (<a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(ptr_eq-&gt;cfs.third) == equal_zero) ? infinity_root_eq : zero_root_eq;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        equation_type result = <a class="code" href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">linear_eq_solver</a>(ptr_eq);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        ptr_eq-&gt;rts.x2 = ptr_eq-&gt;rts.x1;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">double</span> disc = ptr_eq-&gt;cfs.second * ptr_eq-&gt;cfs.second - 4 * ptr_eq-&gt;cfs.first * ptr_eq-&gt;cfs.third;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">switch</span> (<a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(disc)) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">case</span> more_than_zero: {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordtype">double</span> sqrt_disc = sqrt(disc);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            ptr_eq-&gt;rts.x1 = (-ptr_eq-&gt;cfs.second + sqrt_disc)/(2 * ptr_eq-&gt;cfs.first);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            ptr_eq-&gt;rts.x2 = (-ptr_eq-&gt;cfs.second - sqrt_disc)/(2 * ptr_eq-&gt;cfs.first);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">return</span> two_root_eq;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">case</span> equal_zero:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            ptr_eq-&gt;rts.x1 = ptr_eq-&gt;rts.x2 = (-ptr_eq-&gt;cfs.second)/(2 * ptr_eq-&gt;cfs.first);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> one_root_eq;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">case</span> less_than_zero:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">return</span> zero_root_eq;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            printf(<span class="stringliteral">&quot;Ошибка: неверное значение сравнения с нулем&quot;</span>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> error;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">   73</a></span>&#160;equation_type <a class="code" href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">linear_eq_solver</a>(sqr_eq* ptr_eq) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    ptr_eq-&gt;rts.x1 = (-ptr_eq-&gt;cfs.third / ptr_eq-&gt;cfs.second);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> one_root_eq;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
-<div class="ttc" id="asolver_8cpp_html_aa62ebac4c04caf72819ce699f8954186"><div class="ttname"><a href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">square_solver</a></div><div class="ttdeci">equation_type square_solver(sqr_eq *ptr_eq)</div><div class="ttdoc">Решение квадратного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="solver_8cpp_source.html#l00038">solver.cpp:38</a></div></div>
-<div class="ttc" id="asolver_8cpp_html_ab28644d6d0d6ffbbfb5d65f69c83a40e"><div class="ttname"><a href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">linear_eq_solver</a></div><div class="ttdeci">equation_type linear_eq_solver(sqr_eq *ptr_eq)</div><div class="ttdoc">Частный случай для решения линейного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="solver_8cpp_source.html#l00073">solver.cpp:73</a></div></div>
-<div class="ttc" id="asolver_8cpp_html_af4122a1723e4f7a29a89523d080fb6db"><div class="ttname"><a href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a></div><div class="ttdeci">cmp dbl_zero_cmp(double n1)</div><div class="ttdoc">Сравнение числа типа double с нулем</div><div class="ttdef"><b>Definition:</b> <a href="solver_8cpp_source.html#l00017">solver.cpp:17</a></div></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(ptr_eq-&gt;cfs.first) == equal_zero) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(ptr_eq-&gt;cfs.second) == equal_zero) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">return</span> (<a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(ptr_eq-&gt;cfs.third) == equal_zero) ? infinity_root_eq : zero_root_eq;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        equation_type result = <a class="code" href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">linear_eq_solver</a>(ptr_eq);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ptr_eq-&gt;rts.x2 = ptr_eq-&gt;rts.x1;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">double</span> disc = ptr_eq-&gt;cfs.second * ptr_eq-&gt;cfs.second - 4 * ptr_eq-&gt;cfs.first * ptr_eq-&gt;cfs.third;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">switch</span> (<a class="code" href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a>(disc)) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">case</span> more_than_zero: {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordtype">double</span> sqrt_disc = sqrt(disc);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            ptr_eq-&gt;rts.x1 = (-ptr_eq-&gt;cfs.second + sqrt_disc)/(2 * ptr_eq-&gt;cfs.first);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            ptr_eq-&gt;rts.x2 = (-ptr_eq-&gt;cfs.second - sqrt_disc)/(2 * ptr_eq-&gt;cfs.first);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> two_root_eq;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">case</span> equal_zero:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            ptr_eq-&gt;rts.x1 = ptr_eq-&gt;rts.x2 = (-ptr_eq-&gt;cfs.second)/(2 * ptr_eq-&gt;cfs.first);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> one_root_eq;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">case</span> less_than_zero:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">return</span> zero_root_eq;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            printf(<span class="stringliteral">&quot;Ошибка: неверное значение сравнения с нулем&quot;</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">return</span> error;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">   74</a></span>&#160;equation_type <a class="code" href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">linear_eq_solver</a>(sqr_eq* ptr_eq) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    ptr_eq-&gt;rts.x1 = (-ptr_eq-&gt;cfs.third / ptr_eq-&gt;cfs.second);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> one_root_eq;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="ttc" id="asolver_8cpp_html_aa62ebac4c04caf72819ce699f8954186"><div class="ttname"><a href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">square_solver</a></div><div class="ttdeci">equation_type square_solver(sqr_eq *ptr_eq)</div><div class="ttdoc">Решение квадратного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="solver_8cpp_source.html#l00039">solver.cpp:39</a></div></div>
+<div class="ttc" id="asolver_8cpp_html_ab28644d6d0d6ffbbfb5d65f69c83a40e"><div class="ttname"><a href="solver_8cpp.html#ab28644d6d0d6ffbbfb5d65f69c83a40e">linear_eq_solver</a></div><div class="ttdeci">equation_type linear_eq_solver(sqr_eq *ptr_eq)</div><div class="ttdoc">Частный случай для решения линейного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="solver_8cpp_source.html#l00074">solver.cpp:74</a></div></div>
+<div class="ttc" id="asolver_8cpp_html_af4122a1723e4f7a29a89523d080fb6db"><div class="ttname"><a href="solver_8cpp.html#af4122a1723e4f7a29a89523d080fb6db">dbl_zero_cmp</a></div><div class="ttdeci">cmp dbl_zero_cmp(double n1)</div><div class="ttdoc">Сравнение числа типа double с нулем</div><div class="ttdef"><b>Definition:</b> <a href="solver_8cpp_source.html#l00018">solver.cpp:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

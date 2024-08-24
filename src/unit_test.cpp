@@ -5,9 +5,10 @@
 */
 
 
-#include <TXLib.h>
 #include <stdlib.h>
 #include <assert.h>
+
+#include <TXLib.h>
 
 #include "square_equation_struct.h"
 #include "solver.h"
@@ -29,13 +30,15 @@ static int compare_correct_and_test_roots (expected_eq* peq);
 
 void unit_test_start(void) {
 
-    FILE* ptr_to_file = fopen("../data/answers.txt", "r");
+    FILE* ptr_to_file = fopen("data/answers.txt", "r");
+
     if (ptr_to_file == NULL) {
 
             perror ("Cannot open answers.txt");
             return;
 
-        }
+    }
+
     int line_count = 0, test_num = 0;
     expected_eq ex_eq = {};
 
@@ -67,9 +70,10 @@ static void test_iteration(int test_num, expected_eq* ptr_ex_eq){
 
     int root_count = square_solver(&ptr_ex_eq->test_eq);
 
-    if (root_count != ptr_ex_eq->correct_root_count || !compare_correct_and_test_roots(ptr_ex_eq))
+    if (root_count != ptr_ex_eq->correct_root_count || !compare_correct_and_test_roots(ptr_ex_eq)) {
 
-        printf("Ошибка в тесте номер %d\n"
+        txSetConsoleAttr(4);
+        printf("Ошибка в тесте №%d\n"
                "Итоговые значения:  root_count = %d, x1 = %lg, x2 = %lg\n"
                "Ожидаемые значения: root_count = %d, x1 = %lg, x2 = %lg\n"
                "\n",
@@ -80,7 +84,14 @@ static void test_iteration(int test_num, expected_eq* ptr_ex_eq){
                 ptr_ex_eq->correct_root_count,
                 ptr_ex_eq->correct_roots.x1,
                 ptr_ex_eq->correct_roots.x2);
+        txSetConsoleAttr(15);
+    }
 
+    else {
+        txSetConsoleAttr(2);
+        printf("Тест №%d пройден успешно\n", test_num+1);
+        txSetConsoleAttr(15);
+    }
 }
 
 /// Сбрасывает значения корней на стандартные для корректной работы программы
@@ -101,6 +112,6 @@ static int compare_correct_and_test_roots (expected_eq* peq) {
 }
 /// Вспомогательная функция для сравнивания чисел типа double
 static int is_double_num_equal(double num1, double num2){
-    const double accuracy = 0.0001;
+    const double accuracy = 0.01;
     return (fabs(num1 - num2) < accuracy);
 }

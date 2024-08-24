@@ -3,10 +3,11 @@
     \brief ќбеспечивает решение квадратного уравнени€
 */
 
-
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
+
+#include <TXLib.h>
 
 #include "solver.h"
 #include "equation_type.h"

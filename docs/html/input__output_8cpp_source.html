@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: input_output.cpp Source File</title>
+<title>My Project: src/input_output.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,14 +59,21 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">input_output.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="input__output_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include&lt;TXlib.h&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;input_output.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;square_equation_struct.h&quot;</span></div>
@@ -108,24 +114,25 @@ $(function() {
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">case</span> two_root_eq:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            printf(<span class="stringliteral">&quot;У данного уравнения существует два корня:\n\tx1 = %.3f\n\tx2 = %.3f&quot;</span>, rts.x1, rts.x1);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">case</span> error:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            printf(<span class="stringliteral">&quot;Ошибка: неопознанное значение количества корней&quot;</span>);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="input__output_8cpp.html#a921c61b6994bb5727088b37bd9d0a4fe">   90</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="input__output_8cpp.html#a921c61b6994bb5727088b37bd9d0a4fe">skip_char_line</a>(<span class="keywordtype">void</span>){</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">while</span> (getchar() != <span class="charliteral">&#39;\n&#39;</span>);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            printf(<span class="stringliteral">&quot;У данного уравнения существует два корня:\n\tx1 = %.3f\n\tx2 = %.3f&quot;</span>, rts.x1,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                                                                          rts.x2);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">case</span> error:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            printf(<span class="stringliteral">&quot;Ошибка: неопознанное значение количества корней&quot;</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> 2;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="input__output_8cpp.html#a921c61b6994bb5727088b37bd9d0a4fe">   91</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="input__output_8cpp.html#a921c61b6994bb5727088b37bd9d0a4fe">skip_char_line</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">while</span> (getchar() != <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
 <div class="ttc" id="ainput__output_8cpp_html_a1b540bbb5f4e6071cda43304de1d199f"><div class="ttname"><a href="input__output_8cpp.html#a1b540bbb5f4e6071cda43304de1d199f">show_result</a></div><div class="ttdeci">int show_result(equation_type root_count, roots rts)</div><div class="ttdoc">Выводит результат работы квадратного уравнения в поток вывода</div><div class="ttdef"><b>Definition:</b> <a href="input__output_8cpp_source.html#l00059">input_output.cpp:59</a></div></div>
-<div class="ttc" id="ainput__output_8cpp_html_a921c61b6994bb5727088b37bd9d0a4fe"><div class="ttname"><a href="input__output_8cpp.html#a921c61b6994bb5727088b37bd9d0a4fe">skip_char_line</a></div><div class="ttdeci">static void skip_char_line(void)</div><div class="ttdef"><b>Definition:</b> <a href="input__output_8cpp_source.html#l00090">input_output.cpp:90</a></div></div>
+<div class="ttc" id="ainput__output_8cpp_html_a921c61b6994bb5727088b37bd9d0a4fe"><div class="ttname"><a href="input__output_8cpp.html#a921c61b6994bb5727088b37bd9d0a4fe">skip_char_line</a></div><div class="ttdeci">static void skip_char_line(void)</div><div class="ttdef"><b>Definition:</b> <a href="input__output_8cpp_source.html#l00091">input_output.cpp:91</a></div></div>
 <div class="ttc" id="ainput__output_8cpp_html_ac1ae2b9d665a1da1de3a67ae271aff89"><div class="ttname"><a href="input__output_8cpp.html#ac1ae2b9d665a1da1de3a67ae271aff89">data_input</a></div><div class="ttdeci">void data_input(sqr_eq *ptr_eq)</div><div class="ttdoc">Функция, обрабатывающая входные данные для квадратного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="input__output_8cpp_source.html#l00029">input_output.cpp:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
