@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['test_5feq_22',['test_eq',['../structexpected__eq.html#a7f76d73438937c34157f649c5817aebc',1,'expected_eq']]],
-  ['test_5fiteration_23',['test_iteration',['../unit__test_8cpp.html#ad8838576751520ee44f3180e0bc32fde',1,'unit_test.cpp']]]
+  ['one_5froot_5feq_35',['one_root_eq',['../equation__type_8h.html#a5777c5a4f39a43907af7d2342e7575dda1df436d7c21bacb3745f351c1a771a4f',1,'equation_type.h']]]
 ];

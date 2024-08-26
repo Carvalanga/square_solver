@@ -1,5 +1,10 @@
 \hypertarget{solver_8h}{}\doxysection{headers/solver.h File Reference}
 \label{solver_8h}\index{headers/solver.h@{headers/solver.h}}
+
+
+Заголовочный файл для решения квадратного уравнения  
+
+
 {\ttfamily \#include \char`\"{}input\+\_\+output.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}square\+\_\+equation\+\_\+struct.\+h\char`\"{}}\newline
 \doxysubsection*{Enumerations}
@@ -14,11 +19,16 @@ enum \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968}{cmp}} \{ \mbo
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equation\+\_\+type}} \mbox{\hyperlink{solver_8h_aa62ebac4c04caf72819ce699f8954186}{square\+\_\+solver}} (\mbox{\hyperlink{structsqr__eq}{sqr\+\_\+eq}} $\ast$ptr\+\_\+eq)
-\item 
+\begin{DoxyCompactList}\small\item\em Решение квадратного уравнения \end{DoxyCompactList}\item 
 \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968}{cmp}} \mbox{\hyperlink{solver_8h_a6220142d5614f89fc7caae8ca6e62e41}{dbl\+\_\+zero\+\_\+cmp}} (double number)
-\item 
+\begin{DoxyCompactList}\small\item\em Сравнение числа типа double с нулем \end{DoxyCompactList}\item 
 \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equation\+\_\+type}} \mbox{\hyperlink{solver_8h_ab28644d6d0d6ffbbfb5d65f69c83a40e}{linear\+\_\+eq\+\_\+solver}} (\mbox{\hyperlink{structsqr__eq}{sqr\+\_\+eq}} $\ast$ptr\+\_\+eq)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Частный случай для решения линейного уравнения \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Заголовочный файл для решения квадратного уравнения 
+
 
 
 \doxysubsection{Enumeration Type Documentation}
@@ -30,18 +40,31 @@ enum \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968}{cmp}} \{ \mbo
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{less\_than\_zero@{less\_than\_zero}!solver.h@{solver.h}}\index{solver.h@{solver.h}!less\_than\_zero@{less\_than\_zero}}}\mbox{\Hypertarget{solver_8h_aeb8954bfa9f218f668ce360e54866968a8baa1da620971057a79ba9547c555f93}\label{solver_8h_aeb8954bfa9f218f668ce360e54866968a8baa1da620971057a79ba9547c555f93}} 
-less\+\_\+than\+\_\+zero&\\
+less\+\_\+than\+\_\+zero&Перечисление типов сравнения числа с нулем Меньше нуля \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{equal\_zero@{equal\_zero}!solver.h@{solver.h}}\index{solver.h@{solver.h}!equal\_zero@{equal\_zero}}}\mbox{\Hypertarget{solver_8h_aeb8954bfa9f218f668ce360e54866968a5597fcc7c7c36dd2fb6ed8a455f18aa3}\label{solver_8h_aeb8954bfa9f218f668ce360e54866968a5597fcc7c7c36dd2fb6ed8a455f18aa3}} 
-equal\+\_\+zero&\\
+equal\+\_\+zero&Равно нулю \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{more\_than\_zero@{more\_than\_zero}!solver.h@{solver.h}}\index{solver.h@{solver.h}!more\_than\_zero@{more\_than\_zero}}}\mbox{\Hypertarget{solver_8h_aeb8954bfa9f218f668ce360e54866968a2b0bf7dd935006eba7bbaf1defc13133}\label{solver_8h_aeb8954bfa9f218f668ce360e54866968a2b0bf7dd935006eba7bbaf1defc13133}} 
-more\+\_\+than\+\_\+zero&\\
+more\+\_\+than\+\_\+zero&Больше нуля \\
 \hline
 
 \end{DoxyEnumFields}
+
+
+Definition at line 12 of file solver.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12          \{                  }
+\DoxyCodeLine{13     \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a8baa1da620971057a79ba9547c555f93}{less\_than\_zero}} = -\/1,    }
+\DoxyCodeLine{14     \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a5597fcc7c7c36dd2fb6ed8a455f18aa3}{equal\_zero}},             }
+\DoxyCodeLine{15     \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a2b0bf7dd935006eba7bbaf1defc13133}{more\_than\_zero}}          }
+\DoxyCodeLine{16 \};}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Function Documentation}
@@ -51,15 +74,134 @@ more\+\_\+than\+\_\+zero&\\
 \doxysubsubsection{\texorpdfstring{dbl\_zero\_cmp()}{dbl\_zero\_cmp()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968}{cmp}} dbl\+\_\+zero\+\_\+cmp (\begin{DoxyParamCaption}\item[{double}]{number }\end{DoxyParamCaption})}
 
+
+
+Сравнение числа типа double с нулем 
+
+
+
+Definition at line 18 of file solver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18                             \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{const} \textcolor{keywordtype}{double} accuracy = 1e-\/6;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordflow}{if} (n1 > accuracy)}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a2b0bf7dd935006eba7bbaf1defc13133}{more\_than\_zero}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fabs(n1) < accuracy)}
+\DoxyCodeLine{26         \textcolor{keywordflow}{return} \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a5597fcc7c7c36dd2fb6ed8a455f18aa3}{equal\_zero}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{29         \textcolor{keywordflow}{return} \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a8baa1da620971057a79ba9547c555f93}{less\_than\_zero}};}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+
+
+References equal\+\_\+zero, less\+\_\+than\+\_\+zero, and more\+\_\+than\+\_\+zero.
+
+
+
+Referenced by square\+\_\+solver().
+
 \mbox{\Hypertarget{solver_8h_ab28644d6d0d6ffbbfb5d65f69c83a40e}\label{solver_8h_ab28644d6d0d6ffbbfb5d65f69c83a40e}} 
 \index{solver.h@{solver.h}!linear\_eq\_solver@{linear\_eq\_solver}}
 \index{linear\_eq\_solver@{linear\_eq\_solver}!solver.h@{solver.h}}
 \doxysubsubsection{\texorpdfstring{linear\_eq\_solver()}{linear\_eq\_solver()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equation\+\_\+type}} linear\+\_\+eq\+\_\+solver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsqr__eq}{sqr\+\_\+eq}} $\ast$}]{ptr\+\_\+eq }\end{DoxyParamCaption})}
 
+
+
+Частный случай для решения линейного уравнения 
+
+
+
+Definition at line 77 of file solver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77                                                \{}
+\DoxyCodeLine{78     ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_a2fe272b8bf69cc8a1a2daaf09e8e8507}{rts}}.\mbox{\hyperlink{structroots_a5216c1a211a63d865bd09ad79e30cfb5}{x1}} = (-\/ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a0bfb66fa9a820efd0f901dd169e64cd5}{third}} / ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a41d9eee644c239e739fa713d7450313b}{second}});}
+\DoxyCodeLine{79     \textcolor{keywordflow}{return} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda1df436d7c21bacb3745f351c1a771a4f}{one\_root\_eq}};}
+\DoxyCodeLine{80 \}}
+
+\end{DoxyCode}
+
+
+References sqr\+\_\+eq\+::cfs, one\+\_\+root\+\_\+eq, sqr\+\_\+eq\+::rts, coeffs\+::second, coeffs\+::third, and roots\+::x1.
+
+
+
+Referenced by square\+\_\+solver().
+
 \mbox{\Hypertarget{solver_8h_aa62ebac4c04caf72819ce699f8954186}\label{solver_8h_aa62ebac4c04caf72819ce699f8954186}} 
 \index{solver.h@{solver.h}!square\_solver@{square\_solver}}
 \index{square\_solver@{square\_solver}!solver.h@{solver.h}}
 \doxysubsubsection{\texorpdfstring{square\_solver()}{square\_solver()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equation\+\_\+type}} square\+\_\+solver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsqr__eq}{sqr\+\_\+eq}} $\ast$}]{ptr\+\_\+eq }\end{DoxyParamCaption})}
+
+
+
+Решение квадратного уравнения 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ptr\+\_\+eq} & Указатель на структуру квадратного уравнения\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Тип квадратного уравнения
+\end{DoxyReturn}
+Функция решает квадратное уравнение исходя из заданных в структуре коэффициентов\+: корни уравнения записываются в структуру, а на выход поступает тип квадратного уравнения, который впоследствии обрабатывается функцией вывода 
+
+Definition at line 42 of file solver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42                                             \{}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     assert(ptr\_eq != NULL);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{if} (\mbox{\hyperlink{solver_8cpp_af4122a1723e4f7a29a89523d080fb6db}{dbl\_zero\_cmp}}(ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_aff3e51493d6bbb0499fa5da05d30239f}{first}}) == \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a5597fcc7c7c36dd2fb6ed8a455f18aa3}{equal\_zero}}) \{}
+\DoxyCodeLine{48         \textcolor{keywordflow}{if} (\mbox{\hyperlink{solver_8cpp_af4122a1723e4f7a29a89523d080fb6db}{dbl\_zero\_cmp}}(ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a41d9eee644c239e739fa713d7450313b}{second}}) == \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a5597fcc7c7c36dd2fb6ed8a455f18aa3}{equal\_zero}}) \{}
+\DoxyCodeLine{49             \textcolor{keywordflow}{return} (\mbox{\hyperlink{solver_8cpp_af4122a1723e4f7a29a89523d080fb6db}{dbl\_zero\_cmp}}(ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a0bfb66fa9a820efd0f901dd169e64cd5}{third}}) == \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a5597fcc7c7c36dd2fb6ed8a455f18aa3}{equal\_zero}}) ? \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddac212df85467d5937f1423573dae44e2a}{infinity\_root\_eq}} : \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda6887faa465abac4f1e5562ae7a83debf}{zero\_root\_eq}};}
+\DoxyCodeLine{50         \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equation\_type}} result = \mbox{\hyperlink{solver_8cpp_ab28644d6d0d6ffbbfb5d65f69c83a40e}{linear\_eq\_solver}}(ptr\_eq);}
+\DoxyCodeLine{53         ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_a2fe272b8bf69cc8a1a2daaf09e8e8507}{rts}}.\mbox{\hyperlink{structroots_a08ac9d770a5205eede6462a0002695ed}{x2}} = ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_a2fe272b8bf69cc8a1a2daaf09e8e8507}{rts}}.\mbox{\hyperlink{structroots_a5216c1a211a63d865bd09ad79e30cfb5}{x1}};}
+\DoxyCodeLine{54         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{55     \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{double} disc = ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a41d9eee644c239e739fa713d7450313b}{second}} * ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a41d9eee644c239e739fa713d7450313b}{second}} -\/ 4 * ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_aff3e51493d6bbb0499fa5da05d30239f}{first}} * ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a0bfb66fa9a820efd0f901dd169e64cd5}{third}};}
+\DoxyCodeLine{58     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{solver_8cpp_af4122a1723e4f7a29a89523d080fb6db}{dbl\_zero\_cmp}}(disc)) \{}
+\DoxyCodeLine{59         \textcolor{keywordflow}{case} \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a2b0bf7dd935006eba7bbaf1defc13133}{more\_than\_zero}}: \{}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61             \textcolor{keywordtype}{double} sqrt\_disc = sqrt(disc);}
+\DoxyCodeLine{62             ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_a2fe272b8bf69cc8a1a2daaf09e8e8507}{rts}}.\mbox{\hyperlink{structroots_a5216c1a211a63d865bd09ad79e30cfb5}{x1}} = (-\/ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a41d9eee644c239e739fa713d7450313b}{second}} + sqrt\_disc)/(2 * ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_aff3e51493d6bbb0499fa5da05d30239f}{first}});}
+\DoxyCodeLine{63             ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_a2fe272b8bf69cc8a1a2daaf09e8e8507}{rts}}.\mbox{\hyperlink{structroots_a08ac9d770a5205eede6462a0002695ed}{x2}} = (-\/ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a41d9eee644c239e739fa713d7450313b}{second}} -\/ sqrt\_disc)/(2 * ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_aff3e51493d6bbb0499fa5da05d30239f}{first}});}
+\DoxyCodeLine{64             \textcolor{keywordflow}{return} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda3d5d1420336256a646617248b870915a}{two\_root\_eq}};}
+\DoxyCodeLine{65         \}}
+\DoxyCodeLine{66         \textcolor{keywordflow}{case} \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a5597fcc7c7c36dd2fb6ed8a455f18aa3}{equal\_zero}}:}
+\DoxyCodeLine{67             ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_a2fe272b8bf69cc8a1a2daaf09e8e8507}{rts}}.\mbox{\hyperlink{structroots_a5216c1a211a63d865bd09ad79e30cfb5}{x1}} = ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_a2fe272b8bf69cc8a1a2daaf09e8e8507}{rts}}.\mbox{\hyperlink{structroots_a08ac9d770a5205eede6462a0002695ed}{x2}} = (-\/ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a41d9eee644c239e739fa713d7450313b}{second}})/(2 * ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_aff3e51493d6bbb0499fa5da05d30239f}{first}});}
+\DoxyCodeLine{68             \textcolor{keywordflow}{return} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda1df436d7c21bacb3745f351c1a771a4f}{one\_root\_eq}};}
+\DoxyCodeLine{69         \textcolor{keywordflow}{case} \mbox{\hyperlink{solver_8h_aeb8954bfa9f218f668ce360e54866968a8baa1da620971057a79ba9547c555f93}{less\_than\_zero}}:}
+\DoxyCodeLine{70             \textcolor{keywordflow}{return} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda6887faa465abac4f1e5562ae7a83debf}{zero\_root\_eq}};}
+\DoxyCodeLine{71         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{72             printf(\textcolor{stringliteral}{"{}Ошибка: неверное значение сравнения с нулем"{}});}
+\DoxyCodeLine{73             \textcolor{keywordflow}{return} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddad606e435413ea0944dd00d49e901e4ed}{error}};}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75 \}}
+
+\end{DoxyCode}
+
+
+References sqr\+\_\+eq\+::cfs, dbl\+\_\+zero\+\_\+cmp(), equal\+\_\+zero, error, coeffs\+::first, infinity\+\_\+root\+\_\+eq, less\+\_\+than\+\_\+zero, linear\+\_\+eq\+\_\+solver(), more\+\_\+than\+\_\+zero, one\+\_\+root\+\_\+eq, sqr\+\_\+eq\+::rts, coeffs\+::second, coeffs\+::third, two\+\_\+root\+\_\+eq, roots\+::x1, roots\+::x2, and zero\+\_\+root\+\_\+eq.
+
+
+
+Referenced by solve\+\_\+mode\+\_\+start(), and test\+\_\+iteration().
 

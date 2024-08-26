@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['expected_5feq_26',['expected_eq',['../structexpected__eq.html',1,'']]]
+  ['cmd_5farg_64',['Cmd_arg',['../struct_cmd__arg.html',1,'']]],
+  ['coeffs_65',['coeffs',['../structcoeffs.html',1,'']]]
 ];

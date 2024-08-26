@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['input_5foutput_2ecpp_11',['input_output.cpp',['../input__output_8cpp.html',1,'']]],
-  ['is_5fdouble_5fnum_5fequal_12',['is_double_num_equal',['../unit__test_8cpp.html#aeffbfb94b1fd8ab580de8c988b6f870b',1,'unit_test.cpp']]]
+  ['help_23',['HELP',['../command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824',1,'command_line_unit.h']]],
+  ['help_24',['help',['../command__line__unit_8h.html#a03418403841ff39e520854f4c830339f',1,'help(void):&#160;command_line_unit.cpp'],['../command__line__unit_8cpp.html#a03418403841ff39e520854f4c830339f',1,'help(void):&#160;command_line_unit.cpp']]]
 ];

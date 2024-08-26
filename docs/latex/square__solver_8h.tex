@@ -1,0 +1,66 @@
+\hypertarget{square__solver_8h}{}\doxysection{headers/square\+\_\+solver.h File Reference}
+\label{square__solver_8h}\index{headers/square\_solver.h@{headers/square\_solver.h}}
+
+
+Заголовочный файл для функции запуска решателя квадратного уравнения  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{square__solver_8h_ae094516be15decaf0d0e2aa6d28947a8}{solve\+\_\+mode\+\_\+start}} (void)
+\begin{DoxyCompactList}\small\item\em Обеспечивает работу ввода, вывода и решения квадратного уравнения \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Заголовочный файл для функции запуска решателя квадратного уравнения 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{square__solver_8h_ae094516be15decaf0d0e2aa6d28947a8}\label{square__solver_8h_ae094516be15decaf0d0e2aa6d28947a8}} 
+\index{square\_solver.h@{square\_solver.h}!solve\_mode\_start@{solve\_mode\_start}}
+\index{solve\_mode\_start@{solve\_mode\_start}!square\_solver.h@{square\_solver.h}}
+\doxysubsubsection{\texorpdfstring{solve\_mode\_start()}{solve\_mode\_start()}}
+{\footnotesize\ttfamily int solve\+\_\+mode\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Обеспечивает работу ввода, вывода и решения квадратного уравнения 
+
+\begin{DoxyReturn}{Returns}
+Возвращает 0, если программа выполняется без ошибок, иначе -\/ число, отличное от нуля 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file square\+\_\+solver.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20                        \{}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} output = 0;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     printf(\textcolor{stringliteral}{"{}\# Программа решения квадратных уравнений\(\backslash\)n"{}}}
+\DoxyCodeLine{25            \textcolor{stringliteral}{"{}\# Введите через пробел коэффициенты квадратного уравнения:\(\backslash\)n"{}});}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{structsqr__eq}{sqr\_eq}} eq = \{\};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \mbox{\hyperlink{input__output_8h_ab1658292bcbed8472abff7cc1f34baa0}{data\_input}}(\&eq);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equation\_type}} root\_count = \mbox{\hyperlink{solver_8h_aa62ebac4c04caf72819ce699f8954186}{square\_solver}}(\&eq);}
+\DoxyCodeLine{32     output = \mbox{\hyperlink{input__output_8h_a1b540bbb5f4e6071cda43304de1d199f}{show\_result}}(root\_count, eq.\mbox{\hyperlink{structsqr__eq_a2fe272b8bf69cc8a1a2daaf09e8e8507}{rts}});}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}
+
+
+References data\+\_\+input(), sqr\+\_\+eq\+::rts, show\+\_\+result(), and square\+\_\+solver().
+
+
+
+Referenced by start\+\_\+program().
+

@@ -14,8 +14,10 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+int \mbox{\hyperlink{square__solver__main__program_8cpp_a96ca0d712938bd707142d6ab93c96aee}{start\+\_\+program}} (\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} md)
+\begin{DoxyCompactList}\small\item\em Запускает программу в выбранном режиме \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{square__solver__main__program_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
-\begin{DoxyCompactList}\small\item\em Обесчивает работу всей программы \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -32,45 +34,76 @@ int \mbox{\hyperlink{square__solver__main__program_8cpp_a0ddf1224851353fc92bfbff
 
 
 
-Обесчивает работу всей программы 
-
-
-
-Definition at line 19 of file square\+\_\+solver\+\_\+main\+\_\+program.\+cpp.
+Definition at line 17 of file square\+\_\+solver\+\_\+main\+\_\+program.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{19                                  \{}
+\DoxyCodeLine{17                                  \{}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} main\_mode = \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}};}
 \DoxyCodeLine{20 }
-\DoxyCodeLine{21     MODES mode = SOLVE;}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23     \textcolor{keywordflow}{if} (argc > 1)}
-\DoxyCodeLine{24         mode = \mbox{\hyperlink{command__line__unit_8cpp_ad451a20e6dcce12d852ce550765f22a7}{change\_mode}}(argc, argv);}
+\DoxyCodeLine{21     \textcolor{keywordflow}{if} (argc > 1) \{}
+\DoxyCodeLine{22         \mbox{\hyperlink{command__line__unit_8h_ad41562248e9a0c3646f8b832a5eeab41}{check\_args}}(argc, argv, \&main\_mode);}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24     \textcolor{keywordflow}{return} \mbox{\hyperlink{square__solver__main__program_8cpp_a96ca0d712938bd707142d6ab93c96aee}{start\_program}}(main\_mode);}
 \DoxyCodeLine{25 }
-\DoxyCodeLine{26     \textcolor{keywordflow}{switch} (mode) \{}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28         \textcolor{keywordflow}{case} SOLVE:}
-\DoxyCodeLine{29             \textcolor{keywordflow}{return} \mbox{\hyperlink{square__solver_8cpp_ae094516be15decaf0d0e2aa6d28947a8}{solve\_mode\_start}}();}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31         \textcolor{keywordflow}{case} TEST:}
-\DoxyCodeLine{32             \mbox{\hyperlink{unit__test_8cpp_ace1c481b39dab262c935d9a6e9855203}{unit\_test\_start}}();}
-\DoxyCodeLine{33             \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35         \textcolor{keywordflow}{case} HELP:}
-\DoxyCodeLine{36             \mbox{\hyperlink{command__line__unit_8cpp_a0bed8474bd33a912769360766f6b10d4}{help}}();}
-\DoxyCodeLine{37             \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39         \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{40             txSetConsoleAttr(2);}
-\DoxyCodeLine{41             printf(\textcolor{stringliteral}{"{}Ошибка: неизвестый режим работы программы\(\backslash\)n"{}});}
-\DoxyCodeLine{42             txSetConsoleAttr(15);}
-\DoxyCodeLine{43             \textcolor{keywordflow}{return} -\/1;}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45     \}}
-\DoxyCodeLine{46 \}}
+\DoxyCodeLine{26 \}}
 
 \end{DoxyCode}
 
 
-References change\+\_\+mode(), help(), solve\+\_\+mode\+\_\+start(), and unit\+\_\+test\+\_\+start().
+References check\+\_\+args(), SOLVE, and start\+\_\+program().
+
+\mbox{\Hypertarget{square__solver__main__program_8cpp_a96ca0d712938bd707142d6ab93c96aee}\label{square__solver__main__program_8cpp_a96ca0d712938bd707142d6ab93c96aee}} 
+\index{square\_solver\_main\_program.cpp@{square\_solver\_main\_program.cpp}!start\_program@{start\_program}}
+\index{start\_program@{start\_program}!square\_solver\_main\_program.cpp@{square\_solver\_main\_program.cpp}}
+\doxysubsubsection{\texorpdfstring{start\_program()}{start\_program()}}
+{\footnotesize\ttfamily int start\+\_\+program (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}}}]{md }\end{DoxyParamCaption})}
+
+
+
+Запускает программу в выбранном режиме 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em md} & Тип запускаемого режима \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Возвращает 0 при успешном завершении программы, иначе -\/ ненулевое значение 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file square\+\_\+solver\+\_\+main\+\_\+program.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                             \{}
+\DoxyCodeLine{34     \textcolor{keywordflow}{switch} (md) \{}
+\DoxyCodeLine{35         \textcolor{keywordflow}{case} \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}}:}
+\DoxyCodeLine{36             \textcolor{keywordflow}{return} \mbox{\hyperlink{square__solver_8h_ae094516be15decaf0d0e2aa6d28947a8}{solve\_mode\_start}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38         \textcolor{keywordflow}{case} \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}{TEST}}:}
+\DoxyCodeLine{39             \mbox{\hyperlink{unit__test_8h_a67ae2ccbca4a5ca969e66044cbd7e314}{unit\_test\_start}}();}
+\DoxyCodeLine{40             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         \textcolor{keywordflow}{case} \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}}:}
+\DoxyCodeLine{43             \textcolor{keywordflow}{return} \mbox{\hyperlink{command__line__unit_8h_a03418403841ff39e520854f4c830339f}{help}}();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{46             txSetConsoleAttr(2);}
+\DoxyCodeLine{47             printf(\textcolor{stringliteral}{"{}Ошибка: неизвестый режим работы программы\(\backslash\)n"{}});}
+\DoxyCodeLine{48             txSetConsoleAttr(15);}
+\DoxyCodeLine{49             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 \}}
+
+\end{DoxyCode}
+
+
+References HELP, help(), SOLVE, solve\+\_\+mode\+\_\+start(), TEST, and unit\+\_\+test\+\_\+start().
+
+
+
+Referenced by main().
 

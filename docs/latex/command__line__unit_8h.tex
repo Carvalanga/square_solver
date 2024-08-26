@@ -1,0 +1,217 @@
+\hypertarget{command__line__unit_8h}{}\doxysection{headers/command\+\_\+line\+\_\+unit.h File Reference}
+\label{command__line__unit_8h}\index{headers/command\_line\_unit.h@{headers/command\_line\_unit.h}}
+
+
+Обеспечивает ввод аргументов командной строки  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_cmd__arg}{Cmd\+\_\+arg}}
+\begin{DoxyCompactList}\small\item\em \textbackslash{}breif Структура для работы с заданными аргументами командной строки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} \{ \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}}
+, \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}{TEST}}
+, \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}}
+ \}
+\begin{DoxyCompactList}\small\item\em \textbackslash{}breif Перечисление режимов работы программы \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{command__line__unit_8h_ad41562248e9a0c3646f8b832a5eeab41}{check\+\_\+args}} (int argc\+\_\+cp, char $\ast$$\ast$argv\+\_\+cp, \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} $\ast$mode)
+\begin{DoxyCompactList}\small\item\em Просматривает аргументы командной строки для дальнейшей работы с каждым из них \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{command__line__unit_8h_ad6f16ea6dc57cd049b549b9cc27a13a0}{change\+\_\+mode}} (\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} $\ast$mode, \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} cur\+\_\+md)
+\begin{DoxyCompactList}\small\item\em Меняет режим работы программы \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{command__line__unit_8h_a03418403841ff39e520854f4c830339f}{help}} (void)
+\begin{DoxyCompactList}\small\item\em Выводит информацию о каждом допустимом аргументе командной строки \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Обеспечивает ввод аргументов командной строки 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}\label{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}} 
+\index{command\_line\_unit.h@{command\_line\_unit.h}!MODES@{MODES}}
+\index{MODES@{MODES}!command\_line\_unit.h@{command\_line\_unit.h}}
+\doxysubsubsection{\texorpdfstring{MODES}{MODES}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}}}
+
+
+
+\textbackslash{}breif Перечисление режимов работы программы 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SOLVE@{SOLVE}!command\_line\_unit.h@{command\_line\_unit.h}}\index{command\_line\_unit.h@{command\_line\_unit.h}!SOLVE@{SOLVE}}}\mbox{\Hypertarget{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}\label{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}} 
+SOLVE&Режим решения квадратного уравнения с вводом коэффициентов из консоли \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEST@{TEST}!command\_line\_unit.h@{command\_line\_unit.h}}\index{command\_line\_unit.h@{command\_line\_unit.h}!TEST@{TEST}}}\mbox{\Hypertarget{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}\label{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}} 
+TEST&Режим тестирования работы квадратного уравнения \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HELP@{HELP}!command\_line\_unit.h@{command\_line\_unit.h}}\index{command\_line\_unit.h@{command\_line\_unit.h}!HELP@{HELP}}}\mbox{\Hypertarget{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}\label{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}} 
+HELP&Вывод подсказок для запуска режимов работы \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 10 of file command\+\_\+line\+\_\+unit.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10            \{}
+\DoxyCodeLine{11     \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}},                          }
+\DoxyCodeLine{12     \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}{TEST}},                           }
+\DoxyCodeLine{13     \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}}                            }
+\DoxyCodeLine{14 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{command__line__unit_8h_ad6f16ea6dc57cd049b549b9cc27a13a0}\label{command__line__unit_8h_ad6f16ea6dc57cd049b549b9cc27a13a0}} 
+\index{command\_line\_unit.h@{command\_line\_unit.h}!change\_mode@{change\_mode}}
+\index{change\_mode@{change\_mode}!command\_line\_unit.h@{command\_line\_unit.h}}
+\doxysubsubsection{\texorpdfstring{change\_mode()}{change\_mode()}}
+{\footnotesize\ttfamily void change\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} $\ast$}]{mode,  }\item[{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}}}]{md }\end{DoxyParamCaption})}
+
+
+
+Меняет режим работы программы 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em mode} & Режим работы программы, который будет изменен \\
+\hline
+\mbox{\texttt{ in}}  & {\em cur\+\_\+md} & Режим работы программы, который будет активирован \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 60 of file command\+\_\+line\+\_\+unit.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60                                         \{}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{switch} (md) \{}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64         \textcolor{keywordflow}{case} \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}}:}
+\DoxyCodeLine{65             *mode = \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}};}
+\DoxyCodeLine{66             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68         \textcolor{keywordflow}{case} \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}{TEST}}:}
+\DoxyCodeLine{69             *mode = \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}{TEST}};}
+\DoxyCodeLine{70             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         \textcolor{keywordflow}{case} \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}}:}
+\DoxyCodeLine{73             *mode = \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}};}
+\DoxyCodeLine{74             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{77             printf(\textcolor{stringliteral}{"{}Ошибка: неопознанный режим работы"{}});}
+\DoxyCodeLine{78             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81 \}}
+
+\end{DoxyCode}
+
+
+References HELP, SOLVE, and TEST.
+
+
+
+Referenced by check\+\_\+args().
+
+\mbox{\Hypertarget{command__line__unit_8h_ad41562248e9a0c3646f8b832a5eeab41}\label{command__line__unit_8h_ad41562248e9a0c3646f8b832a5eeab41}} 
+\index{command\_line\_unit.h@{command\_line\_unit.h}!check\_args@{check\_args}}
+\index{check\_args@{check\_args}!command\_line\_unit.h@{command\_line\_unit.h}}
+\doxysubsubsection{\texorpdfstring{check\_args()}{check\_args()}}
+{\footnotesize\ttfamily void check\+\_\+args (\begin{DoxyParamCaption}\item[{int}]{argc\+\_\+cp,  }\item[{char $\ast$$\ast$}]{argv\+\_\+cp,  }\item[{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} $\ast$}]{mode }\end{DoxyParamCaption})}
+
+
+
+Просматривает аргументы командной строки для дальнейшей работы с каждым из них 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em argc\+\_\+cp} & Копия количества аргументов командной строки \\
+\hline
+\mbox{\texttt{ in}}  & {\em argv\+\_\+cp} & Копия аргументов командной строки \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em mode} & Режим работы, который может быть изменен благодаря аргументам командной строки \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file command\+\_\+line\+\_\+unit.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                                                           \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iter = 0; iter < argc\_cp; iter++) \{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} arg\_num = 0; arg\_num < \textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}})/\textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[0]); arg\_num++) \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33             \textcolor{keywordflow}{if} (}
+\DoxyCodeLine{34                 strcmp(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[arg\_num].short\_name, argv\_cp[iter]) == 0 ||}
+\DoxyCodeLine{35                 strcmp(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[arg\_num].full\_name,  argv\_cp[iter]) == 0) \{}
+\DoxyCodeLine{36                     \mbox{\hyperlink{command__line__unit_8cpp_ab78508054d1002dfbf312239907682f3}{change\_mode}}(mode, \mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[arg\_num].mode);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38             \}}
+\DoxyCodeLine{39         \}}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+
+
+References arg\+\_\+array, and change\+\_\+mode().
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{command__line__unit_8h_a03418403841ff39e520854f4c830339f}\label{command__line__unit_8h_a03418403841ff39e520854f4c830339f}} 
+\index{command\_line\_unit.h@{command\_line\_unit.h}!help@{help}}
+\index{help@{help}!command\_line\_unit.h@{command\_line\_unit.h}}
+\doxysubsubsection{\texorpdfstring{help()}{help()}}
+{\footnotesize\ttfamily int help (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Выводит информацию о каждом допустимом аргументе командной строки 
+
+\begin{DoxyReturn}{Returns}
+Возвращает 0 -\/ успешное завершение программы 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file command\+\_\+line\+\_\+unit.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} iter = 0; iter < \textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}})/\textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[0]); iter++) \{}
+\DoxyCodeLine{49         printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, \mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[iter].discription);}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+
+
+References arg\+\_\+array.
+
+
+
+Referenced by start\+\_\+program().
+

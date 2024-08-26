@@ -15,9 +15,9 @@
 \item 
 static void \mbox{\hyperlink{input__output_8cpp_a921c61b6994bb5727088b37bd9d0a4fe}{skip\+\_\+char\+\_\+line}} (void)
 \item 
-void \mbox{\hyperlink{input__output_8cpp_ac1ae2b9d665a1da1de3a67ae271aff89}{data\+\_\+input}} (sqr\+\_\+eq $\ast$ptr\+\_\+eq)
+void \mbox{\hyperlink{input__output_8cpp_ac1ae2b9d665a1da1de3a67ae271aff89}{data\+\_\+input}} (\mbox{\hyperlink{structsqr__eq}{sqr\+\_\+eq}} $\ast$ptr\+\_\+eq)
 \begin{DoxyCompactList}\small\item\em Функция, обрабатывающая входные данные для квадратного уравнения \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}{show\+\_\+result}} (equation\+\_\+type root\+\_\+count, roots rts)
+int \mbox{\hyperlink{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}{show\+\_\+result}} (\mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equation\+\_\+type}} root\+\_\+count, \mbox{\hyperlink{structroots}{roots}} rts)
 \begin{DoxyCompactList}\small\item\em Выводит результат работы квадратного уравнения в поток вывода \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -31,7 +31,7 @@ int \mbox{\hyperlink{input__output_8cpp_a1b540bbb5f4e6071cda43304de1d199f}{show\
 \index{input\_output.cpp@{input\_output.cpp}!data\_input@{data\_input}}
 \index{data\_input@{data\_input}!input\_output.cpp@{input\_output.cpp}}
 \doxysubsubsection{\texorpdfstring{data\_input()}{data\_input()}}
-{\footnotesize\ttfamily void data\+\_\+input (\begin{DoxyParamCaption}\item[{sqr\+\_\+eq $\ast$}]{ptr\+\_\+eq }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void data\+\_\+input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsqr__eq}{sqr\+\_\+eq}} $\ast$}]{ptr\+\_\+eq }\end{DoxyParamCaption})}
 
 
 
@@ -54,21 +54,24 @@ Definition at line 29 of file input\+\_\+output.\+cpp.
 \DoxyCodeLine{32 }
 \DoxyCodeLine{33     \textcolor{keyword}{const} \textcolor{keywordtype}{int} correct\_var\_count = 3;}
 \DoxyCodeLine{34     \textcolor{keywordtype}{int} var\_count = 0;}
-\DoxyCodeLine{35     \textcolor{keywordflow}{while} (var\_count != correct\_var\_count)\{}
-\DoxyCodeLine{36         var\_count = scanf(\textcolor{stringliteral}{"{}\%lf \%lf \%lf"{}}, \&ptr\_eq-\/>cfs.first,}
-\DoxyCodeLine{37                                          \&ptr\_eq-\/>cfs.second,}
-\DoxyCodeLine{38                                          \&ptr\_eq-\/>cfs.third);}
-\DoxyCodeLine{39         \textcolor{keywordflow}{if} (var\_count != correct\_var\_count) \{}
-\DoxyCodeLine{40             printf(\textcolor{stringliteral}{"{}Ошибка: неправильный ввод данных, повторите попытку:\(\backslash\)n"{}});}
-\DoxyCodeLine{41             \mbox{\hyperlink{input__output_8cpp_a921c61b6994bb5727088b37bd9d0a4fe}{skip\_char\_line}}();}
-\DoxyCodeLine{42         \}}
-\DoxyCodeLine{43     \}}
-\DoxyCodeLine{44 \}}
+\DoxyCodeLine{35     \textcolor{keywordflow}{while} (var\_count != correct\_var\_count) \{}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         var\_count = scanf(\textcolor{stringliteral}{"{}\%lf \%lf \%lf"{}}, \&ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_aff3e51493d6bbb0499fa5da05d30239f}{first}},}
+\DoxyCodeLine{38                                          \&ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a41d9eee644c239e739fa713d7450313b}{second}},}
+\DoxyCodeLine{39                                          \&ptr\_eq-\/>\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a0bfb66fa9a820efd0f901dd169e64cd5}{third}});}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         \textcolor{keywordflow}{if} (var\_count != correct\_var\_count) \{}
+\DoxyCodeLine{44             printf(\textcolor{stringliteral}{"{}Ошибка: неправильный ввод данных, повторите попытку:\(\backslash\)n"{}});}
+\DoxyCodeLine{45             \mbox{\hyperlink{input__output_8cpp_a921c61b6994bb5727088b37bd9d0a4fe}{skip\_char\_line}}();}
+\DoxyCodeLine{46         \}}
+\DoxyCodeLine{47 \}}
 
 \end{DoxyCode}
 
 
-References skip\+\_\+char\+\_\+line().
+References sqr\+\_\+eq\+::cfs, coeffs\+::first, coeffs\+::second, skip\+\_\+char\+\_\+line(), and coeffs\+::third.
 
 
 
@@ -78,7 +81,7 @@ Referenced by solve\+\_\+mode\+\_\+start().
 \index{input\_output.cpp@{input\_output.cpp}!show\_result@{show\_result}}
 \index{show\_result@{show\_result}!input\_output.cpp@{input\_output.cpp}}
 \doxysubsubsection{\texorpdfstring{show\_result()}{show\_result()}}
-{\footnotesize\ttfamily int show\+\_\+result (\begin{DoxyParamCaption}\item[{equation\+\_\+type}]{root\+\_\+count,  }\item[{roots}]{rts }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int show\+\_\+result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equation\+\_\+type}}}]{root\+\_\+count,  }\item[{\mbox{\hyperlink{structroots}{roots}}}]{rts }\end{DoxyParamCaption})}
 
 
 
@@ -96,41 +99,45 @@ Referenced by solve\+\_\+mode\+\_\+start().
 \end{DoxyReturn}
 
 
-Definition at line 59 of file input\+\_\+output.\+cpp.
+Definition at line 63 of file input\+\_\+output.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{59                                                      \{}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61     \textcolor{keywordflow}{switch} (root\_count) \{}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63         \textcolor{keywordflow}{case} zero\_root\_eq:}
-\DoxyCodeLine{64             printf(\textcolor{stringliteral}{"{}У данного уравнения нет решений\(\backslash\)n"{}});}
-\DoxyCodeLine{65             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{63                                                      \{}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordflow}{switch} (root\_count) \{}
 \DoxyCodeLine{66 }
-\DoxyCodeLine{67         \textcolor{keywordflow}{case} infinity\_root\_eq:}
-\DoxyCodeLine{68             printf(\textcolor{stringliteral}{"{}У данного уравнения существует бесконечно много решений\(\backslash\)n"{}});}
+\DoxyCodeLine{67         \textcolor{keywordflow}{case} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda6887faa465abac4f1e5562ae7a83debf}{zero\_root\_eq}}:}
+\DoxyCodeLine{68             printf(\textcolor{stringliteral}{"{}У данного уравнения нет решений\(\backslash\)n"{}});}
 \DoxyCodeLine{69             \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{70 }
-\DoxyCodeLine{71         \textcolor{keywordflow}{case} one\_root\_eq:}
-\DoxyCodeLine{72             printf(\textcolor{stringliteral}{"{}У данного уравнения существует один корень:\(\backslash\)n\(\backslash\)tx = \%.3f\(\backslash\)n"{}}, rts.x1);}
+\DoxyCodeLine{71         \textcolor{keywordflow}{case} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddac212df85467d5937f1423573dae44e2a}{infinity\_root\_eq}}:}
+\DoxyCodeLine{72             printf(\textcolor{stringliteral}{"{}У данного уравнения существует бесконечно много решений\(\backslash\)n"{}});}
 \DoxyCodeLine{73             \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{74 }
-\DoxyCodeLine{75         \textcolor{keywordflow}{case} two\_root\_eq:}
-\DoxyCodeLine{76             printf(\textcolor{stringliteral}{"{}У данного уравнения существует два корня:\(\backslash\)n\(\backslash\)tx1 = \%.3f\(\backslash\)n\(\backslash\)tx2 = \%.3f\(\backslash\)n"{}}, rts.x1,}
-\DoxyCodeLine{77                                                                                           rts.x2);}
-\DoxyCodeLine{78             \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80         \textcolor{keywordflow}{case} error:}
-\DoxyCodeLine{81             \textcolor{keywordflow}{return} 1;}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{83         \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{84             printf(\textcolor{stringliteral}{"{}Ошибка: неопознанное значение количества корней\(\backslash\)n"{}});}
-\DoxyCodeLine{85             \textcolor{keywordflow}{return} 2;}
-\DoxyCodeLine{86     \}}
-\DoxyCodeLine{87 \}}
+\DoxyCodeLine{75         \textcolor{keywordflow}{case} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda1df436d7c21bacb3745f351c1a771a4f}{one\_root\_eq}}:}
+\DoxyCodeLine{76             printf(\textcolor{stringliteral}{"{}У данного уравнения существует один корень:\(\backslash\)n\(\backslash\)tx = \%.3f\(\backslash\)n"{}}, rts.\mbox{\hyperlink{structroots_a5216c1a211a63d865bd09ad79e30cfb5}{x1}});}
+\DoxyCodeLine{77             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         \textcolor{keywordflow}{case} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda3d5d1420336256a646617248b870915a}{two\_root\_eq}}:}
+\DoxyCodeLine{80             printf(\textcolor{stringliteral}{"{}У данного уравнения существует два корня:\(\backslash\)n\(\backslash\)tx1 = \%.3f\(\backslash\)n\(\backslash\)tx2 = \%.3f\(\backslash\)n"{}}, rts.\mbox{\hyperlink{structroots_a5216c1a211a63d865bd09ad79e30cfb5}{x1}},}
+\DoxyCodeLine{81                                                                                           rts.\mbox{\hyperlink{structroots_a08ac9d770a5205eede6462a0002695ed}{x2}});}
+\DoxyCodeLine{82             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         \textcolor{keywordflow}{case} \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddad606e435413ea0944dd00d49e901e4ed}{error}}:}
+\DoxyCodeLine{85             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{88             printf(\textcolor{stringliteral}{"{}Ошибка: неопознанное значение количества корней\(\backslash\)n"{}});}
+\DoxyCodeLine{89             \textcolor{keywordflow}{return} 2;}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 \}}
 
 \end{DoxyCode}
+
+
+References error, infinity\+\_\+root\+\_\+eq, one\+\_\+root\+\_\+eq, two\+\_\+root\+\_\+eq, roots\+::x1, roots\+::x2, and zero\+\_\+root\+\_\+eq.
+
 
 
 Referenced by solve\+\_\+mode\+\_\+start().
@@ -143,13 +150,13 @@ Referenced by solve\+\_\+mode\+\_\+start().
 
 Убирает неверные данные из потока ввода, чистит карму, приносит удачу 
 
-Definition at line 91 of file input\+\_\+output.\+cpp.
+Definition at line 95 of file input\+\_\+output.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{91                          \{}
-\DoxyCodeLine{92     \textcolor{keywordflow}{while} (getchar() != \textcolor{charliteral}{'\(\backslash\)n'});}
-\DoxyCodeLine{93 \}}
+\DoxyCodeLine{95                          \{}
+\DoxyCodeLine{96     \textcolor{keywordflow}{while} (getchar() != \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{97 \}}
 
 \end{DoxyCode}
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zero_5froot_5feq_79',['zero_root_eq',['../equation__type_8h.html#a5777c5a4f39a43907af7d2342e7575dda6887faa465abac4f1e5562ae7a83debf',1,'equation_type.h']]]
+  ['solve_124',['SOLVE',['../command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579',1,'command_line_unit.h']]]
 ];

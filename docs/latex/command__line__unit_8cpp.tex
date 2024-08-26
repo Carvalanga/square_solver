@@ -1,82 +1,166 @@
 \hypertarget{command__line__unit_8cpp}{}\doxysection{src/command\+\_\+line\+\_\+unit.cpp File Reference}
 \label{command__line__unit_8cpp}\index{src/command\_line\_unit.cpp@{src/command\_line\_unit.cpp}}
+
+
+Обеспечивает работу ввода аргументов командной строки  
+
+
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}command\+\_\+line\+\_\+unit.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-MODES \mbox{\hyperlink{command__line__unit_8cpp_ad451a20e6dcce12d852ce550765f22a7}{change\+\_\+mode}} (int argc\+\_\+cp, char $\ast$$\ast$argv\+\_\+cp)
-\item 
-void \mbox{\hyperlink{command__line__unit_8cpp_a0bed8474bd33a912769360766f6b10d4}{help}} (void)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{command__line__unit_8cpp_ad41562248e9a0c3646f8b832a5eeab41}{check\+\_\+args}} (int argc\+\_\+cp, char $\ast$$\ast$argv\+\_\+cp, \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} $\ast$mode)
+\begin{DoxyCompactList}\small\item\em Просматривает аргументы командной строки для дальнейшей работы с каждым из них \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{command__line__unit_8cpp_a03418403841ff39e520854f4c830339f}{help}} (void)
+\begin{DoxyCompactList}\small\item\em Выводит информацию о каждом допустимом аргументе командной строки \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{command__line__unit_8cpp_ab78508054d1002dfbf312239907682f3}{change\+\_\+mode}} (\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} $\ast$mode, \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} md)
+\begin{DoxyCompactList}\small\item\em Меняет режим работы программы \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-static Cmd\+\_\+arg \mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\+\_\+array}} \mbox{[}$\,$\mbox{]}
+static \mbox{\hyperlink{struct_cmd__arg}{Cmd\+\_\+arg}} \mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\+\_\+array}} \mbox{[}$\,$\mbox{]}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Обеспечивает работу ввода аргументов командной строки 
+
+
+
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{command__line__unit_8cpp_ad451a20e6dcce12d852ce550765f22a7}\label{command__line__unit_8cpp_ad451a20e6dcce12d852ce550765f22a7}} 
+\mbox{\Hypertarget{command__line__unit_8cpp_ab78508054d1002dfbf312239907682f3}\label{command__line__unit_8cpp_ab78508054d1002dfbf312239907682f3}} 
 \index{command\_line\_unit.cpp@{command\_line\_unit.cpp}!change\_mode@{change\_mode}}
 \index{change\_mode@{change\_mode}!command\_line\_unit.cpp@{command\_line\_unit.cpp}}
 \doxysubsubsection{\texorpdfstring{change\_mode()}{change\_mode()}}
-{\footnotesize\ttfamily MODES change\+\_\+mode (\begin{DoxyParamCaption}\item[{int}]{argc\+\_\+cp,  }\item[{char $\ast$$\ast$}]{argv\+\_\+cp }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void change\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} $\ast$}]{mode,  }\item[{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}}}]{md }\end{DoxyParamCaption})}
 
 
 
-Definition at line 15 of file command\+\_\+line\+\_\+unit.\+cpp.
+Меняет режим работы программы 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em mode} & Режим работы программы, который будет изменен \\
+\hline
+\mbox{\texttt{ in}}  & {\em cur\+\_\+md} & Режим работы программы, который будет активирован \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 60 of file command\+\_\+line\+\_\+unit.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{15                                                \{}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iter = 0; iter < argc\_cp; iter++) \{}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} arg\_num = 0; arg\_num < \textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}})/\textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[0]); arg\_num++) \{}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21             \textcolor{keywordflow}{if} (}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23                 strcmp(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[arg\_num].short\_name, argv\_cp[iter]) == 0 ||}
-\DoxyCodeLine{24                 strcmp(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[arg\_num].full\_name,  argv\_cp[iter]) == 0) \{}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26                     \textcolor{keywordflow}{return} \mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[arg\_num].num\_mode;}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28             \}}
-\DoxyCodeLine{29         \}}
-\DoxyCodeLine{30     \}}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32     \textcolor{keywordflow}{return} SOLVE;}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34 \}}
+\DoxyCodeLine{60                                         \{}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{switch} (md) \{}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64         \textcolor{keywordflow}{case} \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}}:}
+\DoxyCodeLine{65             *mode = \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}};}
+\DoxyCodeLine{66             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68         \textcolor{keywordflow}{case} \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}{TEST}}:}
+\DoxyCodeLine{69             *mode = \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}{TEST}};}
+\DoxyCodeLine{70             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         \textcolor{keywordflow}{case} \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}}:}
+\DoxyCodeLine{73             *mode = \mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}};}
+\DoxyCodeLine{74             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{77             printf(\textcolor{stringliteral}{"{}Ошибка: неопознанный режим работы"{}});}
+\DoxyCodeLine{78             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81 \}}
 
 \end{DoxyCode}
 
 
-References arg\+\_\+array.
+References HELP, SOLVE, and TEST.
+
+
+
+Referenced by check\+\_\+args().
+
+\mbox{\Hypertarget{command__line__unit_8cpp_ad41562248e9a0c3646f8b832a5eeab41}\label{command__line__unit_8cpp_ad41562248e9a0c3646f8b832a5eeab41}} 
+\index{command\_line\_unit.cpp@{command\_line\_unit.cpp}!check\_args@{check\_args}}
+\index{check\_args@{check\_args}!command\_line\_unit.cpp@{command\_line\_unit.cpp}}
+\doxysubsubsection{\texorpdfstring{check\_args()}{check\_args()}}
+{\footnotesize\ttfamily void check\+\_\+args (\begin{DoxyParamCaption}\item[{int}]{argc\+\_\+cp,  }\item[{char $\ast$$\ast$}]{argv\+\_\+cp,  }\item[{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2ac}{MODES}} $\ast$}]{mode }\end{DoxyParamCaption})}
+
+
+
+Просматривает аргументы командной строки для дальнейшей работы с каждым из них 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em argc\+\_\+cp} & Копия количества аргументов командной строки \\
+\hline
+\mbox{\texttt{ in}}  & {\em argv\+\_\+cp} & Копия аргументов командной строки \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em mode} & Режим работы, который может быть изменен благодаря аргументам командной строки \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file command\+\_\+line\+\_\+unit.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                                                           \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iter = 0; iter < argc\_cp; iter++) \{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} arg\_num = 0; arg\_num < \textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}})/\textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[0]); arg\_num++) \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33             \textcolor{keywordflow}{if} (}
+\DoxyCodeLine{34                 strcmp(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[arg\_num].short\_name, argv\_cp[iter]) == 0 ||}
+\DoxyCodeLine{35                 strcmp(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[arg\_num].full\_name,  argv\_cp[iter]) == 0) \{}
+\DoxyCodeLine{36                     \mbox{\hyperlink{command__line__unit_8cpp_ab78508054d1002dfbf312239907682f3}{change\_mode}}(mode, \mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[arg\_num].mode);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38             \}}
+\DoxyCodeLine{39         \}}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+
+
+References arg\+\_\+array, and change\+\_\+mode().
 
 
 
 Referenced by main().
 
-\mbox{\Hypertarget{command__line__unit_8cpp_a0bed8474bd33a912769360766f6b10d4}\label{command__line__unit_8cpp_a0bed8474bd33a912769360766f6b10d4}} 
+\mbox{\Hypertarget{command__line__unit_8cpp_a03418403841ff39e520854f4c830339f}\label{command__line__unit_8cpp_a03418403841ff39e520854f4c830339f}} 
 \index{command\_line\_unit.cpp@{command\_line\_unit.cpp}!help@{help}}
 \index{help@{help}!command\_line\_unit.cpp@{command\_line\_unit.cpp}}
 \doxysubsubsection{\texorpdfstring{help()}{help()}}
-{\footnotesize\ttfamily void help (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int help (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-Definition at line 36 of file command\+\_\+line\+\_\+unit.\+cpp.
+Выводит информацию о каждом допустимом аргументе командной строки 
+
+\begin{DoxyReturn}{Returns}
+Возвращает 0 -\/ успешное завершение программы 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file command\+\_\+line\+\_\+unit.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{36                 \{}
-\DoxyCodeLine{37     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} iter = 0; iter < \textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}})/\textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[0]); iter++) \{}
-\DoxyCodeLine{38         printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, \mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[iter].discription);}
-\DoxyCodeLine{39     \}}
-\DoxyCodeLine{40 \}}
+\DoxyCodeLine{47                \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} iter = 0; iter < \textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}})/\textcolor{keyword}{sizeof}(\mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[0]); iter++) \{}
+\DoxyCodeLine{49         printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, \mbox{\hyperlink{command__line__unit_8cpp_aa9dba17ee3665cbb34dca765a3c91897}{arg\_array}}[iter].discription);}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{52 \}}
 
 \end{DoxyCode}
 
@@ -85,7 +169,7 @@ References arg\+\_\+array.
 
 
 
-Referenced by main().
+Referenced by start\+\_\+program().
 
 
 
@@ -94,24 +178,24 @@ Referenced by main().
 \index{command\_line\_unit.cpp@{command\_line\_unit.cpp}!arg\_array@{arg\_array}}
 \index{arg\_array@{arg\_array}!command\_line\_unit.cpp@{command\_line\_unit.cpp}}
 \doxysubsubsection{\texorpdfstring{arg\_array}{arg\_array}}
-{\footnotesize\ttfamily Cmd\+\_\+arg arg\+\_\+array\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cmd__arg}{Cmd\+\_\+arg}} arg\+\_\+array\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{= \{}
 \DoxyCodeLine{}
-\DoxyCodeLine{    \{SOLVE, \textcolor{stringliteral}{"{}-\/-\/s"{}}, \textcolor{stringliteral}{"{}-\/solve\_mode"{}}, \textcolor{stringliteral}{"{}-\/-\/s или -\/solve\_mode -\/ Решение квадратного уравнения\(\backslash\)n"{}}\},}
-\DoxyCodeLine{    \{TEST, \textcolor{stringliteral}{"{}-\/-\/t"{}}, \textcolor{stringliteral}{"{}-\/test\_mode"{}}, \textcolor{stringliteral}{"{}-\/-\/t или -\/test\_mode -\/ Тестирование работы программы\(\backslash\)n"{}}\},}
-\DoxyCodeLine{    \{HELP, \textcolor{stringliteral}{"{}-\/-\/h"{}}, \textcolor{stringliteral}{"{}-\/-\/help"{}}, \textcolor{stringliteral}{"{}-\/-\/h или -\/help -\/ Вывести данные о принимаемых аргументах\(\backslash\)n"{}}\}}
+\DoxyCodeLine{    \{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579}{SOLVE}},      \textcolor{stringliteral}{"{}-\/s"{}}, \textcolor{stringliteral}{"{}-\/-\/solve\_mode"{}}, \textcolor{stringliteral}{"{}-\/s или -\/-\/solve\_mode -\/ Решение квадратного уравнения\(\backslash\)n"{}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8}{TEST}},       \textcolor{stringliteral}{"{}-\/t"{}}, \textcolor{stringliteral}{"{}-\/-\/test\_mode"{}},  \textcolor{stringliteral}{"{}-\/t или -\/-\/test\_mode -\/ Тестирование работы программы\(\backslash\)n"{}}\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{command__line__unit_8h_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}},       \textcolor{stringliteral}{"{}-\/h"{}}, \textcolor{stringliteral}{"{}-\/-\/help"{}},       \textcolor{stringliteral}{"{}-\/h или -\/-\/help -\/ Вывести данные о принимаемых аргументах\(\backslash\)n"{}}\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
 
 
-Definition at line 7 of file command\+\_\+line\+\_\+unit.\+cpp.
+Definition at line 13 of file command\+\_\+line\+\_\+unit.\+cpp.
 
 
 
-Referenced by change\+\_\+mode(), and help().
+Referenced by check\+\_\+args(), and help().
 

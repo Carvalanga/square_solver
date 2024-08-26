@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: src/command_line_unit.cpp Source File</title>
+<title>SQUARE_SOLVER: src/command_line_unit.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">SQUARE_SOLVER
    </div>
   </td>
  </tr>
@@ -69,49 +69,78 @@ $(function() {
 <div class="title">command_line_unit.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="command__line__unit_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;command_line_unit.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">    7</a></span>&#160;<span class="keyword">static</span> Cmd_arg <a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[] = {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {SOLVE, <span class="stringliteral">&quot;--s&quot;</span>, <span class="stringliteral">&quot;-solve_mode&quot;</span>, <span class="stringliteral">&quot;--s или -solve_mode - Решение квадратного уравнения\n&quot;</span>},</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {TEST, <span class="stringliteral">&quot;--t&quot;</span>, <span class="stringliteral">&quot;-test_mode&quot;</span>, <span class="stringliteral">&quot;--t или -test_mode - Тестирование работы программы\n&quot;</span>},</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {HELP, <span class="stringliteral">&quot;--h&quot;</span>, <span class="stringliteral">&quot;--help&quot;</span>, <span class="stringliteral">&quot;--h или -help - Вывести данные о принимаемых аргументах\n&quot;</span>}</div>
+<a href="command__line__unit_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="command__line__unit_8h.html">command_line_unit.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">   13</a></span>&#160;<span class="keyword">static</span> <a class="code" href="struct_cmd__arg.html">Cmd_arg</a> <a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[] = {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="command__line__unit_8cpp.html#ad451a20e6dcce12d852ce550765f22a7">   15</a></span>&#160;MODES <a class="code" href="command__line__unit_8cpp.html#ad451a20e6dcce12d852ce550765f22a7">change_mode</a>(<span class="keywordtype">int</span> argc_cp, <span class="keywordtype">char</span>** argv_cp) {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iter = 0; iter &lt; argc_cp; iter++) {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {<a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579">SOLVE</a>,      <span class="stringliteral">&quot;-s&quot;</span>, <span class="stringliteral">&quot;--solve_mode&quot;</span>, <span class="stringliteral">&quot;-s или --solve_mode - Решение квадратного уравнения\n&quot;</span>},</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {<a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8">TEST</a>,       <span class="stringliteral">&quot;-t&quot;</span>, <span class="stringliteral">&quot;--test_mode&quot;</span>,  <span class="stringliteral">&quot;-t или --test_mode - Тестирование работы программы\n&quot;</span>},</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {<a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824">HELP</a>,       <span class="stringliteral">&quot;-h&quot;</span>, <span class="stringliteral">&quot;--help&quot;</span>,       <span class="stringliteral">&quot;-h или --help - Вывести данные о принимаемых аргументах\n&quot;</span>}</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> arg_num = 0; arg_num &lt; <span class="keyword">sizeof</span>(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>)/<span class="keyword">sizeof</span>(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[0]); arg_num++) {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">if</span> (</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                strcmp(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[arg_num].short_name, argv_cp[iter]) == 0 ||</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                strcmp(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[arg_num].full_name,  argv_cp[iter]) == 0) {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[arg_num].num_mode;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> SOLVE;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="command__line__unit_8cpp.html#a0bed8474bd33a912769360766f6b10d4">   36</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="command__line__unit_8cpp.html#a0bed8474bd33a912769360766f6b10d4">help</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iter = 0; iter &lt; <span class="keyword">sizeof</span>(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>)/<span class="keyword">sizeof</span>(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[0]); iter++) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        printf(<span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[iter].discription);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="ttc" id="acommand__line__unit_8cpp_html_a0bed8474bd33a912769360766f6b10d4"><div class="ttname"><a href="command__line__unit_8cpp.html#a0bed8474bd33a912769360766f6b10d4">help</a></div><div class="ttdeci">void help(void)</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8cpp_source.html#l00036">command_line_unit.cpp:36</a></div></div>
-<div class="ttc" id="acommand__line__unit_8cpp_html_aa9dba17ee3665cbb34dca765a3c91897"><div class="ttname"><a href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a></div><div class="ttdeci">static Cmd_arg arg_array[]</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8cpp_source.html#l00007">command_line_unit.cpp:7</a></div></div>
-<div class="ttc" id="acommand__line__unit_8cpp_html_ad451a20e6dcce12d852ce550765f22a7"><div class="ttname"><a href="command__line__unit_8cpp.html#ad451a20e6dcce12d852ce550765f22a7">change_mode</a></div><div class="ttdeci">MODES change_mode(int argc_cp, char **argv_cp)</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8cpp_source.html#l00015">command_line_unit.cpp:15</a></div></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="command__line__unit_8h.html#ad41562248e9a0c3646f8b832a5eeab41">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="command__line__unit_8cpp.html#ad41562248e9a0c3646f8b832a5eeab41">check_args</a>(<span class="keywordtype">int</span> argc_cp, <span class="keywordtype">char</span>** argv_cp, <a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2ac">MODES</a> *mode) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iter = 0; iter &lt; argc_cp; iter++) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> arg_num = 0; arg_num &lt; <span class="keyword">sizeof</span>(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>)/<span class="keyword">sizeof</span>(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[0]); arg_num++) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">if</span> (</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                strcmp(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[arg_num].short_name, argv_cp[iter]) == 0 ||</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                strcmp(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[arg_num].full_name,  argv_cp[iter]) == 0) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                    <a class="code" href="command__line__unit_8cpp.html#ab78508054d1002dfbf312239907682f3">change_mode</a>(mode, <a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[arg_num].mode);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="command__line__unit_8h.html#a03418403841ff39e520854f4c830339f">   47</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="command__line__unit_8cpp.html#a03418403841ff39e520854f4c830339f">help</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iter = 0; iter &lt; <span class="keyword">sizeof</span>(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>)/<span class="keyword">sizeof</span>(<a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[0]); iter++) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        printf(<span class="stringliteral">&quot;%s\n&quot;</span>, <a class="code" href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a>[iter].discription);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="command__line__unit_8h.html#ad6f16ea6dc57cd049b549b9cc27a13a0">   60</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="command__line__unit_8cpp.html#ab78508054d1002dfbf312239907682f3">change_mode</a>(<a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2ac">MODES</a>* mode, <a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2ac">MODES</a> md) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">switch</span> (md) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579">SOLVE</a>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            *mode = <a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579">SOLVE</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8">TEST</a>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            *mode = <a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8">TEST</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824">HELP</a>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            *mode = <a class="code" href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824">HELP</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            printf(<span class="stringliteral">&quot;Ошибка: неопознанный режим работы&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="ttc" id="acommand__line__unit_8cpp_html_a03418403841ff39e520854f4c830339f"><div class="ttname"><a href="command__line__unit_8cpp.html#a03418403841ff39e520854f4c830339f">help</a></div><div class="ttdeci">int help(void)</div><div class="ttdoc">Выводит информацию о каждом допустимом аргументе командной строки</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8cpp_source.html#l00047">command_line_unit.cpp:47</a></div></div>
+<div class="ttc" id="acommand__line__unit_8cpp_html_aa9dba17ee3665cbb34dca765a3c91897"><div class="ttname"><a href="command__line__unit_8cpp.html#aa9dba17ee3665cbb34dca765a3c91897">arg_array</a></div><div class="ttdeci">static Cmd_arg arg_array[]</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8cpp_source.html#l00013">command_line_unit.cpp:13</a></div></div>
+<div class="ttc" id="acommand__line__unit_8cpp_html_ab78508054d1002dfbf312239907682f3"><div class="ttname"><a href="command__line__unit_8cpp.html#ab78508054d1002dfbf312239907682f3">change_mode</a></div><div class="ttdeci">void change_mode(MODES *mode, MODES md)</div><div class="ttdoc">Меняет режим работы программы</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8cpp_source.html#l00060">command_line_unit.cpp:60</a></div></div>
+<div class="ttc" id="acommand__line__unit_8cpp_html_ad41562248e9a0c3646f8b832a5eeab41"><div class="ttname"><a href="command__line__unit_8cpp.html#ad41562248e9a0c3646f8b832a5eeab41">check_args</a></div><div class="ttdeci">void check_args(int argc_cp, char **argv_cp, MODES *mode)</div><div class="ttdoc">Просматривает аргументы командной строки для дальнейшей работы с каждым из них</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8cpp_source.html#l00027">command_line_unit.cpp:27</a></div></div>
+<div class="ttc" id="acommand__line__unit_8h_html"><div class="ttname"><a href="command__line__unit_8h.html">command_line_unit.h</a></div><div class="ttdoc">Обеспечивает ввод аргументов командной строки</div></div>
+<div class="ttc" id="acommand__line__unit_8h_html_a582346db9714dce166cc3a339f1bb2ac"><div class="ttname"><a href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2ac">MODES</a></div><div class="ttdeci">MODES</div><div class="ttdoc">\breif Перечисление режимов работы программы</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8h_source.html#l00010">command_line_unit.h:10</a></div></div>
+<div class="ttc" id="acommand__line__unit_8h_html_a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824"><div class="ttname"><a href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2aca9f5cb747b2e1f0ea781d2b1f2a5b4824">HELP</a></div><div class="ttdeci">@ HELP</div><div class="ttdoc">Вывод подсказок для запуска режимов работы</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8h_source.html#l00014">command_line_unit.h:13</a></div></div>
+<div class="ttc" id="acommand__line__unit_8h_html_a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8"><div class="ttname"><a href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2acab2f0cd22b1963becef8b91d29d567fe8">TEST</a></div><div class="ttdeci">@ TEST</div><div class="ttdoc">Режим тестирования работы квадратного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8h_source.html#l00012">command_line_unit.h:12</a></div></div>
+<div class="ttc" id="acommand__line__unit_8h_html_a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579"><div class="ttname"><a href="command__line__unit_8h.html#a582346db9714dce166cc3a339f1bb2acab9fc7975179c642bbac2b6ffd8fa3579">SOLVE</a></div><div class="ttdeci">@ SOLVE</div><div class="ttdoc">Режим решения квадратного уравнения с вводом коэффициентов из консоли</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8h_source.html#l00011">command_line_unit.h:11</a></div></div>
+<div class="ttc" id="astruct_cmd__arg_html"><div class="ttname"><a href="struct_cmd__arg.html">Cmd_arg</a></div><div class="ttdoc">\breif Структура для работы с заданными аргументами командной строки</div><div class="ttdef"><b>Definition:</b> <a href="command__line__unit_8h_source.html#l00017">command_line_unit.h:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

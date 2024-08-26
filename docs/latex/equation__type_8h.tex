@@ -1,5 +1,10 @@
 \hypertarget{equation__type_8h}{}\doxysection{headers/equation\+\_\+type.h File Reference}
 \label{equation__type_8h}\index{headers/equation\_type.h@{headers/equation\_type.h}}
+
+
+Заголовочный файл для типов квадратного уравнения  
+
+
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,6 +19,11 @@ enum \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equat
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Заголовочный файл для типов квадратного уравнения 
+
+
+
 \doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}\label{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}} 
 \index{equation\_type.h@{equation\_type.h}!equation\_type@{equation\_type}}
@@ -23,23 +33,40 @@ enum \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dd}{equat
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{error@{error}!equation\_type.h@{equation\_type.h}}\index{equation\_type.h@{equation\_type.h}!error@{error}}}\mbox{\Hypertarget{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddad606e435413ea0944dd00d49e901e4ed}\label{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddad606e435413ea0944dd00d49e901e4ed}} 
-error&\\
+error&Типы квадратных уравнений Ошибочный тип \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{zero\_root\_eq@{zero\_root\_eq}!equation\_type.h@{equation\_type.h}}\index{equation\_type.h@{equation\_type.h}!zero\_root\_eq@{zero\_root\_eq}}}\mbox{\Hypertarget{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda6887faa465abac4f1e5562ae7a83debf}\label{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda6887faa465abac4f1e5562ae7a83debf}} 
-zero\+\_\+root\+\_\+eq&\\
+zero\+\_\+root\+\_\+eq&Уравнение без корней \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{one\_root\_eq@{one\_root\_eq}!equation\_type.h@{equation\_type.h}}\index{equation\_type.h@{equation\_type.h}!one\_root\_eq@{one\_root\_eq}}}\mbox{\Hypertarget{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda1df436d7c21bacb3745f351c1a771a4f}\label{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda1df436d7c21bacb3745f351c1a771a4f}} 
-one\+\_\+root\+\_\+eq&\\
+one\+\_\+root\+\_\+eq&Уравнение с одним корнем \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{two\_root\_eq@{two\_root\_eq}!equation\_type.h@{equation\_type.h}}\index{equation\_type.h@{equation\_type.h}!two\_root\_eq@{two\_root\_eq}}}\mbox{\Hypertarget{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda3d5d1420336256a646617248b870915a}\label{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda3d5d1420336256a646617248b870915a}} 
-two\+\_\+root\+\_\+eq&\\
+two\+\_\+root\+\_\+eq&Уравнение с двумя корнями \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{infinity\_root\_eq@{infinity\_root\_eq}!equation\_type.h@{equation\_type.h}}\index{equation\_type.h@{equation\_type.h}!infinity\_root\_eq@{infinity\_root\_eq}}}\mbox{\Hypertarget{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddac212df85467d5937f1423573dae44e2a}\label{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddac212df85467d5937f1423573dae44e2a}} 
-infinity\+\_\+root\+\_\+eq&\\
+infinity\+\_\+root\+\_\+eq&Уравнение с бесконечным количеством корней \\
 \hline
 
 \end{DoxyEnumFields}
+
+
+Definition at line 9 of file equation\+\_\+type.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9                    \{    }
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddad606e435413ea0944dd00d49e901e4ed}{error}} = -\/1,         }
+\DoxyCodeLine{12     \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda6887faa465abac4f1e5562ae7a83debf}{zero\_root\_eq}},       }
+\DoxyCodeLine{13     \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda1df436d7c21bacb3745f351c1a771a4f}{one\_root\_eq}},        }
+\DoxyCodeLine{14     \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575dda3d5d1420336256a646617248b870915a}{two\_root\_eq}},        }
+\DoxyCodeLine{15     \mbox{\hyperlink{equation__type_8h_a5777c5a4f39a43907af7d2342e7575ddac212df85467d5937f1423573dae44e2a}{infinity\_root\_eq}}    }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \};}
+
+\end{DoxyCode}

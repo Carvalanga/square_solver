@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['test_5feq_66',['test_eq',['../structexpected__eq.html#a7f76d73438937c34157f649c5817aebc',1,'expected_eq']]],
-  ['third_67',['third',['../structcoeffs.html#a0bfb66fa9a820efd0f901dd169e64cd5',1,'coeffs']]]
+  ['mode_106',['mode',['../struct_cmd__arg.html#a22993d4e5571bc856419fbeab9d5388a',1,'Cmd_arg']]]
 ];

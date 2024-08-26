@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['x1_68',['x1',['../structroots.html#a5216c1a211a63d865bd09ad79e30cfb5',1,'roots']]],
-  ['x2_69',['x2',['../structroots.html#a08ac9d770a5205eede6462a0002695ed',1,'roots']]]
+  ['rts_107',['rts',['../structsqr__eq.html#a2fe272b8bf69cc8a1a2daaf09e8e8507',1,'sqr_eq']]]
 ];

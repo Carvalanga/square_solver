@@ -1,11 +1,21 @@
 \hypertarget{unit__test_8h}{}\doxysection{headers/unit\+\_\+test.h File Reference}
 \label{unit__test_8h}\index{headers/unit\_test.h@{headers/unit\_test.h}}
+
+
+Заголовочный файл для модуля тестирования  
+
+
 {\ttfamily \#include \char`\"{}square\+\_\+equation\+\_\+struct.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{unit__test_8h_a67ae2ccbca4a5ca969e66044cbd7e314}{unit\+\_\+test\+\_\+start}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Запускает модуль тестирования \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Заголовочный файл для модуля тестирования 
+
 
 
 \doxysubsection{Function Documentation}
@@ -14,4 +24,56 @@ void \mbox{\hyperlink{unit__test_8h_a67ae2ccbca4a5ca969e66044cbd7e314}{unit\+\_\
 \index{unit\_test\_start@{unit\_test\_start}!unit\_test.h@{unit\_test.h}}
 \doxysubsubsection{\texorpdfstring{unit\_test\_start()}{unit\_test\_start()}}
 {\footnotesize\ttfamily void unit\+\_\+test\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Запускает модуль тестирования 
+
+
+
+Definition at line 31 of file unit\+\_\+test.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                            \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     FILE* ptr\_to\_file = fopen(\textcolor{stringliteral}{"{}data/answers.txt"{}}, \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (ptr\_to\_file == NULL) \{}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37             perror (\textcolor{stringliteral}{"{}Cannot open answers.txt"{}});}
+\DoxyCodeLine{38             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{int} line\_count = 0, test\_num = 0;}
+\DoxyCodeLine{43     \mbox{\hyperlink{structexpected__eq}{expected\_eq}} ex\_eq = \{\};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     fscanf(ptr\_to\_file, \textcolor{stringliteral}{"{}\%i"{}}, \&line\_count);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{for} (; line\_count > 0; line\_count-\/-\/) \{}
+\DoxyCodeLine{48         fscanf(ptr\_to\_file, \textcolor{stringliteral}{"{}\%lf \%lf \%lf \%lf \%lf \%i\(\backslash\)n"{}}, \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_aff3e51493d6bbb0499fa5da05d30239f}{first}},}
+\DoxyCodeLine{49                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a41d9eee644c239e739fa713d7450313b}{second}},}
+\DoxyCodeLine{50                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a7f76d73438937c34157f649c5817aebc}{test\_eq}}.\mbox{\hyperlink{structsqr__eq_ac9b12e5a40eee378a65fff230340bb6f}{cfs}}.\mbox{\hyperlink{structcoeffs_a0bfb66fa9a820efd0f901dd169e64cd5}{third}},}
+\DoxyCodeLine{51                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a15459797c2ccdd19d372b6f94dafd8f6}{correct\_roots}}.\mbox{\hyperlink{structroots_a5216c1a211a63d865bd09ad79e30cfb5}{x1}},}
+\DoxyCodeLine{52                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a15459797c2ccdd19d372b6f94dafd8f6}{correct\_roots}}.\mbox{\hyperlink{structroots_a08ac9d770a5205eede6462a0002695ed}{x2}},}
+\DoxyCodeLine{53                                                         \&ex\_eq.\mbox{\hyperlink{structexpected__eq_a499d5f3d47ec1e8e60af370c9647d791}{correct\_root\_count}});}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55         \mbox{\hyperlink{unit__test_8cpp_a19e8d21242de8be1599a2bcd44e4fbd5}{change\_root\_to\_zero}}(\&ex\_eq);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \mbox{\hyperlink{unit__test_8cpp_ad8838576751520ee44f3180e0bc32fde}{test\_iteration}}(test\_num, \&ex\_eq);}
+\DoxyCodeLine{58         test\_num++;}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     fclose (ptr\_to\_file);}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+
+
+References sqr\+\_\+eq\+::cfs, change\+\_\+root\+\_\+to\+\_\+zero(), expected\+\_\+eq\+::correct\+\_\+root\+\_\+count, expected\+\_\+eq\+::correct\+\_\+roots, coeffs\+::first, coeffs\+::second, expected\+\_\+eq\+::test\+\_\+eq, test\+\_\+iteration(), coeffs\+::third, roots\+::x1, and roots\+::x2.
+
+
+
+Referenced by start\+\_\+program().
 

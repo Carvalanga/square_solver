@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: src/square_solver.cpp File Reference</title>
+<title>SQUARE_SOLVER: src/square_solver.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">SQUARE_SOLVER
    </div>
   </td>
  </tr>
@@ -71,24 +71,32 @@ $(function() {
 <div class="title">square_solver.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Запускает ввод и вывод данных и решение квадратного уравнения  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;TXLib.h&gt;</code><br />
-<code>#include &lt;equation_type.h&gt;</code><br />
-<code>#include &quot;input_output.h&quot;</code><br />
-<code>#include &quot;solver.h&quot;</code><br />
-<code>#include &quot;square_equation_struct.h&quot;</code><br />
-<code>#include &quot;unit_test.h&quot;</code><br />
-<code>#include &quot;square_solver.h&quot;</code><br />
+<code>#include &lt;<a class="el" href="equation__type_8h_source.html">equation_type.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="input__output_8h_source.html">input_output.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="solver_8h_source.html">solver.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="square__equation__struct_8h_source.html">square_equation_struct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="unit__test_8h_source.html">unit_test.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="square__solver_8h_source.html">square_solver.h</a>&quot;</code><br />
 </div>
 <p><a href="square__solver_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae094516be15decaf0d0e2aa6d28947a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="square__solver_8cpp.html#ae094516be15decaf0d0e2aa6d28947a8">solve_mode_start</a> (void)</td></tr>
-<tr class="separator:ae094516be15decaf0d0e2aa6d28947a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2571f628f0ca30728dfa7a9179f3f4bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="square__solver_8cpp.html#a2571f628f0ca30728dfa7a9179f3f4bd">solve_mode_start</a> ()</td></tr>
+<tr class="memdesc:a2571f628f0ca30728dfa7a9179f3f4bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обеспечивает работу ввода, вывода и решения квадратного уравнения  <a href="square__solver_8cpp.html#a2571f628f0ca30728dfa7a9179f3f4bd">More...</a><br /></td></tr>
+<tr class="separator:a2571f628f0ca30728dfa7a9179f3f4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ae094516be15decaf0d0e2aa6d28947a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae094516be15decaf0d0e2aa6d28947a8">&#9670;&nbsp;</a></span>solve_mode_start()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Запускает ввод и вывод данных и решение квадратного уравнения </p>
+
+<p class="definition">Definition in file <a class="el" href="square__solver_8cpp_source.html">square_solver.cpp</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a2571f628f0ca30728dfa7a9179f3f4bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2571f628f0ca30728dfa7a9179f3f4bd">&#9670;&nbsp;</a></span>solve_mode_start()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -103,31 +111,37 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="square__solver_8cpp_source.html#l00010">10</a> of file <a class="el" href="square__solver_8cpp_source.html">square_solver.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                           {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">int</span> output = 0;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    printf(<span class="stringliteral">&quot;# Программа решения квадратных уравнений\n&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;           <span class="stringliteral">&quot;# Введите через пробел коэффициенты квадратного уравнения:\n&quot;</span>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    sqr_eq eq = {};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="input__output_8cpp.html#ac1ae2b9d665a1da1de3a67ae271aff89">data_input</a>(&amp;eq);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    equation_type root_count = <a class="code" href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">square_solver</a>(&amp;eq);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    output = <a class="code" href="input__output_8cpp.html#a1b540bbb5f4e6071cda43304de1d199f">show_result</a>(root_count, eq.rts);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> output;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="ttc" id="ainput__output_8cpp_html_a1b540bbb5f4e6071cda43304de1d199f"><div class="ttname"><a href="input__output_8cpp.html#a1b540bbb5f4e6071cda43304de1d199f">show_result</a></div><div class="ttdeci">int show_result(equation_type root_count, roots rts)</div><div class="ttdoc">Выводит результат работы квадратного уравнения в поток вывода</div><div class="ttdef"><b>Definition:</b> <a href="input__output_8cpp_source.html#l00059">input_output.cpp:59</a></div></div>
-<div class="ttc" id="ainput__output_8cpp_html_ac1ae2b9d665a1da1de3a67ae271aff89"><div class="ttname"><a href="input__output_8cpp.html#ac1ae2b9d665a1da1de3a67ae271aff89">data_input</a></div><div class="ttdeci">void data_input(sqr_eq *ptr_eq)</div><div class="ttdoc">Функция, обрабатывающая входные данные для квадратного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="input__output_8cpp_source.html#l00029">input_output.cpp:29</a></div></div>
-<div class="ttc" id="asolver_8cpp_html_aa62ebac4c04caf72819ce699f8954186"><div class="ttname"><a href="solver_8cpp.html#aa62ebac4c04caf72819ce699f8954186">square_solver</a></div><div class="ttdeci">equation_type square_solver(sqr_eq *ptr_eq)</div><div class="ttdoc">Решение квадратного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="solver_8cpp_source.html#l00039">solver.cpp:39</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="input__output_8cpp_source.html#l00029">data_input()</a>, <a class="el" href="input__output_8cpp_source.html#l00059">show_result()</a>, and <a class="el" href="solver_8cpp_source.html#l00039">square_solver()</a>.</p>
+<p>Обеспечивает работу ввода, вывода и решения квадратного уравнения </p>
+<dl class="section return"><dt>Returns</dt><dd>Возвращает 0, если программа выполняется без ошибок, иначе - число, отличное от нуля </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="square__solver__main__program_8cpp_source.html#l00019">main()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="square__solver_8cpp_source.html#l00020">20</a> of file <a class="el" href="square__solver_8cpp_source.html">square_solver.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                       {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> output = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    printf(<span class="stringliteral">&quot;# Программа решения квадратных уравнений\n&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;           <span class="stringliteral">&quot;# Введите через пробел коэффициенты квадратного уравнения:\n&quot;</span>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="structsqr__eq.html">sqr_eq</a> eq = {};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="input__output_8h.html#ab1658292bcbed8472abff7cc1f34baa0">data_input</a>(&amp;eq);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="equation__type_8h.html#a5777c5a4f39a43907af7d2342e7575dd">equation_type</a> root_count = <a class="code" href="solver_8h.html#aa62ebac4c04caf72819ce699f8954186">square_solver</a>(&amp;eq);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    output = <a class="code" href="input__output_8h.html#a1b540bbb5f4e6071cda43304de1d199f">show_result</a>(root_count, eq.<a class="code" href="structsqr__eq.html#a2fe272b8bf69cc8a1a2daaf09e8e8507">rts</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> output;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="ttc" id="aequation__type_8h_html_a5777c5a4f39a43907af7d2342e7575dd"><div class="ttname"><a href="equation__type_8h.html#a5777c5a4f39a43907af7d2342e7575dd">equation_type</a></div><div class="ttdeci">equation_type</div><div class="ttdef"><b>Definition:</b> <a href="equation__type_8h_source.html#l00009">equation_type.h:9</a></div></div>
+<div class="ttc" id="ainput__output_8h_html_a1b540bbb5f4e6071cda43304de1d199f"><div class="ttname"><a href="input__output_8h.html#a1b540bbb5f4e6071cda43304de1d199f">show_result</a></div><div class="ttdeci">int show_result(equation_type root_count, roots rts)</div><div class="ttdoc">Выводит результат работы квадратного уравнения в поток вывода</div><div class="ttdef"><b>Definition:</b> <a href="input__output_8cpp_source.html#l00063">input_output.cpp:63</a></div></div>
+<div class="ttc" id="ainput__output_8h_html_ab1658292bcbed8472abff7cc1f34baa0"><div class="ttname"><a href="input__output_8h.html#ab1658292bcbed8472abff7cc1f34baa0">data_input</a></div><div class="ttdeci">void data_input(sqr_eq *prt_eq)</div><div class="ttdoc">Функция, обрабатывающая входные данные для квадратного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="input__output_8cpp_source.html#l00029">input_output.cpp:29</a></div></div>
+<div class="ttc" id="asolver_8h_html_aa62ebac4c04caf72819ce699f8954186"><div class="ttname"><a href="solver_8h.html#aa62ebac4c04caf72819ce699f8954186">square_solver</a></div><div class="ttdeci">equation_type square_solver(sqr_eq *ptr_eq)</div><div class="ttdoc">Решение квадратного уравнения</div><div class="ttdef"><b>Definition:</b> <a href="solver_8cpp_source.html#l00042">solver.cpp:42</a></div></div>
+<div class="ttc" id="astructsqr__eq_html"><div class="ttname"><a href="structsqr__eq.html">sqr_eq</a></div><div class="ttdef"><b>Definition:</b> <a href="square__equation__struct_8h_source.html#l00020">square_equation_struct.h:20</a></div></div>
+<div class="ttc" id="astructsqr__eq_html_a2fe272b8bf69cc8a1a2daaf09e8e8507"><div class="ttname"><a href="structsqr__eq.html#a2fe272b8bf69cc8a1a2daaf09e8e8507">sqr_eq::rts</a></div><div class="ttdeci">roots rts</div><div class="ttdoc">Корни квадратнтго уравнения</div><div class="ttdef"><b>Definition:</b> <a href="square__equation__struct_8h_source.html#l00022">square_equation_struct.h:22</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="input__output_8cpp_source.html#l00029">data_input()</a>, <a class="el" href="square__equation__struct_8h_source.html#l00022">sqr_eq::rts</a>, <a class="el" href="input__output_8cpp_source.html#l00063">show_result()</a>, and <a class="el" href="solver_8cpp_source.html#l00042">square_solver()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="square__solver__main__program_8cpp_source.html#l00033">start_program()</a>.</p>
 
 </div>
 </div>

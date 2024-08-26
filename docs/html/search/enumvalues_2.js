@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['less_5fthan_5fzero_75',['less_than_zero',['../solver_8h.html#aeb8954bfa9f218f668ce360e54866968a8baa1da620971057a79ba9547c555f93',1,'solver.h']]]
+  ['infinity_5froot_5feq_120',['infinity_root_eq',['../equation__type_8h.html#a5777c5a4f39a43907af7d2342e7575ddac212df85467d5937f1423573dae44e2a',1,'equation_type.h']]]
 ];
