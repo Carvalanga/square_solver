@@ -28,6 +28,9 @@ cmp dbl_zero_cmp(double n1) {
     else
         return less_than_zero;
 }
+
+
+
 /*!
     \param[in]  ptr_eq Указатель на структуру квадратного уравнения
 
@@ -43,10 +46,13 @@ equation_type square_solver(sqr_eq* ptr_eq) {
 
     assert(ptr_eq != NULL);
 
+    assert(isfinite(ptr_eq->cfs.first));
+    assert(isfinite(ptr_eq->cfs.second));
+    assert(isfinite(ptr_eq->cfs.third));
 
-    if (dbl_zero_cmp(ptr_eq->cfs.first) == equal_zero) {
-        if (dbl_zero_cmp(ptr_eq->cfs.second) == equal_zero) {
-            return (dbl_zero_cmp(ptr_eq->cfs.third) == equal_zero) ? infinity_root_eq : zero_root_eq;
+    if             (dbl_zero_cmp(ptr_eq->cfs.first)  == equal_zero) {
+        if         (dbl_zero_cmp(ptr_eq->cfs.second) == equal_zero) {
+            return (dbl_zero_cmp(ptr_eq->cfs.third)  == equal_zero) ? infinity_root_eq : zero_root_eq;
         }
 
         equation_type result = linear_eq_solver(ptr_eq);
@@ -73,6 +79,7 @@ equation_type square_solver(sqr_eq* ptr_eq) {
             return error;
     }
 }
+
 /// \brief Частный случай для решения линейного уравнения
 equation_type linear_eq_solver(sqr_eq* ptr_eq) {
     ptr_eq->rts.x1 = (-ptr_eq->cfs.third / ptr_eq->cfs.second);
