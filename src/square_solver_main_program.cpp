@@ -16,15 +16,20 @@
 #include "command_line_unit.h"
 
 /// \brief Обесчивает работу всей программы
+
+void start_program(MODES program_mode);
+
 int main(int argc, char* argv[]) {
 
     MODES mode = SOLVE;
 
     if (argc > 1)
-        mode = change_mode(argc, argv);
+        check_args(argc, argv, &mode);
 
-    switch (mode) {
+}
 
+void start_program(MODES program_mode) {
+    switch (program_mode){
         case SOLVE:
             return solve_mode_start();
 
@@ -32,15 +37,10 @@ int main(int argc, char* argv[]) {
             unit_test_start();
             return 0;
 
-        case HELP:
-            help();
-            return 0;
-
         default:
             txSetConsoleAttr(2);
             printf("Ошибка: неизвестый режим работы программы\n");
             txSetConsoleAttr(15);
             return -1;
-
     }
 }

@@ -75,8 +75,7 @@ static void test_iteration(int test_num, expected_eq* ptr_ex_eq){
         txSetConsoleAttr(4);
         printf("Îøèáêà â òåñòå ¹%d\n"
                "Èòîãîâûå çíà÷åíèÿ:  root_count = %d, x1 = %lg, x2 = %lg\n"
-               "Îæèäàåìûå çíà÷åíèÿ: root_count = %d, x1 = %lg, x2 = %lg\n"
-               "\n",
+               "Îæèäàåìûå çíà÷åíèÿ: root_count = %d, x1 = %lg, x2 = %lg\n",
                 test_num+1,
                 root_count,
                 ptr_ex_eq->test_eq.rts.x1,
