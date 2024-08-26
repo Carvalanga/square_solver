@@ -1,3 +1,9 @@
+/*!
+    \file
+    \brief Запускает ввод и вывод данных и решение квадратного уравнения
+*/
+
+
 #include <TXLib.h>
 
 #include <equation_type.h>
@@ -7,6 +13,10 @@
 #include "unit_test.h"
 #include "square_solver.h"
 
+/*!
+    \return Возвращает 0, если программа выполняется без ошибок, иначе - число, отличное от нуля
+    \brief Обеспечивает работу ввода, вывода и решения квадратного уравнения
+*/
 int solve_mode_start() {
 
     int output = 0;

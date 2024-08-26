@@ -1,9 +1,6 @@
 /*!
-
-    \mainpage
     \file
     \brief Обеспечивает работу всей программы
-
 */
 
 #include <stdio.h>
@@ -14,9 +11,6 @@
 #include "unit_test.h"
 #include "square_solver.h"
 #include "command_line_unit.h"
-
-
-/// \brief Обесчивает работу всей программы
 
 int start_program(MODES md);
 
@@ -31,6 +25,11 @@ int main(int argc, char* argv[]) {
 
 }
 
+/*!
+    \param[in] md       Тип запускаемого режима
+    \return             Возвращает 0 при успешном завершении программы, иначе - ненулевое значение
+    \brief              Запускает программу в выбранном режиме
+*/
 int start_program(MODES md) {
     switch (md) {
         case SOLVE:

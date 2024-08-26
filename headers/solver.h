@@ -9,10 +9,10 @@
 #include "input_output.h"
 #include "square_equation_struct.h"
 
-enum cmp {
-    less_than_zero = -1,
-    equal_zero,
-    more_than_zero
+enum cmp {                  ///Перечисление типов сравнения числа с нулем
+    less_than_zero = -1,    ///<Меньше нуля
+    equal_zero,             ///<Равно нулю
+    more_than_zero          ///<Больше нуля
 };
 
 equation_type square_solver(sqr_eq* ptr_eq);
