@@ -15,27 +15,33 @@
 #include "square_solver.h"
 #include "command_line_unit.h"
 
+
 /// \brief Обесчивает работу всей программы
 
-void start_program(MODES program_mode);
+int start_program(MODES md);
 
 int main(int argc, char* argv[]) {
 
-    MODES mode = SOLVE;
+    MODES main_mode = SOLVE;
 
-    if (argc > 1)
-        check_args(argc, argv, &mode);
+    if (argc > 1) {
+        check_args(argc, argv, &main_mode);
+    }
+    return start_program(main_mode);
 
 }
 
-void start_program(MODES program_mode) {
-    switch (program_mode){
+int start_program(MODES md) {
+    switch (md) {
         case SOLVE:
             return solve_mode_start();
 
         case TEST:
             unit_test_start();
             return 0;
+
+        case HELP:
+            return help();
 
         default:
             txSetConsoleAttr(2);

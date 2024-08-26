@@ -32,16 +32,20 @@ void data_input(sqr_eq* ptr_eq) {
 
     const int correct_var_count = 3;
     int var_count = 0;
-    while (var_count != correct_var_count){
+    while (var_count != correct_var_count) {
+
         var_count = scanf("%lf %lf %lf", &ptr_eq->cfs.first,
                                          &ptr_eq->cfs.second,
                                          &ptr_eq->cfs.third);
+
+        }
+
         if (var_count != correct_var_count) {
             printf("Ошибка: неправильный ввод данных, повторите попытку:\n");
             skip_char_line();
         }
-    }
 }
+
 
 /*!
     \param[in]  root_count Количество корней квадратного уравнения,

@@ -7,7 +7,7 @@
 #include "unit_test.h"
 #include "square_solver.h"
 
-int solve_mode_start(void) {
+int solve_mode_start() {
 
     int output = 0;
 
