@@ -88,7 +88,7 @@ static void test_iteration(int test_num, expected_eq* ptr_ex_eq){
 
     else {
         txSetConsoleAttr(2);
-        printf("Тест №%d пройден успешно\n", test_num+1);
+        printf("Тест №%-3d пройден успешно\n", test_num+1);
         txSetConsoleAttr(15);
     }
 }
